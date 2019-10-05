@@ -5,6 +5,7 @@
     <hr>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="row devise-fields">
         <div class="field">
