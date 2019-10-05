@@ -1,29 +1,81 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="devise-container text-center">
+    <h2 class="devise-header">会員登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <hr>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="row devise-fields">
+        <div class="field">
+          <div class="col-md-3 col-md-offset-3">
+            <%= f.label :name, 'アカウント名', class:"devise-label" %>
+          </div>
+          
+          <div class="col-md-5 devise-field-container">
+            <%= f.text_field :name, autofocus: true, class:"devise-field" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row devise-fields">
+        <div class="field">
+          <div class="col-md-3 col-md-offset-3">
+            <%= f.label :email, class:"devise-label" %>
+          </div>
+
+          <div class="col-md-5 devise-field-container">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"devise-field" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row devise-fields">
+        <div class="field">
+          <div class="col-md-3 col-md-offset-3">
+            <%= f.label :password, class:"devise-label" %>
+          </div>
+
+          <% if false %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %>文字以上)</em>
+            <% end %>
+          <% end %>
+
+          <div class="col-md-5 devise-field-container">
+            <%= f.password_field :password, autocomplete: "new-password", 
+                          placeholder: '半角英数6文字以上', class:"devise-field" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row devise-fields">
+        <div class="field">
+          <div class="col-md-3 col-md-offset-3">
+            <%= f.label :password_confirmation, class:"devise-label" %>
+          </div>
+
+          <div class="col-md-5 devise-field-container">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password",  
+                                  placeholder: '半角英数6文字以上', class:"devise-field" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="action devise-button-field">
+        <%= f.submit "登録", class:"devise-button" %>
+      </div>
+    
+    <% end %>
+
+    <%#= render "users/shared/links" %>
+
+    <hr>
+
+    <div class="devise-guide">
+      <p>すでに会員の方は</p>
+      <h4><%= link_to 'ログインページへ', new_user_session_path %></h4>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

@@ -1,0 +1,21 @@
+<header class="header-border">
+    <h2><%= link_to 'My Life', root_path %></h2>
+    
+    <nav>
+        <ul>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <li class="inline-li"><%= link_to 'プロフィール', edit_users_path, class:"header-text" %></li>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <li class="inline-li"><%= link_to 'サイトについて', static_pages_about_path, class:"header-text"  %></li>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <li class="inline-li"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"header-text"  %></li>
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </nav>
+</header>

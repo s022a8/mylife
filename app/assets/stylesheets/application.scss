@@ -16,3 +16,88 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+/* universal */
+.text-center {
+    text-align: center;
+}
+
+
+
+/* header */
+.header-border {
+    border-bottom: 1px solid rgba(100, 198, 240, 0.3);
+}
+
+.inline-li {
+    display: inline-block;
+}
+
+
+
+/* footer */
+.footer-border {
+    border-top: 1px solid rgba(100, 198, 240, 0.3);
+    margin-top: 30px;
+    padding: 20px;
+}
+
+
+/* devise */
+.devise-container {
+    width: 60%;
+    margin: 15px auto;
+    padding: 20px 0 30px;
+    // border: 1px solid rgba(6, 151, 212, 0.3);
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px rgba(215, 216, 216, 0.5);
+    background-color: rgba(243, 245, 245, 0.3);
+}
+
+.devise-header {
+    margin: 5px 0 20px;
+}
+
+.devise-fields {
+    margin: 20px 0;
+    height: 35px;
+}
+
+.field {
+    line-height: 35px;
+    font-size: 17px;
+}
+
+.devise-label {
+    font-weight: normal;
+}
+
+.devise-field-container {
+    padding: 0;
+    text-align: left;
+}
+
+.devise-field {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.devise-button-field {
+    margin: 50px auto 0;
+    width: 50%;
+}
+
+.devise-button {
+    font-size: 20px;
+    padding: 10px 50px;
+    background-color: rgba(154, 203, 223, 0.009);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(20, 193, 206, 0.729);
+}
+
+.devise-guide {
+    padding-top: 20px;
+}
+
+
