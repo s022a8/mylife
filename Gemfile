@@ -80,4 +80,7 @@ gem 'kaminari'
 gem 'faker'
 gem 'acts-as-taggable-on'
 
+gem 'chart-js-rails'
+gem 'gon'
+
 
