@@ -16,3 +16,32 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
+/* universal */
+.text-center {
+    text-align: center;
+}
+
+
+/* header */
+.header-border {
+    border-bottom: 1px solid rgba(100, 198, 240, 0.3);
+}
+
+.inline-li {
+    display: inline-block;
+}
+
+.header-text {
+    
+}
+
+
+
+/* footer */
+.footer-border {
+    border-top: 1px solid rgba(100, 198, 240, 0.3);
+    margin-top: 30px;
+    padding: 20px;
+}
