@@ -6,5 +6,8 @@ class CreateEntries < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_foreign_key :entries, :users
+    add_foreign_key :entries, :rooms
   end
 end
