@@ -6,5 +6,7 @@ class CreateSubEvents < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_foreign_key :sub_events, :histories
   end
 end

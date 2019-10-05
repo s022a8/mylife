@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  
+  ##Devise関連
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions'
+  }
+
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    registrations: 'users/registrations'
+  }
+
+
   ###ルートURL###
   root 'users#index'
-
-
-  ##Devise関連
 
 
   ##エンドユーザ側##

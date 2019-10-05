@@ -6,5 +6,8 @@ class CreateBookMarks < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_foreign_key :book_marks, :users
+    add_foreign_key :book_marks, :histories
   end
 end
