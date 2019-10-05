@@ -1,26 +1,57 @@
-<h2>Log in</h2>
+<div class="container">
+  <div class="devise-container text-center">
+    <h2 class="devise-header">ログイン</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <hr>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <div class="row devise-fields">
+        <div class="field">
+          <div class="col-md-3 col-md-offset-3">
+            <%= f.label :email, class:"devise-label" %>
+          </div>
+
+          <div class="col-md-5 devise-field-container">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"devise-field" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row devise-fields">
+        <div class="field">
+          <div class="col-md-3 col-md-offset-3">
+            <%= f.label :password, class:"devise-label" %>
+          </div>
+
+          <div class="col-md-5 devise-field-container">
+            <%= f.password_field :password, autocomplete: "current-password", placeholder:"半角英数6文字以上" ,class:"devise-field" %>
+          </div>
+        </div>
+      </div>
+
+
+      <% if false %>
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <div class="actions devise-button-field">
+        <%= f.submit "ログイン", class:"devise-button" %>
+      </div>
+    <% end %>
+
+    <%#= render "users/shared/links" %>
+
+    <hr>
+
+    <div class="devise-guide">
+      <p>まだ会員登録の済んでいない方は</p>
+      <h4><%= link_to '会員登録ページへ', new_user_registration_path %></h4>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

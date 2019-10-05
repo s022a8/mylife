@@ -12,7 +12,7 @@
                         <li class="inline-li"><%= link_to 'サイトについて', static_pages_about_path, class:"header-text"  %></li>
                     </div>
                     <div class="col-md-4 text-center">
-                        <li class="inline-li"><%= link_to 'ログアウト', '#', class:"header-text"  %></li>
+                        <li class="inline-li"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"header-text"  %></li>
                     </div>
                 </div>
             </div>
