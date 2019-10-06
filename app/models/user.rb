@@ -7,6 +7,11 @@ class User < ApplicationRecord
   #activestorage
   has_one_attached :profile_image
 
+  #acts-as-taggable-on
+  acts_as_taggable
+  acts_as_taggable_on :parts
+
+  #validation
   validates :email, presence: true
   validates :name, presence: true
 end

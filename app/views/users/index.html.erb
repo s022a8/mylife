@@ -4,15 +4,22 @@
             <div class="col-md-3">
                 <div class="index-user">
                     <p class="index-user-name"><%= user.name %></p>
-                    <%# 画像表示エリア %>
-                        <div class="index-user-image-container">
-                            <% if user.profile_image.attached? %>
-                                <%= image_tag user.profile_image, size:'150x150', class:"index-user-image" %>
-                            <% else %>
-                                <%= image_tag 'blank-profile-picture-973460_640.png', size:'150x150', class:"index-user-image" %>
-                            <% end %>
-                        </div>
-                    <p>タグ</p>
+
+                    <%# 画像エリア %>
+                    <div class="index-user-image-container">
+                        <% if user.profile_image.attached? %>
+                            <%= image_tag user.profile_image, size:'150x150', class:"index-user-image" %>
+                        <% else %>
+                            <%= image_tag 'blank-profile-picture-973460_640.png', size:'150x150', class:"index-user-image" %>
+                        <% end %>
+                    </div>
+
+                    <%# タグエリア %>
+                    <div class="index-user-tags">
+                        <% user.part_list.each do |tag| %>
+                            <span class="index-user-tag"><%= tag %></span>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         <% end %>

@@ -18,6 +18,11 @@
 
                         <div class="profile-text">
                             <span class="profile-label">タグ一覧</span>
+                            <div class="profile-user-tags">
+                                <% @user.part_list.each do |tag| %>
+                                    <span class="profile-user-tag"><%= tag %></span>
+                                <% end %>
+                            </div>
                         </div>
                     </div>
 

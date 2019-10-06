@@ -47,6 +47,11 @@
             <%= f.label :profile_image, 'プロフィール画像' %>
             <%= f.file_field :profile_image %><br>
           </div>
+
+          <div class="field">
+            <%= f.label :part_list, 'タグ' %>
+            <%= text_field_tag 'user[part_list]', resource.part_list.join(',') %>
+          </div>
         </div>
       </div>
 
