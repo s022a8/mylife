@@ -1,58 +1,70 @@
-<div>
-  <h2>プロフィール編集</h2>
+<div class="container">
+  <h2 class="devise-edit-header">プロフィール編集</h2>
 
-  <div class="container">
+  <div class="devise-edit-container">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="row">
+      <div class="row devise-edit-form">
         <div class="col-md-6">
-          <div class="field">
-            <%= f.label :name, 'アカウント名' %>
-            <%= f.text_field :name, autofocus: true %>
+          <div class="field devise-edit-field-div">
+            <%= f.label :name, 'アカウント名', class:"devise-edit-label" %>
+            <%= f.text_field :name, autofocus: true, class:"devise-edit-field" %>
           </div>
 
-          <div class="field">
-            <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="field devise-edit-field-div">
+            <%= f.label :email, class:"devise-edit-label" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"devise-edit-field" %>
           </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
 
-          <div class="field">
-            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-            <%= f.password_field :password, autocomplete: "new-password" %>
-            <% if @minimum_password_length %>
-              <br />
-              <em><%= @minimum_password_length %> characters minimum</em>
-            <% end %>
+          <span class="notes">パスワードの変更を行わない場合は、空欄のままで大丈夫です！</span>
+
+          <div class="field devise-edit-field-div">
+            <%= f.label :password, class:"devise-edit-label" %>
+            <%= f.password_field :password, autocomplete: "new-password", 
+                          placeholder:"半角英数6文字以上", class:"devise-edit-field" %>
           </div>
 
-          <div class="field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <div class="field devise-edit-field-div">
+            <%= f.label :password_confirmation, class:"devise-edit-label" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", 
+                              placeholder:"半角英数6文字以上", class:"devise-edit-field" %>
           </div>
 
-          <div class="field">
-            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-            <%= f.password_field :current_password, autocomplete: "current-password" %>
-          </div>
         </div>
 
-        
         <div class="col-md-6">
           <div class="field">
-            <%= f.label :profile_image, 'プロフィール画像' %>
-            <%= f.file_field :profile_image %><br>
+            <%= f.label :profile_image, 'プロフィール画像', class:"devise-label" %>
+            <%= f.file_field :profile_image, class:"user-file-field" %><br>
+          </div>
+
+          <div class="tag-field">
+            <p><%= f.label :part_list, 'タグ', class:"devise-label" %></p>
+            <%= text_field_tag 'user[part_list]', resource.part_list.join(','), 
+                        placeholder:"タグ入力（,で区切る）", "data-role" => "tagsinput" %>
           </div>
         </div>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Update" %>
-      </div>
+      <div class="row">
+          <div class="col-md-3 col-md-offset-3">
+          <div class="field current-password">
+            <%= f.label :current_password, '現在のパスワードを入力', class:"devise-label" %><br />
+            <%= f.password_field :current_password, autocomplete: "current-password", 
+                                              placeholder:"半角英数6文字以上" %>
+          </div>
+          </div>
+
+          <div class="col-md-3 actions devise-edit-button-field">
+            <%= f.submit "更新", class:"devise-edit-button" %>
+          </div>
+        </div>
+
     <% end %>
 
 
@@ -65,5 +77,10 @@
 
       <%= link_to "Back", :back %>
     <% end %>
+  </div>
+
+
+  <div class="back-container">
+    <%= link_to 'プロフィールへ戻る', users_path, class:"back-text" %>
   </div>
 </div>

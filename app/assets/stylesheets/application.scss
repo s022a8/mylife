@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require bootstrap-tagsinput
  *= require_tree .
  *= require_self
  */
@@ -21,6 +22,27 @@
 /* universal */
 .text-center {
     text-align: center;
+}
+
+.back-container {
+    width: 50%;
+    margin: 50px auto 100px;
+    text-align: center;
+    // background-color: rgba(231, 242, 243, 0.535);
+    // border-radius: 20px;
+    padding: 5px 0;
+}
+
+.back-text {
+    font-size: 18px;
+}
+
+.notes {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 100;
+    color: rgba(63, 64, 64, 0.725);
+    margin-top: 15px;
 }
 
 
@@ -132,6 +154,69 @@
 
 .devise-guide {
     padding-top: 20px;
+}
+
+/* devise-edit */
+.devise-edit-header {
+    text-align: center;
+    margin: 60px 0 20px;
+}
+
+.devise-edit-container {
+    background-color: rgba(245, 244, 242, 0.38);
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px rgba(215, 216, 216, 0.5);
+    padding: 5px 0 40px;
+}
+
+.devise-edit-form {
+    padding: 20px 30px;
+    margin-bottom: 30px;
+
+}
+
+.devise-edit-field-div {
+
+}
+
+.devise-edit-label {
+    font-weight: normal;
+    width: 30%;
+}
+
+.devise-edit-field {
+    width: 50%;
+    margin: 8px 5%;
+}
+
+.user-file-field {
+    font-size: 16px;
+    padding: 15px 10px;
+    border: 1px solid rgba(220, 223, 224, 0.943);
+    // background-color: rgba(205, 227, 239, 0.793);
+}
+
+.tag-field {
+    font-size: 16px;
+}
+
+#user_current_password {
+    width: 100%;
+}
+
+.devise-edit-button-field {
+    margin: 30px 0 0;
+    // margin: 50px auto 0;
+    // width: 50%;
+    // text-align: center;
+}
+
+.devise-edit-button {
+    font-size: 20px;
+    padding: 10px 50px;
+    background-color: rgba(154, 203, 223, 0.009);
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(20, 193, 206, 0.729);
 }
 
 
