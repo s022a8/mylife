@@ -21,8 +21,15 @@
                         </div>
                     </div>
 
-                    <div class="col-md-offset-1 col-md-4">
-                        <p class="text-center">プロフィール画像</p>
+                    <div class="col-md-offset-1 col-md-4 text-center">
+                        <%#<p class="profile-image-label">プロフィール画像</p>%>
+
+                        <%# 画像表示エリア %>
+                        <% if @user.profile_image.attached? %>
+                            <%= image_tag @user.profile_image, size:'200x200', class:"profile-image" %>
+                        <% else %>
+                            <%= image_tag 'blank-profile-picture-973460_640.png', size:'200x200', class:"profile-image" %>
+                        <% end %>
                     </div>
                 </div>
 

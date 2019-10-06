@@ -18,6 +18,21 @@
 
 }
 
+.index-user-name {
+    font-size: 18px;
+    border-bottom: 1px solid rgba(138, 138, 138, 0.5);
+    padding-bottom: 5px;
+}
+
+.index-user-image-container {
+    padding: 5px 0 15px;
+    border-bottom: 1px solid rgba(138, 138, 138, 0.5);
+}
+
+.index-user-image {
+    border-radius: 5px;
+}
+
 
 /* users-show */
 .user-profile {
@@ -41,6 +56,15 @@
 .profile-value {
     display: inline-block;
     font-size: 16px;
+}
+
+.profile-image-label {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.profile-image {
+    
 }
 
 .profile-edit-container {
