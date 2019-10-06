@@ -1,2 +1,23 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="index-page">
+    <div class="container">
+        <% @users.each do |user| %>
+            <div class="col-md-3">
+                <div class="index-user">
+                    <p class="index-user-name"><%= user.name %></p>
+                    <%# 画像表示エリア %>
+                        <div class="index-user-image-container">
+                            <% if user.profile_image.attached? %>
+                                <%= image_tag user.profile_image, size:'150x150', class:"index-user-image" %>
+                            <% else %>
+                                <%= image_tag 'blank-profile-picture-973460_640.png', size:'150x150', class:"index-user-image" %>
+                            <% end %>
+                        </div>
+                    <p>タグ</p>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
+    <%= paginate @users %>
+</div>
+
