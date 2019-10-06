@@ -1,2 +1,40 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div style="margin: 50px 0 250px">
+    <div style="margin-bottom: 150px">
+        <h3 class="text-center" style="margin-bottom: 20px;">プロフィール</h3>
+
+        <div>
+            <div class="container user-profile">
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-5">
+                        <div class="profile-text">
+                            <span class="profile-label">アカウント名</span>
+                            <span class="profile-value"><%= @user.name %></span>
+                        </div>
+
+                        <div class="profile-text">
+                            <span class="profile-label">メールアドレス</span>
+                            <span class="profile-value"><%= @user.email %></span></span>
+                        </div>
+
+                        <div class="profile-text">
+                            <span class="profile-label">タグ一覧</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-offset-1 col-md-4">
+                        <p class="text-center">プロフィール画像</p>
+                    </div>
+                </div>
+
+                <div class="profile-edit-container">
+                    <%= link_to 'プロフィールの編集', edit_user_registration_path, class:"profile-edit-link" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="warning-container">
+        <p><%= link_to '会員をやめる', warning_users_path, class:"warning-text" %></p>
+    </div>
+</div>
