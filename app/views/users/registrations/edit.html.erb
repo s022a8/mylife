@@ -48,9 +48,10 @@
             <%= f.file_field :profile_image %><br>
           </div>
 
-          <div class="field">
-            <%= f.label :part_list, 'タグ' %>
-            <%= text_field_tag 'user[part_list]', resource.part_list.join(',') %>
+          <div class="tag-field">
+            <p><%= f.label :part_list, 'タグ' %></p>
+            <%= text_field_tag 'user[part_list]', resource.part_list.join(','), 
+                        placeholder:"タグ入力（,で区切る）", "data-role" => "tagsinput" %>
           </div>
         </div>
       </div>

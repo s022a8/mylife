@@ -39,7 +39,8 @@
                 </div>
 
                 <div class="profile-edit-container">
-                    <%= link_to 'プロフィールの編集', edit_user_registration_path, class:"profile-edit-link" %>
+                    <%# turbolinks無効化 %>
+                    <%= link_to 'プロフィールの編集', edit_user_registration_path, data: {"turbolinks": false}, class:"profile-edit-link" %>
                 </div>
             </div>
         </div>

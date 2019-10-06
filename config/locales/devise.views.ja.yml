@@ -8,6 +8,7 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+        part_list: "タグ"
     models:
       user: "ユーザ"
   devise:

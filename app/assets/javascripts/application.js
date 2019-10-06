@@ -17,4 +17,5 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require cocoon
+//= require bootstrap-tagsinput.min
 //= require_tree .

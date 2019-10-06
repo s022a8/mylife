@@ -5,6 +5,7 @@
 /* users-index */
 .index-page {
     padding: 20px;
+    
 }
 
 .index-user {
@@ -37,13 +38,18 @@
     padding-top: 15px;
 }
 
-.index-user-tag {
+.index-user-tags > span {
+    width: 80%;
     padding: 5px 8px;
-    display: inline-block;
+    display: block;
     background-color: rgba(201, 241, 242, 0.5);
     border-radius: 5px;
+    margin: 0 auto 8px;
 }
 
+.index-user-tags > span:last-child {
+    margin: 0 auto;
+}
 
 /* users-show */
 .user-profile {
