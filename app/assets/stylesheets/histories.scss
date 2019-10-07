@@ -1,3 +1,57 @@
 // Place all the styles related to the Histories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* history-index */
+.history-index {
+    padding: 40px 0 20px;
+}
+
+.history-header {
+    width: 42%;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(138, 138, 138, 0.2);
+}
+
+.note-history {
+    width: 25%;
+    margin: 15px auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+.add-history-link {
+    width: 15%;
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px 15px;
+    border: 1px solid rgba(138, 138, 138, 0.2);
+    border-radius: 20px;
+}
+
+.add-history-text {
+    font-size: 19px;
+}
+
+
+/* history-new */
+.history-new {
+    padding: 40px 0 20px;
+}
+
+.history-new-form {
+    padding: 25px 0;
+}
+
+
+/* history-edit */
+.history-edit {
+    padding: 40px 0 20px;
+}
+
+.history-edit-form {
+    padding: 25px 0;
+}

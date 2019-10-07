@@ -1,2 +1,55 @@
-<h1>Histories#new</h1>
-<p>Find me in app/views/histories/new.html.erb</p>
+<div class="history-new">
+    <h3 class="history-header">あなたの歴史</h3>
+
+    <div class="history-new-form">
+        <div class="container">
+            <%= form_for(@history, url:user_histories_path(@user.id)) do |s| %>
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-2">
+                        <p>年齢</p>
+                    </div>
+
+                    <div class="co-md-5">
+                        <%= s.number_field :age %>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-2">
+                        <p>主な出来事</p>
+                    </div>
+
+                    <div class="col-md-5">
+                        <%= s.text_field :event %>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-2">
+                        <p>バロメーター</p>
+                    </div>
+
+                    <div class="col-md-5">
+                        <%= s.number_field :barometer %>
+                    </div>
+                </div>
+
+                <%# sub_event追加フォーム %>
+                <div class="row">
+                    <%= s.fields_for :sub_events do |sub| %>
+                        <%= render 'sub_event_fields', f: sub %>
+                    <% end %>
+
+                    <div class="links">
+                        <%= link_to_add_association '追加', s, :sub_events %>
+                    </div>
+                </div>
+
+                
+                <div>
+                    <%= s.submit '作成' %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

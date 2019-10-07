@@ -1,1 +1,23 @@
-<p><%= @user.name %></p>
+<div class="history-index">
+    <h3 class="history-header"><%= @user.name %>の歴史</h3>
+
+    <%# 歴史一覧 %>
+    <div class="user-histories">
+        <% if @user.histories.any? %>
+            <% @user.histories.each do |history| %>
+                <div class="user-history">
+                    <%= history.age %> <%= history.event %>
+                    <%= link_to 'もっとみる', user_history_path(@user.id, history.id) %>
+                    <%= link_to '訂正', edit_user_history_path(@user.id, history.id) %>
+                </div>
+            <% end %>
+        <% else %>
+            <p class="note-history">追加ページから自分史を追加してみよう！</p>
+        <% end %>
+    </div>
+
+    <%# 歴史追加 %>
+    <div class="add-history-link"> 
+        <%= link_to '追加ページへ', new_user_history_path(@user.id), class:"add-history-text" %>
+    </div>
+</div>
