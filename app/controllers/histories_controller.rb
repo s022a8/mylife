@@ -39,6 +39,14 @@ class HistoriesController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:user_id])
+    @history = History.find(params[:id])
+    if @history.destroy
+      flash[:notice] = "正常に削除されました。"
+      redirect_to user_histories_path(@user.id)
+    else
+      redirect_to edit_user_history_path(@user.id, @history.id)
+    end
   end
 
 
