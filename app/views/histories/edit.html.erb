@@ -4,6 +4,8 @@
     <div class="history-edit-form">
         <div class="container">
             <%= form_for(@history, url:user_history_path(@user.id), method: :patch) do |s| %>
+                <%= render 'shared/error_messages', object: s.object %>
+
                 <div class="row">
                     <div class="col-md-3 col-md-offset-2">
                         <p>年齢</p>

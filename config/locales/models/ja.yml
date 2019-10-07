@@ -1,0 +1,12 @@
+ja:
+  activerecord:
+    models:
+      history: 歴史
+      sub_event: 関連すること・もの
+    attributes:
+      history:
+        age: 年齢
+        event: 主な出来事
+        barometer: バロメーター
+      sub_event:
+        part: 関連する出来事
