@@ -1,2 +1,34 @@
-<h1>Histories#show</h1>
-<p>Find me in app/views/histories/show.html.erb</p>
+<div class="history-show">
+    <h3 class="history-header">
+        <span style="font-weight:bold"><%= @history.event %></span> の詳細
+    </h3>
+
+    <div class="history-detail">
+
+        <table class="history-detail-table">
+            <thead>
+                <tr class="history-detail-tr">
+                    <th width="25%" class="history-detail-th">タイトル</th>
+                    <th width="75%" class="history-detail-th">内容</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @history.sub_events.each do |sub_event| %>
+                    <tr class="history-detail-tr">
+                        <td width="25%" class="history-detail-td"><%= sub_event.part %></td>
+                        <td width="75%" class="history-detail-td"><%= sub_event.part %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <hr>
+
+    <div class="back-container" style="margin-bottom: 10px;">
+        <%= link_to "#{@user.name}の歴史へ戻る", user_histories_path(@user.id), class:"back-text" %>
+    </div>
+</div>

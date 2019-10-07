@@ -4,6 +4,8 @@ class HistoriesController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
+    @history = History.find(params[:id])
   end
 
   def new
