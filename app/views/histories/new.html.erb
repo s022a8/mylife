@@ -1,2 +1,68 @@
-<h1>Histories#new</h1>
-<p>Find me in app/views/histories/new.html.erb</p>
+<div class="history-new">
+    <h3 class="history-header">歴史を記録</h3>
+
+    <div class="history-new-form">
+        <div class="container">
+            <%= form_for(@history, url:user_histories_path(@user.id)) do |s| %>
+                <%= render 'shared/error_messages', object: s.object %>
+
+                <div class="row history-field">
+                    <div class="col-md-2 col-md-offset-2 histroy-field-label">
+                        <span>年齢</span>
+                    </div>
+
+                    <div class="col-md-5 history-field-value">
+                        <%= s.number_field :age %>
+                    </div>
+                </div>
+
+                <div class="row history-field">
+                    <div class="col-md-2 col-md-offset-2 histroy-field-label">
+                        <span>主な出来事</span>
+                    </div>
+
+                    <div class="col-md-7 history-field-value">
+                        <%= s.text_field :event %>
+                    </div>
+                </div>
+
+                <div class="row history-field">
+                    <div class="col-md-2 col-md-offset-2 histroy-field-label">
+                        <span>バロメータ</span>
+                    </div>
+
+                    <div class="col-md-5 history-field-value">
+                        <%= s.number_field :barometer %>
+                    </div>
+                </div>
+
+                <%# sub_event追加フォーム %>
+                <div class="row sub-event-form">
+                    <h4 style="margin-bottom: 20px;">関連すること・もの</h4>
+                    <span style="display:inline-block; font-size:12px; font-weight:100; color:rgba(63, 64, 64, 0.725); margin-bottom:10px;">
+                        追加ボタンを押すことで、関連すること・ものを複数入力できます。
+                    </span>
+
+                    <%= s.fields_for :sub_events do |sub| %>
+                        <%= render 'sub_event_fields', f: sub %>
+                    <% end %>
+
+                    <div class="links">
+                        <%= link_to_add_association '追加', s, :sub_events %>
+                    </div>
+                </div>
+
+                
+                <div class="devise-button-field">
+                    <%= s.submit '記録', class:"devise-button" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="back-container" style="margin-bottom: 10px;">
+        <%= link_to "#{@user.name}の歴史へ戻る", user_histories_path(@user.id), class:"back-text" %>
+    </div>
+</div>

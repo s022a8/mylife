@@ -4,6 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  #relationship
+  has_many :histories, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :book_marks, dependent: :destroy
+  has_many :entries, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :rooms, through: :entries
+
   #activestorage
   has_one_attached :profile_image
 
@@ -13,7 +21,7 @@ class User < ApplicationRecord
 
   #validation
   validates :email, presence: true
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true, length: { maximum: 15 }
   validate :max_tag_size
 
 
