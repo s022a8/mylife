@@ -1,0 +1,19 @@
+<div class="leave-user">
+    <div class="leave-notes-user">
+        <h2>退会ページ</h2>
+        <h4 style="margin-top:15px;">退会してしまってもよろしいですか？</h4>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-3">
+                <%= link_to '退会する', leave_users_path, method: :delete, 
+                        data: { confirm:"本当に退会しますか？" }, class:"leave-button" %>
+            </div>
+
+            <div class="col-md-3">
+                <%= link_to 'やっぱりやめる', users_path, class:"return-button" %>
+            </div>
+        </div>
+    </div>
+</div>
