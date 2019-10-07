@@ -10,7 +10,7 @@
 
 .history-header {
     width: 42%;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     text-align: center;
     padding-bottom: 8px;
     border-bottom: 1px solid rgba(138, 138, 138, 0.2);
@@ -21,6 +21,29 @@
     margin: 15px auto;
     text-align: center;
     font-size: 18px;
+}
+
+.user-histories {
+    padding: 10px 0;
+}
+
+.user-history-table {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.user-history-row {
+    // border-collapse: separate;
+    // padding: 15px 0 5px;
+    border-bottom: 1px solid rgba(138, 138, 138, 0.2);
+}
+
+.user-history {
+
+}
+
+.history-index-td {
+    padding: 15px 0 5px;
 }
 
 .add-history-link {
@@ -43,7 +66,42 @@
 }
 
 .history-new-form {
-    padding: 25px 0;
+    padding: 10px 0 50px;
+    text-align: center;
+}
+
+.history-field {
+    width: 70%;
+    margin: 0 auto !important;
+    padding: 15px 0 5px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(138, 138, 138, 0.2);
+}
+
+.histroy-field-label {
+    text-align: left;
+}
+
+.history-field-value {
+    text-align: left;
+}
+
+#history_age {
+    width: 20%;
+    border: 1px solid rgba(138, 138, 138, 0.2);
+    border-radius: 5px;
+}
+
+#history_event {
+    width: 100%;
+    border: 1px solid rgba(138, 138, 138, 0.2);
+    border-radius: 5px;
+}
+
+#history_barometer {
+    width: 20%;
+    border: 1px solid rgba(138, 138, 138, 0.2);
+    border-radius: 5px;
 }
 
 
@@ -54,4 +112,28 @@
 
 .history-edit-form {
     padding: 25px 0;
+}
+
+/* nested-field */
+.sub-event-form {
+    width: 70%;
+    margin: 0 auto !important;
+    padding: 20px 0 30px;
+    border-bottom: 1px solid rgba(138, 138, 138, 0.2);
+}
+
+.nested-fields {
+    margin-bottom: 8px;
+}
+
+.nested-fields > input {
+    width: 80%;
+}
+
+.links {
+    width: 10%;
+    margin: 0 auto;
+    padding: 5px 0;
+    border: 1px solid rgba(138, 138, 138, 0.2);
+    border-radius: 20px;
 }

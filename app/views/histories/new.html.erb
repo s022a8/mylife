@@ -6,38 +6,43 @@
             <%= form_for(@history, url:user_histories_path(@user.id)) do |s| %>
                 <%= render 'shared/error_messages', object: s.object %>
 
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-2">
-                        <p>年齢</p>
+                <div class="row history-field">
+                    <div class="col-md-2 col-md-offset-2 histroy-field-label">
+                        <span>年齢</span>
                     </div>
 
-                    <div class="co-md-5">
+                    <div class="col-md-5 history-field-value">
                         <%= s.number_field :age %>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-2">
-                        <p>主な出来事</p>
+                <div class="row history-field">
+                    <div class="col-md-2 col-md-offset-2 histroy-field-label">
+                        <span>主な出来事</span>
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-md-7 history-field-value">
                         <%= s.text_field :event %>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-3 col-md-offset-2">
-                        <p>バロメーター</p>
+                <div class="row history-field">
+                    <div class="col-md-2 col-md-offset-2 histroy-field-label">
+                        <span>バロメータ</span>
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-md-5 history-field-value">
                         <%= s.number_field :barometer %>
                     </div>
                 </div>
 
                 <%# sub_event追加フォーム %>
-                <div class="row">
+                <div class="row sub-event-form">
+                    <h4 style="margin-bottom: 20px;">関連すること・もの</h4>
+                    <span style="display:inline-block; font-size:12px; font-weight:100; color:rgba(63, 64, 64, 0.725); margin-bottom:10px;">
+                        追加ボタンを押すことで、関連すること・ものを複数入力できます。
+                    </span>
+
                     <%= s.fields_for :sub_events do |sub| %>
                         <%= render 'sub_event_fields', f: sub %>
                     <% end %>
@@ -48,8 +53,8 @@
                 </div>
 
                 
-                <div>
-                    <%= s.submit '作成' %>
+                <div class="devise-button-field">
+                    <%= s.submit '作成', class:"devise-button" %>
                 </div>
             <% end %>
         </div>

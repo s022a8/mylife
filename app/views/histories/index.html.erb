@@ -3,17 +3,27 @@
 
     <%# 歴史一覧 %>
     <div class="user-histories">
-        <% if @user.histories.any? %>
-            <% @user.histories.each do |history| %>
-                <div class="user-history">
-                    <%= history.age %> <%= history.event %>
-                    <%= link_to 'もっとみる', user_history_path(@user.id, history.id) %>
-                    <%= link_to '訂正', edit_user_history_path(@user.id, history.id) %>
-                </div>
+        <div class="container">
+            <% if @user.histories.any? %>
+                <table class="user-history-table">
+                    <% @user.histories.order(:age).each do |history| %>
+                        <tr class="user-history-row">
+                            <td width="8%" class="history-index-td">mark</td>
+                            <td width="8%" class="history-index-td" style="font-size: 17px;"><%= history.age %>歳</td>
+                            <td width="66%" class="history-index-td" style="font-size: 17px;"><%= history.event %></td>
+                            <td width="11%" class="history-index-td">
+                                <%= link_to 'もっとみる', user_history_path(@user.id, history.id) %>
+                            </td>
+                            <td width="7%" class="history-index-td" style="text-align:right;">
+                                <%= link_to '訂正', edit_user_history_path(@user.id, history.id) %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </table>
+            <% else %>
+                <p class="note-history">追加ページから自分史を追加してみよう！</p>
             <% end %>
-        <% else %>
-            <p class="note-history">追加ページから自分史を追加してみよう！</p>
-        <% end %>
+        </div>
     </div>
 
     <%# 歴史追加 %>
