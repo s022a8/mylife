@@ -1,5 +1,14 @@
 <div class="nested-fields">
-    <%#= f.label :part, '関連するもの・こと' %>
-    <%= f.text_field :part %>
-    <%= link_to_remove_association 'やめる', f %>
+    <div class="row">
+        <div class="col-md-10 nest-field">
+            <%= f.label :part, 'タイトル' %></br>
+            <%= f.text_field :part %></br>
+            <%= f.label :detail, '内容', style:"margin-top: 8px;" %></br>
+            <%= f.text_field :detail %></br>
+        </div>
+
+        <div class="col-md-2 nest-remove">
+            <%= link_to_remove_association '消去', f %>
+        </div>
+    </div>
 </div>

@@ -56,6 +56,6 @@ class HistoriesController < ApplicationController
 
     def history_params
       params.require(:history).permit(:age, :event, :barometer, 
-                              sub_events_attributes: [:id, :_destroy, :part])
+                              sub_events_attributes: [:id, :_destroy, :part, :detail])
     end
 end
