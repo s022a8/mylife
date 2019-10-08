@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+    before_action :authenticate_user!
+
 
     def create
         roomId = params[:talk_id]
