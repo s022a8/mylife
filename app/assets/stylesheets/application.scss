@@ -86,8 +86,17 @@
     border-bottom: 1px solid rgba(100, 198, 240, 0.3);
 }
 
+.header-nav-div {
+    border-right: 1px solid rgba(114, 195, 206, 0.2);
+}
+
 .inline-li {
     display: inline-block;
+    padding: 5px 35px;
+}
+
+.header-nav-link {
+    font-size: 17px;
 }
 
 

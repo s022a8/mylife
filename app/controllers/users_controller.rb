@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :warning, :leave]
+
   def index
-    @users = User.page(params[:page]).per(16)
+    @users = User.page(params[:page]).per(12)
   end
 
   def show

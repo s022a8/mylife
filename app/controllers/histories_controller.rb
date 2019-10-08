@@ -1,4 +1,6 @@
 class HistoriesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @user = User.find(params[:user_id])
     
