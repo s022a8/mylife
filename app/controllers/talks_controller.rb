@@ -1,7 +1,7 @@
 class TalksController < ApplicationController
 
   def index
-    @rooms = current_user.rooms
+    @rooms = current_user.rooms.page(params[:page]).per(10)
   end
 
 

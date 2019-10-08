@@ -1,18 +1,20 @@
 <div class="history-index">
-    <div>
-        <% unless @user.id == current_user.id %>
-            <% if @isRoom %>
-                <%= link_to 'トークルームへ', talk_path(@roomId) %>
-            <% else %>
-                <%= form_for(@room, url: talks_path) do |f| %>
-                    <%= fields_for @entry do |e| %>
-                        <%= e.hidden_field :user_id, value: @user.id %>
+    <% if user_signed_in? %>
+        <div>
+            <% unless @user.id == current_user.id %>
+                <% if @isRoom %>
+                    <%= link_to 'トークルームへ', talk_path(@roomId) %>
+                <% else %>
+                    <%= form_for(@room, url: talks_path) do |f| %>
+                        <%= fields_for @entry do |e| %>
+                            <%= e.hidden_field :user_id, value: @user.id %>
+                        <% end %>
+                        <%= f.submit 'トークを始める' %>
                     <% end %>
-                    <%= f.submit 'トークを始める' %>
                 <% end %>
             <% end %>
-        <% end %>
-    </div>
+        </div>
+    <% end %>
 
     <h3 class="history-header"><%= @user.name %>の歴史</h3>
 

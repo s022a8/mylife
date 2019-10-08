@@ -16,7 +16,7 @@
                             </div>
 
                             <div class="col-md-3 col-md-offset-1 talking-user-name">
-                                <%= entry.user.name %>
+                                <%= link_to entry.user.name, user_histories_path(entry.user) %>
                             </div>
 
                             <div class="col-md-3">
@@ -34,4 +34,6 @@
             <% end %>
         </div>
     </div>
+
+    <%= paginate @rooms %>
 </div>
