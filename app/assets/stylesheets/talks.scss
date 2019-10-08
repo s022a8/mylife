@@ -1,3 +1,157 @@
 // Place all the styles related to the Talks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* talk-show */
+.talk-show {
+    padding: 30px 0 50px;
+}
+
+.room-name {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 3px solid rgba(138, 138, 138, 0.5);
+}
+
+.room-message-container {
+    padding: 20px 25px;
+    width: 60%;
+    margin: 15px auto 20px;
+    background-color: rgba(196, 222, 196, 0.079);
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px rgba(117, 227, 117, 0.31);
+}
+
+.user-message {
+    padding: 0 8px;
+    margin: 5px 0;
+    border-radius: 20px;
+    // background-color: rgba(227, 250, 219, 0.929);
+}
+
+.talk-user-message {
+    padding: 8px 8px !important;
+}
+
+.current-user-message {
+    text-align: right;
+}
+
+.current-user-content {
+    padding: 5px 0;
+    background-color: rgba(168, 222, 127, 0.161);
+    border-radius: 20px;
+}
+
+.talk-user-name {
+    display: inline-block;
+    padding-bottom: 3px;
+    font-weight: 180;
+}
+
+.talk-user-image {
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.make-message {
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#new_message {
+    position: relative;
+}
+
+#message_content {
+    border-radius: 15px;
+    padding: 5px 8px;
+}
+
+.talk-button {
+    position: absolute;
+    left: 615px;
+    top: 15px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(85, 170, 212, 0.48);
+    border: 1px solid rgba(85, 170, 212, 0.48);
+    box-shadow: 1px 1px 1px rgba(182, 212, 228, 0.759);
+}
+
+
+/* talk-index */
+.talk-index {
+    padding: 15px;
+    margin-bottom: 80px;
+}
+
+.talking-users {
+    padding: 15px 0;
+}
+
+.talking-user {
+    width: 80%;
+    padding: 10px 5px;
+    margin: 0 auto 10px !important;
+    border: 2px solid rgba(138, 138, 138, 0.4);
+    position: relative;
+}
+
+.talking-user-name {
+    font-size: 18px;
+    margin-top: 20px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid rgba(138, 138, 138, 0.3);
+}
+
+.talking-user-tag {
+    display: block;
+    padding: 1px 5px;
+    background-color: rgba(81, 182, 236, 0.46);
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+
+.talking-button {
+    position: absolute;
+    top: 30px;
+    left: 55px;
+}
+
+/* history-index-talk-button */
+.talk-room-button-container {
+    width: 14%;
+    margin: 0 auto 40px;
+    text-align: center;
+    padding: 5px 10px 10px;
+    // background-color: rgba(104, 186, 230, 0.542);
+    border-radius: 3px;
+    // box-shadow: 1px 1px 1px rgba(85, 170, 212, 0.48);
+}
+
+.talk-link {
+    color: white;
+    font-size: 18px;
+    line-height: 35px;
+}
+
+.talk-link-div {
+    background-color: rgba(104, 186, 230, 0.542);
+    box-shadow: 1px 1px 1px rgba(85, 170, 212, 0.48);
+}
+
+.talk-begin-div {
+
+}
+
+.talk-begin-button {
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-size: 18px;
+    box-shadow: 1px 1px 1px rgba(85, 170, 212, 0.48);
+}

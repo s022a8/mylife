@@ -2,6 +2,20 @@
     <div style="margin-bottom: 150px">
         <h3 class="text-center" style="margin-bottom: 20px;">プロフィール</h3>
 
+        <div class="user-profile-links">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <%= link_to 'トークルーム一覧へ', talks_path, class:"user-profile-link" %>
+                    </div>
+
+                    <div class="col-md-3">
+                        <%= link_to 'ブックマーク一覧へ', book_marks_path, class:"user-profile-link" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div>
             <div class="container user-profile">
                 <div class="row">

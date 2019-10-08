@@ -1,6 +1,28 @@
 class HistoriesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
+    
+    #DM機能に関して
+    @current_user_entry = current_user&.entries
+    @other_user_entry = @user&.entries
+
+    #現在のユーザと対象ユーザの
+    #同じRoomと紐付いているEntryがあるか調べる。
+    @current_user_entry&.each do |cue|
+      @other_user_entry&.each do |oue|
+        if cue.room.id == oue.room.id
+          @isRoom = true
+          @roomId = cue.room.id
+          break
+        end
+      end
+    end
+
+    #Roomがなかった場合
+    unless @isRoom
+      @room = Room.new
+      @entry = Entry.new
+    end
   end
 
   def show

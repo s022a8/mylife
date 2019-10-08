@@ -1,4 +1,25 @@
 <div class="history-index">
+    <% if user_signed_in? %>
+        <div class="talk-room-button-container">
+            <% unless @user.id == current_user.id %>
+                <% if @isRoom %>
+                    <div class="talk-link-div">
+                        <%= link_to 'トークルームへ', talk_path(@roomId), class:"talk-link" %>
+                    </div>
+                <% else %>
+                    <%= form_for(@room, url: talks_path) do |f| %>
+                        <%= fields_for @entry do |e| %>
+                            <%= e.hidden_field :user_id, value: @user.id %>
+                        <% end %>
+                        <div class="talk-begin-div">
+                            <%= f.submit 'トークを始める', class:"talk-begin-button" %>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+    <% end %>
+
     <h3 class="history-header"><%= @user.name %>の歴史</h3>
 
     <%# 歴史一覧 %>
