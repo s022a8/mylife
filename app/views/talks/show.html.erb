@@ -14,7 +14,7 @@
                 <% if m.user == current_user %>
                     <div class="user-message current-user-message row">
                         <div class="current-user-content" 
-                            style="width:calc(<%= m.content.length %>*20px); float:right; text-align:center; max-width:500px; padding: 5px 10px;">
+                            style="width:calc(<%= m.content.length %>*20px); float:right; text-align:center; max-width:500px; padding:5px 10px;">
                             <%= m.content %>
                         </div>
                     </div>
@@ -30,8 +30,8 @@
                             <% end %>
                         </div>
                         <div class="col-md-10" 
-                            style="height:68px; line-height:68px; padding:0 8px; border: 1px solid rgba(138, 138, 138, 0.6); 
-                                border-radius: 20px; width:calc(<%= m.content.length %>*20px);">
+                            style="padding:5px 10px; border: 1px solid rgba(138, 138, 138, 0.6); 
+                                border-radius: 20px; width:calc(<%= m.content.length %>*20px); max-width:500px;">
                             <%= m.content %>
                         </div>
                     </div>
