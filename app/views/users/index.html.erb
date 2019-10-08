@@ -1,7 +1,7 @@
 <div class="index-page">
     <div class="container">
         <% @users.each do |user| %>
-            <div class="col-md-3">
+            <div class="col-md-3" style="height:395px;">
                 <div class="index-user">
                     <%= link_to user_histories_path(user) do %>
                         <p class="index-user-name"><%= user.name %></p>
@@ -17,11 +17,17 @@
                     <% end %>
 
                     <%# タグエリア %>
-                    <div class="index-user-tags">
-                        <% user.part_list.each do |tag| %>
-                            <span class="index-user-tag"><%= tag %></span>
-                        <% end %>
-                    </div>
+                    <% if user.part_list.present? %>
+                        <div class="index-user-tags">
+                            <% user.part_list.each do |tag| %>
+                                <span class="index-user-tag"><%= tag %></span>
+                            <% end %>
+                        </div>
+                    <% else %>
+                        <div class="" 
+                            style="width:223px; height:121px; background-color: rgba(138, 138, 138, 0.2);">
+                        </div>
+                    <% end %>
                 </div>
             </div>
         <% end %>
