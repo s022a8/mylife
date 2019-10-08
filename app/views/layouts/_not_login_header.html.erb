@@ -1,19 +1,19 @@
 <% unless request.path.include?("admins") %>
     <header class="header-border">
-        <h2><%= link_to 'My Life', root_path %></h2>
+        <h2 style="margin-left:20px;"><%= link_to 'My Life', root_path %></h2>
         
         <nav>
             <ul>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 text-center">
-                            <li class="inline-li"><%= link_to '会員登録', new_user_registration_path, class:"header-text"  %></li>
+                        <div class="col-md-4 text-center header-nav-div" style="border-left: 1px solid rgb(114, 195, 206, 0.2);">
+                            <li class="inline-li"><%= link_to '会員登録', new_user_registration_path, class:"header-nav-link"  %></li>
                         </div>
-                        <div class="col-md-4 text-center">
-                            <li class="inline-li"><%= link_to 'サイトについて', static_pages_about_path, class:"header-text"  %></li>
+                        <div class="col-md-4 text-center header-nav-div">
+                            <li class="inline-li"><%= link_to 'サイトについて', static_pages_about_path, class:"header-nav-link"  %></li>
                         </div>
-                        <div class="col-md-4 text-center">
-                            <li class="inline-li"><%= link_to 'ログイン', new_user_session_path, class:"header-text"  %></li>
+                        <div class="col-md-4 text-center header-nav-div">
+                            <li class="inline-li"><%= link_to 'ログイン', new_user_session_path, class:"header-nav-link" %></li>
                         </div>
                     </div>
                 </div>
