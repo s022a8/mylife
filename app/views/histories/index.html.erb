@@ -36,19 +36,31 @@
                                 <%= link_to 'もっとみる', user_history_path(@user.id, history.id) %>
                             </td>
                             <td width="7%" class="history-index-td" style="text-align:right;">
-                                <%= link_to '訂正', edit_user_history_path(@user.id, history.id) %>
+                                <% if user_signed_in? %>
+                                    <% if current_user.id == @user.id %>
+                                        <%= link_to '訂正', edit_user_history_path(@user.id, history.id) %>
+                                    <% end %>
+                                <% end %>
                             </td>
                         </tr>
                     <% end %>
                 </table>
             <% else %>
-                <p class="note-history">追加ページから自分史を追加してみよう！</p>
+                <% if current_user&.id == @user.id %>
+                    <p class="note-history">追加ページから自分史を追加してみよう！</p>
+                <% else %>
+                    <p class="note-history">このユーザーはまだ歴史を追加していません。</p>
+                <% end %>
             <% end %>
         </div>
     </div>
 
     <%# 歴史追加 %>
-    <div class="add-history-link"> 
-        <%= link_to '追加ページへ', new_user_history_path(@user.id), class:"add-history-text" %>
-    </div>
+    <% if user_signed_in? %>
+        <% if current_user.id == @user.id %>
+            <div class="add-history-link"> 
+                <%= link_to '追加ページへ', new_user_history_path(@user.id), class:"add-history-text" %>
+            </div>
+        <% end %>
+    <% end %>
 </div>
