@@ -6,6 +6,20 @@ class TalksController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @room.entries.each_with_index do |entry, i|
+      var = "@entry#{i}"
+      value = "entry.user"
+
+      eval("#{var} = #{value}")
+    end
+
+    #message関連
+    if Entry.where(user_id: current_user.id, room_id: @room.id).present?
+      @messages = @room.messages
+      @message = Message.new
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def create
