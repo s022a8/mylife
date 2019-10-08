@@ -1,5 +1,37 @@
-<% @rooms.each do |room| %>
-    <% room.entries.each do |entry| %>
-        <%= entry.user.name %>
-    <% end %>
-<% end %>
+<div class="talk-index">
+    <h3 class="history-header" style="margin-top: 35px;">トークルーム一覧</h3>
+    
+    <div class="talking-users">
+        <div class="container">
+            <% @rooms.each do |room| %>
+                <% room.entries.each do |entry| %>
+                    <% unless entry.user.id == current_user.id %>
+                        <div class="row talking-user">
+                            <div class="col-md-1 col-md-offset-1">
+                                <% if entry.user.profile_image.attached? %>
+                                    <%= image_tag entry.user.profile_image, size:'80x80', class:"talk-user-image" %>
+                                <% else %>
+                                    <%= image_tag 'blank-profile-picture-973460_640.png', size:'80x80', class:"talk-user-image" %>
+                                <% end %>
+                            </div>
+
+                            <div class="col-md-3 col-md-offset-1 talking-user-name">
+                                <%= entry.user.name %>
+                            </div>
+
+                            <div class="col-md-3">
+                                <% entry.user.part_list.each do |part| %>
+                                    <span class="talking-user-tag"><%= part %></span>
+                                <% end %>
+                            </div>
+
+                            <div class="col-md-2 col-md-offset-1">
+                                <%= link_to 'トークする', talk_path(entry.room.id), class:"talking-button" %>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

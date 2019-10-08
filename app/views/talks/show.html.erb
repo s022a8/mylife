@@ -8,7 +8,7 @@
         </h3>
     </div>
 
-    <div class="room-message-container">
+    <div class="room-message-container" style="height: 580px; overflow:scroll">
         <% if @messages.present? %>
             <% @messages.each do |m| %>
                 <% if m.user == current_user %>

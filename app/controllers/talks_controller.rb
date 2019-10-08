@@ -4,12 +4,14 @@ class TalksController < ApplicationController
     @rooms = current_user.rooms
   end
 
+
   def show
     @room = Room.find(params[:id])
+
+    #ルーム内のユーザー取り出し
     @room.entries.each_with_index do |entry, i|
       var = "@entry#{i}"
       value = "entry.user"
-
       eval("#{var} = #{value}")
     end
 
@@ -21,6 +23,7 @@ class TalksController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
+
 
   def create
     #トークを初めた直後にブラウザバックしてしまったときの対処
@@ -36,7 +39,7 @@ class TalksController < ApplicationController
       end
     end
 
-
+    #デフォルトの挙動
     @room = Room.create
     @entry1 = current_user.entries.build(room_id: @room.id, user_id: current_user.id)
     @entry2 = Entry.new(entry_params.merge(room_id: @room.id))

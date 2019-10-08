@@ -81,3 +81,44 @@
     border: 1px solid rgba(85, 170, 212, 0.48);
     box-shadow: 1px 1px 1px rgba(182, 212, 228, 0.759);
 }
+
+
+/* talk-index */
+.talk-index {
+    padding: 15px;
+    margin-bottom: 80px;
+}
+
+.talking-users {
+    padding: 15px 0;
+}
+
+.talking-user {
+    width: 80%;
+    padding: 10px 5px;
+    margin: 0 auto 10px !important;
+    border: 2px solid rgba(138, 138, 138, 0.4);
+    position: relative;
+}
+
+.talking-user-name {
+    font-size: 18px;
+    margin-top: 20px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid rgba(138, 138, 138, 0.3);
+}
+
+.talking-user-tag {
+    display: block;
+    padding: 1px 5px;
+    background-color: rgba(81, 182, 236, 0.46);
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 5px;
+}
+
+.talking-button {
+    position: absolute;
+    top: 30px;
+    left: 55px;
+}
