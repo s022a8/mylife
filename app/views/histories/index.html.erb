@@ -29,7 +29,8 @@
                 <table class="user-history-table">
                     <% @user.histories.order(:age).each do |history| %>
                         <tr class="user-history-row">
-                            <td width="7%" class="history-index-td">
+                            <td width="8%" class="history-index-td" id="booked_count_<%= history.id %>">
+                                <%= render 'book_marks/mark_count', history: history %>
                             </td>
 
                             <% if user_signed_in? %>
@@ -46,7 +47,7 @@
                                 <%= history.age %>歳
                             </td>
 
-                            <td width="61%" class="history-index-td" style="font-size: 17px;">
+                            <td width="60%" class="history-index-td" style="font-size: 17px;">
                                 <%= history.event %>
                             </td>
 
