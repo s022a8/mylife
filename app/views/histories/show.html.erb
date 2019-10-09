@@ -4,7 +4,6 @@
     </h3>
 
     <div class="history-detail">
-
         <table class="history-detail-table">
             <thead>
                 <tr class="history-detail-tr">
@@ -22,6 +21,26 @@
                 <% end %>
             </tbody>
         </table>
+    </div>
+
+    <!-- コメント機能 -->
+    <div class="comment-container">
+        <h5 class="comment-header" id="comment_trriger">コメント欄</h5>
+
+        <div class="comment-area" id="comment_area">
+            <table width="95%" style="margin:0 auto 50px;" id="comment_table">
+                <%= render 'comments/comment_table', comments: @comments %>
+            </table>
+
+            <hr>
+
+            <div class="comment-form">
+                <%= form_for(@comment, url: history_comments_path(@history.id), remote: true) do |f| %>
+                    <%= f.text_field :body, placeholder:"35文字以内で入力してください。", size:'70' %>
+                    <%= f.submit '投稿', class:"comment-form-btn" %>
+                <% end %>
+            </div>
+        </div>
     </div>
 
 
