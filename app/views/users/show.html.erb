@@ -47,9 +47,7 @@
                     </div>
 
                     <div class="col-md-offset-1 col-md-4 text-center">
-                        <%#<p class="profile-image-label">プロフィール画像</p>%>
-
-                        <%# 画像表示エリア %>
+                        <!-- 画像表示エリア -->
                         <% if @user.profile_image.attached? %>
                             <%= image_tag @user.profile_image, size:'200x200', class:"profile-image" %>
                         <% else %>
@@ -59,7 +57,7 @@
                 </div>
 
                 <div class="profile-edit-container">
-                    <%# turbolinks無効化 %>
+                    <!-- turbolinks無効化 -->
                     <%= link_to 'プロフィールの編集', edit_user_registration_path, data: {"turbolinks": false}, class:"profile-edit-link" %>
                 </div>
             </div>

@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   ##エンドユーザ側##
   #UsersController
-  resource :users, only: [:show, :update] do  #:editアクションはdeviseがやる
+  resource :users, only: [:show] do  #:editアクションはdeviseがやる
     collection do
       get 'warning'
       delete 'leave'
@@ -53,8 +53,30 @@ Rails.application.routes.draw do
   #Admin::UsersController
   namespace :admin do
     get '', to: 'users#index'
+    get 'users/:id', to: 'users#show'
     get 'users/:id/warning', to: 'users#warning'
     delete 'users/:id/remove', to: 'users#remove'
+  end
+
+  #Admin::TalksController
+  namespace :admin do
+    resources :users, only: [] do
+      resources :talks, only: [:index, :show]
+    end
+  end
+
+  #Admin::CommentsController
+  namespace :admin do
+    resources :users, only: [] do
+      resources :comments, only: [:index, :destroy]
+    end
+  end
+
+  #Admin::HistoriesController
+  namespace :admin do
+    resources :users, only: [] do
+      resources :histories, only: [:index, :show, :destroy]
+    end
   end
 
 

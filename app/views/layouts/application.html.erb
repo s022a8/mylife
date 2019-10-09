@@ -25,6 +25,10 @@
     <%- end -%>  
     <%= yield %>
 
-    <%= render 'layouts/footer' %>
+    <% if admin_signed_in? %>
+      <%= render 'layouts/admin_footer' %>
+    <% else %>
+      <%= render 'layouts/footer' %>
+    <% end %>
   </body>
 </html>

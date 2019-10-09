@@ -2,33 +2,53 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :warning, :leave]
 
   def index
+    ## アカウント名による検索
     if params[:search_names]
-      @users = User.where('name LIKE ?', "%#{params[:search_names]}%").page(params[:page]).per(12)
+      split_keywords = params[:search_names].split(/[[:blank:]]+/)
+      array_users = []
+      split_keywords.each do |keyword|
+        next if keyword == ""
+        tagging_user = User.where('name LIKE ?', "%#{keyword}%")
+        tagging_user.each do |user|
+          array_users << user
+        end
+      end
+      array_users.uniq!
+      #配列をActiveRecordに変換
+      users = User.where(id: array_users.map{ |user| user.id })
+      @users = users.page(params[:page]).per(12)
+
+    ## タグによる検索
     elsif params[:search_tags]
-      #空白による複数検索に対応
       split_keywords = params[:search_tags].split(/[[:blank:]]+/)
-      a_users = []
+      array_users = []
       split_keywords.each do |keyword|
         next if keyword == ""
         tagging_user = User.tagged_with("#{keyword}")
         tagging_user.each do |user|
-          a_users << user
+          array_users << user
         end
       end
+      array_users.uniq!
       #配列をActiveRecordに変換
-      users = User.where(id: a_users.map{ |user| user.id })
+      users = User.where(id: array_users.map{ |user| user.id })
       @users = users.page(params[:page]).per(12)
+
+    ## デフォルトの一覧ページを表示
     else
       @users = User.page(params[:page]).per(12)
     end
   end
 
+
   def show
     @user = current_user
   end
 
+
   def warning
   end
+
 
   def leave
     @user = current_user
@@ -40,5 +60,4 @@ class UsersController < ApplicationController
       redirect_to users_path
     end
   end
-
 end

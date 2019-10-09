@@ -1,0 +1,30 @@
+<div class="admin-talk-index">
+    <h3 style="font-weight:bold;"><%= @user.name %>のトークルーム一覧</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th width="5%">ID</th>
+                <th width="10%">トーク相手</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <% @rooms.each do |room| %>
+            <tr>
+                <td width="5%"><%= room.id %></td>
+                <td width="10%">
+                    <% room.entries.each do |entry| %>
+                        <% unless @user.id == entry.user.id %>
+                            <%= link_to entry.user.name, "/admin/users/#{entry.user.id}" %>
+                        <% end %>
+                    <% end %>
+                </td>
+                <td>
+                    <%= link_to 'トーク内容', admin_user_talk_path(@user.id, room.id) %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</div>

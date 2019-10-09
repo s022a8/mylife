@@ -1,0 +1,23 @@
+<div class="admin-history-index">
+    <h3 style="font-weight:bold;"><%= @history.event %>の詳細</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th width="5%">ID</th>
+                <th width="30%">タイトル</th>
+                <th width="55%">内容</th>
+                <th width="10%"></th>
+            </tr>
+        </thead>
+
+        <% @sub_events.each do |sub| %>
+            <tr>
+                <td width="5%"><%= sub.id %></td>
+                <td width="30%"><%= sub.part %></td>
+                <td width="55%"><%= sub.detail %></td>
+                <td width="10%"><%= link_to '歴史一覧へ', admin_user_histories_path(sub.history.user.id) %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>
