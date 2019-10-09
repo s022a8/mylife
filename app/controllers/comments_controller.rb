@@ -5,7 +5,12 @@ class CommentsController < ApplicationController
         @history = History.find(params[:history_id])
         comment = current_user.comments.build(comment_params.merge(history_id: @history.id))
         if comment.save
-            redirect_to user_history_path(@history.user.id, @history.id)
+            @comments = @history.comments
+            respond_to do |format|
+                format.html { redirect_to user_history_path(@history.user.id, @history.id) }
+                format.js
+            end
+            #redirect_to user_history_path(@history.user.id, @history.id)
         else
             @user = @history.user
             @comment = Comment.new
@@ -19,7 +24,11 @@ class CommentsController < ApplicationController
         @history = History.find(params[:history_id])
         @comment = Comment.find(params[:id])
         if @comment.destroy
-            redirect_to user_history_path(@history.user.id, @history.id)
+            @comments = @history.comments
+            respond_to do |format|
+                format.html { redirect_to user_history_path(@history.user.id, @history.id) }
+                format.js
+            end
         else
             @user = @history.user
             @comment = Comment.new
