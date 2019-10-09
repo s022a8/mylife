@@ -2,7 +2,13 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :warning, :leave]
 
   def index
-    @users = User.page(params[:page]).per(12)
+    if params[:search_names]
+      @users = User.where(['name LIKE ?', "%#{params[:search_names]}"]).page(params[:page]).per(12)
+    elsif params[:search_tags]
+
+    else
+      @users = User.page(params[:page]).per(12)
+    end
   end
 
   def show
