@@ -4,7 +4,6 @@
     </h3>
 
     <div class="history-detail">
-
         <table class="history-detail-table">
             <thead>
                 <tr class="history-detail-tr">
@@ -22,6 +21,49 @@
                 <% end %>
             </tbody>
         </table>
+    </div>
+
+    <!-- コメント機能 -->
+    <div class="comment-container">
+        <h5 class="comment-header" id="comment_trriger">コメント欄</h5>
+
+        <div class="comment-area" id="comment_area">
+            <table width="95%" style="margin:0 auto 50px;">
+                <% @comments.each.with_index(1) do |comment, i| %>
+                    <tr> 
+                        <td width="8%" class="comment-td">
+                            <%= i %>
+                        </td>
+
+                        <td width="15%" class="comment-td">
+                            <%= comment.user.name %>
+                        </td>
+
+                        <td width="69%" class="comment-td">
+                            <%= comment.body %>
+                        </td>
+
+                        <% if current_user.id == comment.user.id %>
+                            <td width="8%" class="comment-td">
+                                <%= form_for(comment, url: history_comment_path(comment.history.id, comment.id), 
+                                                html: {method: :delete}) do |f| %>
+                                    <%= f.submit '削除', class:"comment-delete-btn" %>
+                                <% end %>
+                            </td>
+                        <% end %>
+                    </tr>
+                <% end %>
+            </table>
+
+            <hr>
+
+            <div class="comment-form">
+                <%= form_for(@comment, url: history_comments_path(@history.id)) do |f| %>
+                    <%= f.text_field :body, placeholder:"35文字以内で入力してください。", size:'70' %>
+                    <%= f.submit '投稿', class:"comment-form-btn" %>
+                <% end %>
+            </div>
+        </div>
     </div>
 
 

@@ -31,6 +31,9 @@ class HistoriesController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @history = History.find(params[:id])
+    #コメント機能
+    @comment = Comment.new
+    @comments = @history.comments
   end
 
   def new
