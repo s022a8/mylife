@@ -57,6 +57,27 @@ Rails.application.routes.draw do
     delete 'users/:id/remove', to: 'users#remove'
   end
 
+  #Admin::TalksController
+  namespace :admin do
+    resources :users, only: [] do
+      resources :talks, only: [:index]
+    end
+  end
+
+  #Admin::CommentsController
+  namespace :admin do
+    resources :users, only: [] do
+      resources :comments, only: [:index, :destroy]
+    end
+  end
+
+  #Admin::HistoriesController
+  namespace :admin do
+    resources :users, only: [] do
+      resources :histories, only: [:index, :show, :destroy]
+    end
+  end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

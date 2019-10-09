@@ -4,6 +4,12 @@ class Admin::UsersController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def warning
+  end
+
+  def remove
   end
 end
