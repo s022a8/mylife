@@ -7,3 +7,43 @@
     font-size: 12px;
     color: rgba(223, 160, 58, 0.855);
 }
+
+
+/* bookmark-index */
+.bookmark-index {
+    padding: 15px 0 70px;
+}
+
+.booked-container {
+    padding: 10px 0;
+}
+
+.each-bookmark {
+    padding: 5px 15px;
+    // border-radius: 15px;
+    // background-color: rgba(248, 245, 239, 0.644);
+    // box-shadow: 1px 1px 1px rgba(137, 133, 133, 0);
+}
+
+.each-bookmark-row {
+    width: 90%;
+    margin: 0 auto !important;
+    padding: 8px 15px 5px;
+    border-radius: 15px;
+    background-color: rgba(248, 245, 239, 0.644);
+    box-shadow: 1px 1px 1px rgba(80, 72, 72, 0.712);
+}
+
+.booked-image {
+    border-radius: 10px;
+}
+
+.booked-text {
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(138, 138, 138, 0.2);
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

@@ -2,6 +2,7 @@ class BookMarksController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @book_marks = current_user.book_marks.page(params[:page]).per(15)
   end
 
   def create
