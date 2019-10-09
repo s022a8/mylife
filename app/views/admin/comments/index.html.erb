@@ -1,2 +1,27 @@
-<h1>Admin::Comments#index</h1>
-<p>Find me in app/views/admin/comments/index.html.erb</p>
+<div class="admin-comment-index">
+    <h3 style="font-weight:bold;"><%= @user.name %>のコメント一覧</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th width="75%">内容</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <% @comments.each do |comment| %>
+            <tr>
+                <td><%= comment.id %></td>
+                <td width="75%"><%= comment.body %></td>
+                <td>
+                    <%= link_to '出来事をみる', admin_user_history_path(comment.user.id, comment.history.id) %>
+                </td>
+                <td>
+                    <%= link_to '削除', admin_user_comment_path(comment.user.id, comment.id), method: :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</div>

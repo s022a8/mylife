@@ -1,0 +1,32 @@
+<div class="admin-users-show">
+    <h3 class="admin-user-show-header">ユーザ詳細</h3>
+
+    <div class="admin-user-show">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-1">
+                <span style="display:block;"><%= @user.name %></span>
+
+                <% if @user.profile_image.attached? %>
+                    <%= image_tag @user.profile_image, size:'110x110', class:"profile-image" %>
+                <% else %>
+                    <%= image_tag 'blank-profile-picture-973460_640.png', size:'110x110', class:"profile-image" %>
+                <% end %>
+            </div>
+
+            <div class="col-md-6">
+                <p>
+                    <% @user.part_list.each do |tag| %>
+                        <span class="profile-user-tag"><%= tag %></span>
+                    <% end %>
+                </p>
+                <p style="border-bottom:1px solid rgba(138, 138, 138, 0.2);"><%= link_to '歴史一覧', admin_user_histories_path(@user) %></p>
+                <p style="border-bottom:1px solid rgba(138, 138, 138, 0.2);"><%= link_to 'コメント一覧', admin_user_comments_path(@user) %></p>
+                <p style="border-bottom:1px solid rgba(138, 138, 138, 0.2);"><%= link_to 'トーク一覧', admin_user_talks_path(@user) %></p>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="admin-user-show-header">
+        <%= link_to '削除', "/admin/users/#{@user.id}/warning" %>                
+    </h3>
+</div>

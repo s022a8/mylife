@@ -1,0 +1,21 @@
+<div class="admin-talk-show">
+    <h3 style="font-weight:bold;"><%= @entry0.name %>と<%= @entry1.name %>のトークルーム</h3>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th width="20%">発信者</th>
+                <th width="80%">メッセージ</th>
+            </tr>
+        </thead>
+
+        <% @room.messages.each do |message| %>
+            <tr>
+                <td width="20%">
+                    <%= link_to message.user.name, "/admin/users/#{message.user.id}" %>
+                </td>
+                <td width="80%"><%= message.content %></td>
+            </tr>
+        <% end %>
+    </table>
+</div>

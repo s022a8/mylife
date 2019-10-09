@@ -1,2 +1,22 @@
-<h1>Admin::Users#warning</h1>
-<p>Find me in app/views/admin/users/warning.html.erb</p>
+<div class="destroy-user">
+    <h2 class="admin-warning-destroy-header">削除ページ</h2>
+
+    <div class="admin-warning-destroy">
+        <span class="admin-warning-destroy-header-main">警告</span>
+        <p>本当に削除してしまってもよろしいですか？</p>
+        <p>削除したユーザーの情報は全てなくなってしまいます。</p>
+    </div>
+
+    <div class="admin-btn-area"> 
+        <div class="row">
+            <div class="col-md-3 col-md-offset-3">
+                <%= link_to '削除する', "/admin/users/#{@user.id}/remove",
+                        method: :delete, data: {confirm:"本当に削除しますか？"}, class:"admin-delete-btn" %>
+            </div>
+
+            <div class="col-md-3">
+                <%= link_to 'やっぱりやめる', "/admin/users/#{@user.id}", class:"admin-rethink-btn" %>
+            </div>
+        </div>
+    </div>
+</div>

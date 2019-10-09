@@ -53,6 +53,7 @@ Rails.application.routes.draw do
   #Admin::UsersController
   namespace :admin do
     get '', to: 'users#index'
+    get 'users/:id', to: 'users#show'
     get 'users/:id/warning', to: 'users#warning'
     delete 'users/:id/remove', to: 'users#remove'
   end
@@ -60,7 +61,7 @@ Rails.application.routes.draw do
   #Admin::TalksController
   namespace :admin do
     resources :users, only: [] do
-      resources :talks, only: [:index]
+      resources :talks, only: [:index, :show]
     end
   end
 
