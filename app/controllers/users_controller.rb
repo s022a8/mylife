@@ -2,7 +2,25 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :warning, :leave]
 
   def index
-    @users = User.page(params[:page]).per(12)
+    if params[:search_names]
+      @users = User.where('name LIKE ?', "%#{params[:search_names]}%").page(params[:page]).per(12)
+    elsif params[:search_tags]
+      #空白による複数検索に対応
+      split_keywords = params[:search_tags].split(/[[:blank:]]+/)
+      a_users = []
+      split_keywords.each do |keyword|
+        next if keyword == ""
+        tagging_user = User.tagged_with("#{keyword}")
+        tagging_user.each do |user|
+          a_users << user
+        end
+      end
+      #配列をActiveRecordに変換
+      users = User.where(id: a_users.map{ |user| user.id })
+      @users = users.page(params[:page]).per(12)
+    else
+      @users = User.page(params[:page]).per(12)
+    end
   end
 
   def show

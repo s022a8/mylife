@@ -1,3 +1,5 @@
+
+//ヘッダーに関して
 (function() {
     $(function() {
         $(".header-nav-div").mouseover(function() {
