@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
 
 
-  #タグの文字数、タグ自体の数のバリデーション
+  ##タグの文字数、タグ自体の数のバリデーション
   def max_tag_size
     errors[:part_list] << "登録数は3つまでです。" if self.part_list.count > 3
     self.part_list.each do |tag|
@@ -35,4 +35,24 @@ class User < ApplicationRecord
       end
     end
   end
+
+
+  ##ブックマーク機能について
+  #既にブックマークしているか？
+  def book_mark?(history)
+    book_marks.exists?(history_id: history.id)
+  end
+
+  #ブックマークする
+  def book_mark(history)
+    book_mark = book_marks.build(history_id: history.id)
+    book_mark.save
+  end
+
+  #ブックマークをやめる
+  def un_book_mark(history)
+    book_mark = book_marks.find_by(history_id: history.id)
+    book_mark.destroy
+  end
+
 end

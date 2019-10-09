@@ -29,12 +29,32 @@
                 <table class="user-history-table">
                     <% @user.histories.order(:age).each do |history| %>
                         <tr class="user-history-row">
-                            <td width="8%" class="history-index-td">mark</td>
-                            <td width="8%" class="history-index-td" style="font-size: 17px;"><%= history.age %>歳</td>
-                            <td width="66%" class="history-index-td" style="font-size: 17px;"><%= history.event %></td>
+                            <td width="8%" class="history-index-td" id="booked_count_<%= history.id %>">
+                                <%= render 'book_marks/mark_count', history: history %>
+                            </td>
+
+                            <% if user_signed_in? %>
+                                <td width="6%" class="history-index-td" id="book_mark_icon_<%= history.id %>">
+                                    <% if current_user.book_mark?(history) %>
+                                        <%= render 'book_marks/not_mark', history: history %>
+                                    <% else %>
+                                        <%= render 'book_marks/mark', history: history %>
+                                    <% end %>
+                                </td>
+                            <% end %>
+
+                            <td width="8%" class="history-index-td" style="font-size: 17px;">
+                                <%= history.age %>歳
+                            </td>
+
+                            <td width="60%" class="history-index-td" style="font-size: 17px;">
+                                <%= history.event %>
+                            </td>
+
                             <td width="11%" class="history-index-td">
                                 <%= link_to 'もっとみる', user_history_path(@user.id, history.id) %>
                             </td>
+
                             <td width="7%" class="history-index-td" style="text-align:right;">
                                 <% if user_signed_in? %>
                                     <% if current_user.id == @user.id %>

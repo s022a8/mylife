@@ -1,0 +1,6 @@
+<%= form_for(current_user.book_marks.find_by(history_id: history.id), 
+                url: book_mark_path(history.id), html: {method: :delete}, remote: true) do %>
+    <%= button_tag type: 'submit' do %>
+        <%= image_tag 'icon_132250_256.png', size:'15x20' %>
+    <% end %>
+<% end %>

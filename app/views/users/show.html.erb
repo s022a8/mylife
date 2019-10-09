@@ -6,11 +6,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-md-offset-1">
-                        <%= link_to 'トークルーム一覧へ', talks_path, class:"user-profile-link" %>
+                        <%= link_to talks_path, class:"user-profile-link" do %>
+                            <%= image_tag 'icon_112180_256.png', size:'25x25' %>
+                            <span>トークルーム一覧へ</span>
+                        <% end %>
                     </div>
 
                     <div class="col-md-3">
-                        <%= link_to 'ブックマーク一覧へ', book_marks_path, class:"user-profile-link" %>
+                        <%= link_to book_marks_path, class:"user-profile-link" do %>
+                            <%= image_tag 'icon_159440_256.png', size:'25x25' %>
+                            <span>ブックマーク一覧へ</span>
+                        <% end %>
                     </div>
                 </div>
             </div>
