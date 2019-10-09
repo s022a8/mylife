@@ -2,6 +2,8 @@
 // All this logic will automatically be available in application.js.
 // You can use CoffeeScript in this file: http://coffeescript.org/
 
+
+//コメント欄に関して
 (function() {
     $(document).on('turbolinks:load', function() {
         var comment_trriger = document.getElementById('comment_trriger');

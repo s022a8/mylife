@@ -1,0 +1,43 @@
+/* 検索フォーム */
+.search-form {
+    width: 60%;
+    margin: 21px auto 48px;
+    padding: 20px 45px;
+    position: relative;
+    background-color: rgba(218, 195, 165, 0.338);
+    border-radius: 20px;
+}
+
+#names_search {
+}
+
+#tags_search {
+}
+
+.display-none {
+    display: none;
+}
+
+.search-form-field {
+    padding: 5px 10px;
+    width: 80%;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 25px;
+}
+
+.search-btn {
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+.search-radio-area {
+    margin-top: 8px;
+}
+
+input[value='tag'] {
+    margin: 4px 0 0 5px !important;
+}
