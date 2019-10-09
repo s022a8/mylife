@@ -4,23 +4,31 @@ class ApplicationController < ActionController::Base
 
     #deviseのリダイレクト先変更
     def after_sign_up_path(resource)
-        root_path
+        root_url
     end
+
+    # def after_update_path_for(resource)
+    #     if resource == :user
+    #         users_url
+    #     else
+    #         admin_url
+    #     end
+    # end
     
     def after_sign_in_path_for(resource)
         case resource
         when User
-            root_path
+            root_url
         when Admin
-            admin_path
+            admin_url
         end
     end
 
     def after_sign_out_path_for(resource)
         if resource == :user
-            root_path
+            root_url
         else
-            new_admin_session_path
+            new_admin_session_url
         end
     end
 

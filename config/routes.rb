@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   ##エンドユーザ側##
   #UsersController
-  resource :users, only: [:show, :update] do  #:editアクションはdeviseがやる
+  resource :users, only: [:show] do  #:editアクションはdeviseがやる
     collection do
       get 'warning'
       delete 'leave'
