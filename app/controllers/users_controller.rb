@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if params[:search_names]
       @users = User.where(['name LIKE ?', "%#{params[:search_names]}"]).page(params[:page]).per(12)
     elsif params[:search_tags]
-
+      @users = User.tagged_with("#{params[:search_tags]}").page(params[:page]).per(12)
     else
       @users = User.page(params[:page]).per(12)
     end
