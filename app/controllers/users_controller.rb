@@ -7,16 +7,17 @@ class UsersController < ApplicationController
     elsif params[:search_tags]
       #空白による複数検索に対応
       split_keywords = params[:search_tags].split(/[[:blank:]]+/)
-      a_users = []
+      array_users = []
       split_keywords.each do |keyword|
         next if keyword == ""
         tagging_user = User.tagged_with("#{keyword}")
         tagging_user.each do |user|
-          a_users << user
+          array_users << user
         end
       end
+      array_users.uniq!
       #配列をActiveRecordに変換
-      users = User.where(id: a_users.map{ |user| user.id })
+      users = User.where(id: array_users.map{ |user| user.id })
       @users = users.page(params[:page]).per(12)
     else
       @users = User.page(params[:page]).per(12)
