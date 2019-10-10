@@ -151,6 +151,8 @@
                         borderWidth: 3,
                         pointHoverBackgroundColor: "rgba(207, 249, 251, 0.55)",
                         pointHoverBorderColor: "rgba(207, 249, 251, 0.55)",
+                        pointRadius: 5,
+                        pointStyle: 'star'
                     }]
                 },
                 options: {
@@ -174,10 +176,11 @@
                         }]
                     },
                     tooltips: {
+                        bodyFontSize: 16,
                         callbacks: 
                             {
                                 label: function(tooltipItems, data) {
-                                    return data.datasets[tooltipItems.datasetIndex].label + "：" + tooltipItems.yLabel + "%";
+                                    return gon.history_events[tooltipItems.index];
                                 }
                             }
                     }
