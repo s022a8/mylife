@@ -1,7 +1,7 @@
 <div class="history-index">
     <% if user_signed_in? %>
-        <div class="talk-room-button-container">
-            <% unless @user.id == current_user.id %>
+        <% unless @user.id == current_user.id %>
+            <div class="talk-room-button-container">
                 <% if @isRoom %>
                     <div class="talk-link-div">
                         <%= link_to 'トークルームへ', talk_path(@roomId), class:"talk-link" %>
@@ -16,15 +16,15 @@
                         </div>
                     <% end %>
                 <% end %>
-            <% end %>
-        </div>
+            </div>
+        <% end %>
     <% end %>
 
     <h3 class="history-header"><%= @user.name %>の歴史</h3>
 
     <!-- 歴史一覧 -->
     <div class="user-histories">
-        <div class="container">
+        <div class="">
             <% if @user.histories.any? %>
                 <table class="user-history-table">
                     <% @user.histories.order(:age).each do |history| %>
