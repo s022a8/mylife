@@ -1,4 +1,5 @@
 <div class="history-index">
+<!-- トーク関連 -->
     <% if user_signed_in? %>
         <% unless @user.id == current_user.id %>
             <div class="talk-room-button-container">
@@ -20,11 +21,21 @@
         <% end %>
     <% end %>
 
+<!-- 歴史一覧 -->
     <h3 class="history-header"><%= @user.name %>の歴史</h3>
 
-    <!-- 歴史一覧 -->
+    <div class="history-tab-group">
+        <ul class="row history-tab-row">
+            <li class="col-md-2  col-md-offset-3 history-tab is-active">テキスト</li>
+            <li class="col-md-2 history-tab">イメージ</li>
+            <li class="col-md-2 history-tab">バロメーター</li>
+        </ul>
+    </div>
+
+<!-- 切り替わるコンテンツ一覧 -->
     <div class="user-histories">
-        <div class="">
+    <!-- コンテントA -->
+        <div class="history-content history-content-A is-show">
             <% if @user.histories.any? %>
                 <table class="user-history-table">
                     <% @user.histories.order(:age).each do |history| %>
@@ -74,9 +85,19 @@
                 <% end %>
             <% end %>
         </div>
+    <!-- コンテントB -->
+        <div class="history-content history-content-B">
+            イメージ
+        </div>
+
+    <!-- コンテントC -->
+        <div class="history-content history-content-C">
+            <canvas id="myChart" width="300" height="110"></canvas>
+        </div>
     </div>
 
-    <!-- 歴史追加 -->
+
+<!-- 歴史追加 -->
     <% if user_signed_in? %>
         <% if current_user.id == @user.id %>
             <div class="add-history-link"> 
@@ -85,3 +106,91 @@
         <% end %>
     <% end %>
 </div>
+
+
+<!-- js_tabs -->
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            var tabs = document.getElementsByClassName('history-tab');
+            for(var i = 0; i < tabs.length; i++) {
+                tabs[i].addEventListener('click', tabSwitch);
+            }
+
+            function tabSwitch() {
+                document.getElementsByClassName('is-active')[0].classList.remove('is-active');
+                this.classList.add('is-active');
+                document.getElementsByClassName('is-show')[0].classList.remove('is-show');
+                var arrayTabs = Array.prototype.slice.call(tabs);
+                var index = arrayTabs.indexOf(this);
+                document.getElementsByClassName('history-content')[index].classList.add('is-show');
+            }
+        });
+    })();
+</script>
+
+<!-- js_chart -->
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            ctx = document.getElementById("myChart").getContext('2d')
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [
+                        <% @user.histories.order(:age).each do |history| %>
+                            <%= history.age %>,
+                        <% end %>
+                    ],
+                    datasets: [{
+                        label: '<%= @user.name %>の人生バロメータ',
+                        data: [
+                            <% @user.histories.order(:age).each do |history| %>
+                                <%= history.barometer %>,
+                            <% end %>
+                        ],
+                        backgroundColor: [
+                            "rgba(156, 216, 104, 0.21)"
+                        ],
+                        fill: false,
+                        borderColor: [
+                            "rgba(6, 207, 83, 0.79)"
+                        ],
+                        borderWidth: 3,
+                        pointHoverBackgroundColor: "rgba(207, 249, 251, 0.55)",
+                        pointHoverBorderColor: "rgba(207, 249, 251, 0.55)",
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                min: 0,
+                                max: 100,
+                                beginAtZero:true,
+                                callback: function(value, i, values) {
+                                    return value +' %';
+                                }
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                callback: function(value, i, values) {
+                                    return value +' 歳';
+                                }
+                            }
+                        }]
+                    },
+                    tooltips: {
+                        callbacks: 
+                            {
+                                label: function(tooltipItems, data) {
+                                    return data.datasets[tooltipItems.datasetIndex].label + "：" + tooltipItems.yLabel + "%";
+                                }
+                            }
+                    }
+                }
+            })
+        });
+    })();
+</script>
