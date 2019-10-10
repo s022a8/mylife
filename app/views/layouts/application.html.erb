@@ -12,6 +12,7 @@
   </head>
 
   <body>
+  <!-- ヘッダー -->
     <% if admin_signed_in? %>
       <%= render 'layouts/admin_header' %>
     <% elsif user_signed_in? %>
@@ -20,15 +21,41 @@
       <%= render 'layouts/not_login_header' %>
     <% end %>
 
+  <!-- フラッシュメッセージ -->
     <%- flash.each do |name, msg| -%>
       <%= content_tag :div, msg, id:"flash_#{name}", class:"flash-message" if msg.is_a?(String) %>
     <%- end -%>  
+
+
+  <!-- main -->
     <%= yield %>
 
+
+  <!-- フッター -->
     <% if admin_signed_in? %>
       <%= render 'layouts/admin_footer' %>
     <% else %>
       <%= render 'layouts/footer' %>
     <% end %>
+
+
+  <!-- js -->
+    <script type="text/javascript">
+      (function() {
+        $(function() {
+            $(".header-nav-div").mouseover(function() {
+                $(this).css({
+                    'backgroundColor':'rgba(114, 195, 206, 0.2)'
+                });
+            });
+    
+            $(".header-nav-div").mouseout(function() {
+                $(this).css({
+                    'backgroundColor':'white'
+                });
+            });
+        });
+      })();
+    </script>
   </body>
 </html>

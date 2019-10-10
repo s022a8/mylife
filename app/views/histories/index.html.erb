@@ -51,8 +51,9 @@
                                 <%= history.event %>
                             </td>
 
+                            <!-- turbolinks無効化 -->
                             <td width="11%" class="history-index-td">
-                                <%= link_to 'もっとみる', user_history_path(@user.id, history.id) %>
+                                <%= link_to 'もっとみる', user_history_path(@user.id, history.id), data: {"turbolinks": false} %>
                             </td>
 
                             <td width="7%" class="history-index-td" style="text-align:right;">

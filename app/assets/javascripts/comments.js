@@ -20,5 +20,5 @@
         comment_trriger.addEventListener('mouseout', function() {
             this.style.backgroundColor = "white";
         });
-    }); 
+    });
 })();

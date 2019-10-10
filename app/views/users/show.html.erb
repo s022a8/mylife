@@ -2,6 +2,7 @@
     <div style="margin-bottom: 150px">
         <h3 class="text-center" style="margin-bottom: 20px;">プロフィール</h3>
 
+        <!-- リンク -->
         <div class="user-profile-links">
             <div class="container">
                 <div class="row">
@@ -18,10 +19,18 @@
                             <span>ブックマーク一覧へ</span>
                         <% end %>
                     </div>
+
+                    <div class="col-md-3">
+                        <%= link_to user_histories_path(current_user.id), class:"user-profile-link" do %>
+                            <%= image_tag 'icon_102260_256.png', size:'25x25' %>
+                            <span>自分の歴史を見る</span>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         </div>
 
+        <!-- プロフィール -->
         <div>
             <div class="container user-profile">
                 <div class="row">
