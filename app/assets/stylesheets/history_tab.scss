@@ -1,0 +1,40 @@
+.history-tab-group {
+
+}
+
+.history-tab-row {
+    margin: 38px 0 15px;
+}
+
+.history-tab {
+    list-style: none;
+    padding: 8px 15px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 17px;
+    border: 1px solid rgba(166, 184, 182, 0.263);
+}
+
+.history-tab.is-active {
+    background-color: rgba(114, 195, 206, 0.2);
+}
+
+.history-content {
+    display: none;
+}
+
+.history-content.is-show {
+    display: block;
+}
+
+.history-content-A {
+
+}
+
+.history-content-B {
+    
+}
+
+.history-content-C {
+    
+}

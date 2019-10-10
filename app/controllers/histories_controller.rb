@@ -4,11 +4,11 @@ class HistoriesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     
-    ##DM機能に関して
+    ## DM機能に関して
     @current_user_entry = current_user&.entries
     @other_user_entry = @user&.entries
-    #現在のユーザと対象ユーザの
-    #同じRoomと紐付いているEntryがあるか調べる。
+    # 現在のユーザと対象ユーザの
+    # 同じRoomと紐付いているEntryがあるか調べる。
     @current_user_entry&.each do |cue|
       @other_user_entry&.each do |oue|
         if cue.room.id == oue.room.id
@@ -18,20 +18,23 @@ class HistoriesController < ApplicationController
         end
       end
     end
-    #Roomがなかった場合
+    # Roomがなかった場合
     unless @isRoom
       @room = Room.new
       @entry = Entry.new
     end
 
-    ##ブックマーク機能に関して
-    #@book_mark = BookMark.new
+    ## gon
+    gon.user_name = @user.name
+    gon.history_ages = @user.histories.order(:age).map { |history| history.age }
+    gon.history_barometers = @user.histories.order(:age).map { |history| history.barometer }
+    gon.history_events = @user.histories.order(:age).map { |history| history.event }
   end
 
   def show
     @user = User.find(params[:user_id])
     @history = History.find(params[:id])
-    #コメント機能
+    # コメント機能
     @comment = Comment.new
     @comments = @history.comments
   end
@@ -55,7 +58,7 @@ class HistoriesController < ApplicationController
   def edit
     @user = User.find(params[:user_id])
     @history = History.find(params[:id])
-    # @sub_event = @history.sub_events
+    #@sub_event = @history.sub_events
   end
 
   def update

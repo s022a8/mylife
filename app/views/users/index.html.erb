@@ -38,7 +38,8 @@
         <% @users.each do |user| %>
             <div class="col-md-3" style="height:395px;">
                 <div class="index-user">
-                    <%= link_to user_histories_path(user) do %>
+                    <!-- turbolinks＝無効化 -->
+                    <%= link_to user_histories_path(user), data: {"turbolinks": false} do %>
                         <p class="index-user-name"><%= user.name %></p>
 
                         <!-- 画像エリア -->
@@ -70,4 +71,25 @@
 
     <%= paginate @users %>
 </div>
+
+<!-- js -->
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            $('input[name="search"]').change(function() {
+                var checking = $(this).val();
+                
+                if (checking == 'name') {
+                    $('#names_search').toggleClass('display-none');
+                    $('#tags_search').toggleClass('display-none');
+                } else if (checking == 'tag') {
+                    $('#tags_search').toggleClass('display-none');
+                    $('#names_search').toggleClass('display-none');
+                } else {
+                    return;
+                }
+            });
+        });
+    })();
+</script>
 
