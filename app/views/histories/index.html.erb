@@ -137,18 +137,10 @@
             myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: [
-                        <% @user.histories.order(:age).each do |history| %>
-                            <%= history.age %>,
-                        <% end %>
-                    ],
+                    labels: gon.history_ages,
                     datasets: [{
-                        label: '<%= @user.name %>の人生バロメータ',
-                        data: [
-                            <% @user.histories.order(:age).each do |history| %>
-                                <%= history.barometer %>,
-                            <% end %>
-                        ],
+                        label: gon.user_name + 'の人生バロメータ',
+                        data: gon.history_barometers,
                         backgroundColor: [
                             "rgba(156, 216, 104, 0.21)"
                         ],
