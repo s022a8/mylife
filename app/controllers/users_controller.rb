@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
     ## デフォルトの一覧ページを表示
     else
-      @users = User.page(params[:page]).per(12)
+      @users = User.order("RANDOM()").page(params[:page]).per(12)
     end
   end
 

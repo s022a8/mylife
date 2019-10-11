@@ -34,6 +34,7 @@
     </div>
 
     <!-- 一覧 -->
+    <div class="root-users-container">
     <div class="container">
         <% @users.each do |user| %>
             <div class="col-md-3" style="height:395px;">
@@ -45,9 +46,9 @@
                         <!-- 画像エリア -->
                         <div class="index-user-image-container">
                             <% if user.profile_image.attached? %>
-                                <%= image_tag user.profile_image, size:'150x150', class:"index-user-image" %>
+                                <%= image_tag user.profile_image, size:'160x160', class:"index-user-image" %>
                             <% else %>
-                                <%= image_tag 'blank-profile-picture-973460_640.png', size:'150x150', class:"index-user-image" %>
+                                <%= image_tag 'blank-profile-picture-973460_640.png', size:'160x160', class:"index-user-image" %>
                             <% end %>
                         </div>
                     <% end %>
@@ -67,6 +68,7 @@
                 </div>
             </div>
         <% end %>
+    </div>
     </div>
 
     <%= paginate @users %>
