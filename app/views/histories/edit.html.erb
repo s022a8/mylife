@@ -36,7 +36,18 @@
                     </div>
                 </div>
 
-                <%# sub_event追加フォーム %>
+                <div class="row history-field">
+                    <div class="col-md-2 col-md-offset-2 histroy-field-label">
+                        <span>メモリー</span>
+                    </div>
+
+                    <div class="col-md-5 history-field-value">
+                        <%= s.file_field :history_image %>
+                    </div>
+                </div>
+
+
+                <!-- sub_event追加フォーム -->
                 <div class="row sub-event-form">
                     <h4 style="margin-bottom: 20px;">関連すること・もの</h4>
                     <span style="display:inline-block; font-size:12px; font-weight:100; color:rgba(63, 64, 64, 0.725); margin-bottom:10px;">

@@ -25,7 +25,11 @@ Rails.application.routes.draw do
 
   #HistoriesController
   resources :users, only: [] do
-    resources :histories
+    resources :histories do
+      collection do
+        get 'gallery'
+      end
+    end
   end
 
   #TalksController

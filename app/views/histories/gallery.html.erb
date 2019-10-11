@@ -1,0 +1,26 @@
+<div class="history-gallery">
+    <h3 class="history-gallery-header"><%= @user.name %>さんのメモリー</h3>
+
+    <div class="history-image-container">
+        <div class="container">
+            <% @histories.order(:age).each do |history| %>
+                <% if history.history_image.attached? %>
+                    <div class="col-md-3" style="width:23%; margin-top:46px;">
+                        <span class="history-image-title">
+                            <%= history.event %>
+                        </span>
+                        <span style="font-size:13px; margin-botttom:5px;">（<%= history.age %>歳）</span>
+
+                        <%= link_to user_history_path(@user.id, history.id) do %>
+                            <%= image_tag history.history_image, size:'200x200', class:"history-image" %>
+                        <% end %>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="back-container" style="margin-bottom: 10px;">
+        <%= link_to "#{@user.name}の歴史へ戻る", user_histories_path(@user.id), class:"back-text" %>
+    </div>
+</div>
