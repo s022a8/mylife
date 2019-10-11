@@ -5,6 +5,9 @@ class History < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :book_marks, dependent: :destroy
 
+    #activestorage
+    has_one_attached :history_image
+
     accepts_nested_attributes_for :sub_events, 
                     reject_if: proc { |attributes| attributes['part'].blank? }, allow_destroy: true
 

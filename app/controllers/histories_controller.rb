@@ -82,11 +82,17 @@ class HistoriesController < ApplicationController
     end
   end
 
+  #ヒストリー画像へ
+  def gallery
+    @user = User.find(params[:user_id])
+    @histories = @user.histories
+  end
+
 
   private
 
     def history_params
-      params.require(:history).permit(:age, :event, :barometer, 
+      params.require(:history).permit(:age, :event, :barometer, :history_image,
                               sub_events_attributes: [:id, :_destroy, :part, :detail])
     end
 end

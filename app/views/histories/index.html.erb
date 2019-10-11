@@ -26,16 +26,22 @@
 
     <div class="history-tab-group">
         <ul class="row history-tab-row">
-            <li class="col-md-2  col-md-offset-3 history-tab is-active">テキスト</li>
-            <li class="col-md-2 history-tab">イメージ</li>
-            <li class="col-md-2 history-tab">バロメーター</li>
+            <li class="col-md-2  col-md-offset-2 history-tab">できごと</li>
+            <!-- 不具合がおきるためコメントアウト
+                <li class="col-md-2 history-tab">イメージ</li>
+            -->
+            <li class="col-md-2 history-tab  is-active">人生マップ</li>
+
+            <li class="col-md-2" style="list-style:none; margin:10px 0 0 30px;">
+                <%= link_to 'メモリーズをみる', gallery_user_histories_path(@user.id), class:"history-gallery-link" %>
+            </li>
         </ul>
     </div>
 
 <!-- 切り替わるコンテンツ一覧 -->
     <div class="user-histories">
     <!-- コンテントA -->
-        <div class="history-content history-content-A is-show">
+        <div class="history-content history-content-A">
             <% if @user.histories.any? %>
                 <table class="user-history-table">
                     <% @user.histories.order(:age).each do |history| %>
@@ -85,13 +91,22 @@
                 <% end %>
             <% end %>
         </div>
-    <!-- コンテントB -->
+    <!-- コンテントB （不具合のためコメントアウト）
         <div class="history-content history-content-B">
-            イメージ
+            <% @user.histories.order(:age).each do |history| %>
+                <% if history.history_image.attached? %>
+                    <%= link_to user_history_path(@user.id, history.id) do %>
+                        <div class="history-image-container">
+                            <%= image_tag history.history_image, size:'200x200', class:"history-image" %>
+                        <div>
+                    <% end %>
+                <% end %>
+            <% end %>
         </div>
+    -->
 
     <!-- コンテントC -->
-        <div class="history-content history-content-C">
+        <div class="history-content history-content-C  is-show">
             <canvas id="myChart" width="300" height="110"></canvas>
         </div>
     </div>
