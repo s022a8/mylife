@@ -84,4 +84,7 @@ gem 'acts-as-taggable-on'
 gem 'chart-js-rails'
 gem 'gon'
 
+#try
+gem 'whenever', require: false
+
 
