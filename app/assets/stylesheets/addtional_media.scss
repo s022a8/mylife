@@ -25,11 +25,37 @@
     .devise-fields > .field > div:nth-child(2) {
         width: 70%;
     }
+
+    /* talk-index */
+    .talking-button {
+        padding: 8px 10px !important;
+        font-size: 14px !important;
+    }
+
+    /* talk-show */
+    .media-each-his-message {
+        max-width: 400px !important;
+    }
 }
 
 @media screen and (max-width:768px) and (min-width:426px) {
     .devise-edit-button-field {
         text-align: center;
+    }
+
+    /* talk-show */
+    .room-name > h3 {
+        font-size: 17px;
+    }
+    .room-message-container {
+        width: 80% !important;
+    }
+    .media-each-his-message {
+        max-width: 250px !important;
+        margin-left: 14px !important;
+    }
+    .current-user-content {
+        max-width: 300px !important;
     }
 }
 
@@ -41,5 +67,10 @@
     .devise-edit-label {
         font-size: 13px;
         font-weight: bold !important;
+    }
+
+    /* talk-show */
+    .room-name > h3 {
+        font-size: 16px;
     }
 }

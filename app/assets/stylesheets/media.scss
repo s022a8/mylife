@@ -54,6 +54,11 @@
     .devise-label {
         font-size: 11px !important;
     }
+
+    /* talk-show */
+    .room-name > h3 {
+        font-size: 13px;
+    }
 }
 
 
@@ -133,6 +138,26 @@
     .devise-fields > .field > div:nth-child(1) {
         padding: 0 !important;
     }
+
+    /* talk-index */
+    .talking-user > div:nth-child(3) {
+        width: 100% !important;
+    }
+    .talking-user > div:nth-child(3) > span {
+        font-size: 12px !important;
+    }
+
+    /* talk-show */
+    .room-message-container {
+        width: 92% !important;
+    }
+    .media-each-his-message {
+        max-width: 150px !important;
+        margin-left: 40px !important;
+    }
+    .current-user-content {
+        max-width: 200px !important;
+    }
 }
 
 
@@ -179,6 +204,27 @@
     .devise-label {
         font-size: 13px;
         font-weight: bold !important;
+    }
+
+    /* talk-index */
+    .talking-user > div:nth-child(1), .talking-user > div:nth-child(2) {
+        text-align: center;
+    }
+    .talking-user > div:nth-child(3) {
+        width: 50%;
+        margin: 10px auto 0;
+    }
+    .talking-button-area {
+        margin: 30px 0 !important;
+        text-align: center;
+    }
+
+    /* talk-show */
+    #message_content {
+        width: 100%;
+    }
+    .talk-button {
+        position: static !important;
     }
 }
 
