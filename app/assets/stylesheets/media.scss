@@ -49,6 +49,11 @@
         width: 100%;
         font-size: 12px;
     }
+
+    /* devise-user-page */
+    .devise-label {
+        font-size: 11px !important;
+    }
 }
 
 
@@ -120,6 +125,14 @@
     .devise-edit-button-field {
         text-align: center;
     }
+
+    /* devise-user-page */
+    .devise-container {
+        width: 100% !important;
+    }
+    .devise-fields > .field > div:nth-child(1) {
+        padding: 0 !important;
+    }
 }
 
 
@@ -160,6 +173,12 @@
     /* user-profile */
     .media-profile-image {
         margin-top: 30px;
+    }
+
+    /* devise-user-page */
+    .devise-label {
+        font-size: 13px;
+        font-weight: bold !important;
     }
 }
 

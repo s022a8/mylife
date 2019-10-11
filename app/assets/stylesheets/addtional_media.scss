@@ -1,4 +1,4 @@
-@media screen and (max-width:1024px) and (min-width:768px) {
+@media screen and (max-width:1024px) and (min-width:769px) {
     .root-users-container > div {
         width: 100% !important;
     }
@@ -14,15 +14,26 @@
     .media-history-memory-link {
         width: 30% !important;
     }
+
+    /* user-devise-page */
+    .devise-fields > .field > div {
+        margin: 0;
+    }
+    .devise-fields > .field > div:nth-child(1) {
+        width: 30%;
+    }
+    .devise-fields > .field > div:nth-child(2) {
+        width: 70%;
+    }
 }
 
-@media screen and (max-width:768px) and (min-width:425px) {
+@media screen and (max-width:768px) and (min-width:426px) {
     .devise-edit-button-field {
         text-align: center;
     }
 }
 
-@media screen and (max-width:425px) and (min-width:375px) {
+@media screen and (max-width:425px) and (min-width:376px) {
     /* user-edit */
     .devise-edit-form {
         padding: 20px 15px !important;
