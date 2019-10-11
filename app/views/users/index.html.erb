@@ -27,7 +27,7 @@
                 </div>
             </div>
 
-            <div class="col-md-4 search-radio-area" style="width:19%;">
+            <div class="col-md-4 search-radio-area radio-buttons-media" style="width:19%;">
                 <div class="" style="display:inline-block; margin-left:20px;">
                     <input type="radio" name="search" value="name" checked>
                     <span style="font-size:17px; font-weight:bold;">アカウント名</span>
@@ -46,7 +46,7 @@
     <div class="root-users-container">
     <div class="container">
         <% @users.each do |user| %>
-            <div class="col-md-3">
+            <div class="col-md-3 index-media-user">
                 <div class="index-user" style="height:362px;">
                     <!-- turbolinks＝無効化 -->
                     <%= link_to user_histories_path(user), data: {"turbolinks": false} do %>
@@ -55,9 +55,9 @@
                     <!-- 画像エリア -->
                         <div class="index-user-image-container">
                             <% if user.profile_image.attached? %>
-                                <%= image_tag user.profile_image, size:'160x160', class:"index-user-image" %>
+                                <%= image_tag user.profile_image, size:'160x160', class:"index-user-image index-media-user-image" %>
                             <% else %>
-                                <%= image_tag 'blank-profile-picture-973460_640.png', size:'160x160', class:"index-user-image" %>
+                                <%= image_tag 'blank-profile-picture-973460_640.png', size:'160x160', class:"index-user-image index-media-user-image" %>
                             <% end %>
                         </div>
                     <% end %>
