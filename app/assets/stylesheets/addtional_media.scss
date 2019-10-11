@@ -1,0 +1,134 @@
+@media screen and (max-width:1024px) and (min-width:769px) {
+    .root-users-container > div {
+        width: 100% !important;
+    }
+    .index-media-user {
+        width: 45%;
+        margin: 0 0 30px;
+        float: left;
+    }
+    .index-media-user:nth-child(2n-1) {
+        margin: 0 15px 0 32px;
+    }
+
+    .media-history-memory-link {
+        width: 30% !important;
+    }
+
+    /* user-devise-page */
+    .devise-fields > .field > div {
+        margin: 0;
+    }
+    .devise-fields > .field > div:nth-child(1) {
+        width: 30%;
+    }
+    .devise-fields > .field > div:nth-child(2) {
+        width: 70%;
+    }
+
+    /* talk-index */
+    .talking-button {
+        padding: 8px 10px !important;
+        font-size: 14px !important;
+    }
+
+    /* talk-show */
+    .media-each-his-message {
+        max-width: 400px !important;
+    }
+
+    /* user-gallery */
+    .history-gallery-header {
+        width:95% !important;
+        // font-size: 19px;
+    }
+    .history-image-container > div:nth-child(1) {
+        width: 100%;
+    }
+    .each-history-image {
+        width: 25% !important;
+
+    }
+    .history-image {
+        width: 100%;
+        height: 150px;
+    }
+}
+
+@media screen and (max-width:768px) and (min-width:426px) {
+    .devise-edit-button-field {
+        text-align: center;
+    }
+
+    /* talk-show */
+    .room-name > h3 {
+        font-size: 17px;
+    }
+    .room-message-container {
+        width: 80% !important;
+    }
+    .media-each-his-message {
+        max-width: 250px !important;
+        margin-left: 14px !important;
+    }
+    .current-user-content {
+        max-width: 300px !important;
+    }
+
+    /* user-gallery */
+    .history-gallery-header {
+        width:95% !important;
+        // font-size: 19px;
+    }
+    .history-image-container > div:nth-child(1) {
+        width: 100%;
+    }
+    .history-image-container > div:nth-child(1) > div {
+        width: 100%;
+        float: left;
+    }
+    .each-history-image {
+        width: 50% !important;
+
+    }
+    .history-image {
+        width: 100%;
+        height: 180px;
+    }
+}
+
+@media screen and (max-width:425px) and (min-width:376px) {
+    /* user-edit */
+    .devise-edit-form {
+        padding: 20px 15px !important;
+    }
+    .devise-edit-label {
+        font-size: 13px;
+        font-weight: bold !important;
+    }
+
+    /* talk-show */
+    .room-name > h3 {
+        font-size: 16px;
+    }
+
+    /* user-gallery */
+    .history-gallery-header {
+        width:95% !important;
+        font-size: 17px;
+    }
+    .history-image-container > div:nth-child(1) {
+        width: 100%;
+    }
+    .history-image-container > div:nth-child(1) > div {
+        width: 100%;
+        float: left;
+    }
+    .each-history-image {
+        width: 100% !important;
+    }
+    .history-image {
+        width: 100%;
+        height: 180px;
+    }
+}

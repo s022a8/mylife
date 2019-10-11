@@ -96,8 +96,9 @@
 .talking-user {
     width: 80%;
     padding: 10px 5px;
-    margin: 0 auto 10px !important;
-    border: 2px solid rgba(138, 138, 138, 0.4);
+    margin: 0 auto 5px !important;
+    border-right: 2px solid rgba(138, 138, 138, 0.4);
+    border-bottom: 2px solid rgba(138, 138, 138, 0.4);
     position: relative;
 }
 
@@ -117,10 +118,14 @@
     margin-bottom: 5px;
 }
 
+.talking-button-area {
+    margin: 30px 0 0 15px;
+}
+
 .talking-button {
-    position: absolute;
-    top: 30px;
-    left: 55px;
+    padding: 15px 20px;
+    border: 1px solid rgba(38, 138, 138, 0.3);
+    border-radius: 10px;
 }
 
 /* history-index-talk-button */

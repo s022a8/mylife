@@ -2,7 +2,7 @@
     <h3 class="history-header">歴史を記録</h3>
 
     <div class="history-new-form">
-        <div class="container">
+        <div class="container media-history-new">
             <%= form_for(@history, url:user_histories_path(@user.id)) do |s| %>
                 <%= render 'shared/error_messages', object: s.object %>
 

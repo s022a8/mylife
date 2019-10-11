@@ -2,7 +2,7 @@
     <h3 class="history-header">歴史の訂正</h3>
 
     <div class="history-new-form">
-        <div class="container">
+        <div class="container media-history-new">
             <%= form_for(@history, url:user_history_path(@user.id), method: :patch) do |s| %>
                 <%= render 'shared/error_messages', object: s.object %>
 
