@@ -1,49 +1,58 @@
-<div class="index-page">
-    <!-- 検索フォーム -->
-    <div class="search-form">
-        
-            <div class="row">
+
+<!-- 検索フォーム -->
+<div class="search-form">
+    
+        <div class="row">
+            <!-- アイコンをコメントアウト中
                 <div class="search-icon">
                     <%= image_tag 'icon_150050_256.png', size:'20x20' %>
                 </div>
+            -->
 
-                <div class="col-md-8">
-                    <!-- 検索フォーム（アカウント名） -->
-                    <div id="names_search">
-                        <%= form_tag(root_path, method: :get) do %>
-                            <%= text_field_tag :search_names, '', placeholder:"アカウント名で検索", class:"search-form-field" %>
-                            <%= submit_tag '検索', class:"search-btn" %>
-                        <% end %>
-                    </div>
-
-                    <!-- 検索フォーム（タグ） -->
-                    <div id="tags_search" class="display-none">
-                        <%= form_tag(root_path, method: :get) do %>
-                            <%= text_field_tag :search_tags, '', placeholder:"タグで検索", class:"search-form-field" %>
-                            <%= submit_tag '検索', class:"search-btn" %>
-                        <% end %>
-                    </div>
+            <div class="col-md-7" style="margin-top:8px;">
+                <!-- 検索フォーム（アカウント名） -->
+                <div id="names_search">
+                    <%= form_tag(root_path, method: :get) do %>
+                        <%= text_field_tag :search_names, '', placeholder:"アカウント名で検索", class:"search-form-field" %>
+                        <%= submit_tag '検索', class:"search-btn" %>
+                    <% end %>
                 </div>
 
-                <div class="col-md-4 search-radio-area">
-                    <input type="radio" name="search" value="name" checked>アカウント名
-                    <input type="radio" name="search" value="tag">タグ
+                <!-- 検索フォーム（タグ） -->
+                <div id="tags_search" class="display-none">
+                    <%= form_tag(root_path, method: :get) do %>
+                        <%= text_field_tag :search_tags, '', placeholder:"タグで検索", class:"search-form-field" %>
+                        <%= submit_tag '検索', class:"search-btn" %>
+                    <% end %>
                 </div>
             </div>
-        
-    </div>
 
-    <!-- 一覧 -->
+            <div class="col-md-4 search-radio-area" style="width:19%;">
+                <div class="" style="display:inline-block; margin-left:20px;">
+                    <input type="radio" name="search" value="name" checked>
+                    <span style="font-size:17px; font-weight:bold;">アカウント名</span>
+                </div>
+
+                <div class="" style="display:inline-block; margin-left:10px;">
+                    <input type="radio" name="search" value="tag">
+                    <span style="font-size:17px; font-weight:bold;">タグ</span>
+                </div>
+            </div>
+        </div>
+</div>
+
+<!-- 一覧 -->
+<div class="index-page">
     <div class="root-users-container">
     <div class="container">
         <% @users.each do |user| %>
-            <div class="col-md-3" style="height:395px;">
-                <div class="index-user">
+            <div class="col-md-3">
+                <div class="index-user" style="height:362px;">
                     <!-- turbolinks＝無効化 -->
                     <%= link_to user_histories_path(user), data: {"turbolinks": false} do %>
                         <p class="index-user-name"><%= user.name %></p>
 
-                        <!-- 画像エリア -->
+                    <!-- 画像エリア -->
                         <div class="index-user-image-container">
                             <% if user.profile_image.attached? %>
                                 <%= image_tag user.profile_image, size:'160x160', class:"index-user-image" %>
@@ -53,18 +62,12 @@
                         </div>
                     <% end %>
 
-                    <!-- タグエリア -->
-                    <% if user.part_list.present? %>
-                        <div class="index-user-tags">
-                            <% user.part_list.each do |tag| %>
-                                <span class="index-user-tag"><%= tag %></span>
-                            <% end %>
-                        </div>
-                    <% else %>
-                        <div class="" 
-                            style="width:223px; height:121px; background-color: rgba(138, 138, 138, 0.2);">
-                        </div>
-                    <% end %>
+                <!-- タグエリア -->
+                    <div class="index-user-tags">
+                        <% user.part_list.each do |tag| %>
+                            <span class="index-user-tag"><%= tag %></span>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         <% end %>
