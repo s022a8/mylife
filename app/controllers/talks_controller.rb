@@ -3,7 +3,8 @@ class TalksController < ApplicationController
 
 
   def index
-    @rooms = current_user.rooms.page(params[:page]).per(10)
+     #includes
+    @rooms = current_user.rooms.page(params[:page]).per(10).includes(entries: {user: {profile_image_attachment: :blob}})
   end
 
 
@@ -11,7 +12,7 @@ class TalksController < ApplicationController
     @room = Room.find(params[:id])
 
     #ルーム内のユーザー取り出し
-    @room.entries.each_with_index do |entry, i|
+    @room.entries.includes(user: {profile_image_attachment: :blob}).each_with_index do |entry, i| #includes
       var = "@entry#{i}"
       value = "entry.user"
       eval("#{var} = #{value}")
@@ -19,7 +20,7 @@ class TalksController < ApplicationController
 
     #message関連
     if Entry.where(user_id: current_user.id, room_id: @room.id).present?
-      @messages = @room.messages
+      @messages = @room.messages.includes(:user)
       @message = Message.new
     else
       redirect_back(fallback_location: root_path)

@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
     ## デフォルトの一覧ページを表示
     else
-      @users = User.order("RANDOM()").page(params[:page]).per(12)
+      @users = User.order("RANDOM()").page(params[:page]).per(12).includes({profile_image_attachment: :blob}, :taggings) # includes
     end
   end
 

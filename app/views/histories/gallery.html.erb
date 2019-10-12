@@ -3,7 +3,8 @@
 
     <div class="history-image-container">
         <div class="container">
-            <% @histories.order(:age).each do |history| %>
+            <!-- includes -->
+            <% @histories.order(:age).includes({history_image_attachment: :blob}).each do |history| %>
                 <% if history.history_image.attached? %>
                     <div class="col-md-3 each-history-image" style="width:23%; margin-top:46px;">
                         <span class="history-image-title" style="display:block;">
