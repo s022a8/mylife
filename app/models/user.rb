@@ -74,4 +74,8 @@ class User < ApplicationRecord
     user
   end
 
+  # omniauth認証したユーザには更新時にパスワードが必要確認
+  def password_required?
+    provider.blank? && super
+  end
 end
