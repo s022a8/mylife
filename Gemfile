@@ -89,5 +89,8 @@ gem 'gon'
 
 #try
 gem 'whenever', require: false
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 
