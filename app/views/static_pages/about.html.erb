@@ -1,29 +1,122 @@
 <div class="about-page">
-    <div id="mylife_introduction">
-        <p>1</p>
+    <div class="about-tab-group">
+        <ul class="about-tabs">
+            <li class="about-tab is-active-about" >サイトの使い方</li>
+            <li class="about-tab">運営者について</li>
+        </ul>
     </div>
 
-    <div id="how_to_mylife">
-        <p>2</p>
+    <div class="about-page-content-group">
+    <!-- サイトについて -->
+        <div id="how_to_mylife" class="about-page-content is-show-about">
+            <div class="mylife-purpose-image">
+                <div class="mylife-purpose" style="background-color: rgba(255,255,255,0.8);">
+                    <h4 class="mylife-purpose-text">人生で辛いときってありますよね</h4>
+                    <h4 class="mylife-purpose-text">そんなときこそ少し休んで</h4>
+                    <h4 class="mylife-purpose-text">同じ今を生きている様々な人の人生をのぞいてみると</h4>
+                    <h4 class="mylife-purpose-text">なにか違ったものが見えてくるかもしれません</h4>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="container">
+                <div class="row mylife-how-row">
+                    <div class="col-md-6">
+                        <h5 class="mylife-how-h">基本的な使い方</h5>
+                        <ul class="mylife-how-ul">
+                            <li class="mylife-how-li">・トップページから気になるユーザーを見つける！</li>
+                            <li class="mylife-how-li">・ユーザーをクリックするとそのユーザーの歴史が分かる！</li>
+                            <li class="mylife-how-li">・タグ検索で見つけたい人を見つけてみる！</li>
+                            <li class="mylife-how-li">・人生バロメーターでそのユーザーの人生をひと目で！</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h5 class="mylife-how-h">会員登録すると…</h5>
+                        <ul class="mylife-how-ul">
+                            <li class="mylife-how-li">・自らの歴史を作成可能に！</li>
+                            <li class="mylife-how-li">・いいと思った歴史をブックマーク！</li>
+                            <li class="mylife-how-li">・気になるユーザーとチャット！</li>
+                            <li class="mylife-how-li">・歴史に対してコメントも可能！</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- 運営者について -->
+        <div id="mylife_introduction" class="about-page-content">
+            <div class="container">
+                <div class="row introduction-row">
+                    <div class="col-md-6">
+                        <h4 class="introduction-header">自己紹介</h4>
+                        <p>名前　阿部空</p>
+                        <p>誕生日　1997年８月</p>
+                        <p>血液型　B型</p>
+                        <p>出生　シンガポール生まれの純日本人</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <%= image_tag 'photo-1515378791036-0648a3ef77b2.jpeg', class:"introduction-image" %>
+                    </div>
+                </div>
+
+                <div class="row introduction-row">
+                    <div class="col-md-6">
+                        <%= image_tag 'loser-55e0dc4548_640.jpg', class:"introduction-image" %>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h4 class="introduction-header">経歴</h4>
+                        <p>高校卒業</p>
+                        <p>約１年間の浪人</p>
+                        <p>浪人失敗</p>
+                        <p>人生について悩む</p>
+                        <p>試行錯誤の末、プログラミングを見つける</p>
+                        <p>アルバイトでお金を貯めて</p>
+                        <p>プログラミングスクールへ！！</p>
+                    </div>
+                </div>
+
+                <div class="row introduction-row">
+                    <div class="col-md-6">
+                        <h4 class="introduction-header">特徴</h4>
+                        <p>自分に対する自信はある。。</p>
+                        <p>何かは成し遂げたい！！</p>
+                        <hr>
+                        <p>海外サッカー好き</p>
+                        <p>洋画、洋ドラ好き</p>
+                        <p>週２〜４くらいのランニング</p>
+                    </div>
+
+                    <div class="col-md-6">
+                        <%= image_tag 'leaves-57e5d2464d_640.jpg', class:"introduction-image" %>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
 
+<!-- tab -->
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            var aboutTabs = document.getElementsByClassName('about-tab');
+            for(var i = 0; i < aboutTabs.length; i++) {
+                aboutTabs[i].addEventListener('click', tabSwitchAbout);
+            }
 
-
-
-
-
-
-<!-- slick （一旦やめる）
-    <script type="text/javascript">
-        (function() {
-            $(function() {
-                $('.slick').slick({
-                    autoplay: true,
-                    dots: true
-                });
-            });
-        })();
-    </script>
--->
+            function tabSwitchAbout() {
+                document.getElementsByClassName('is-active-about')[0].classList.remove('is-active-about');
+                this.classList.add('is-active-about');
+                document.getElementsByClassName('is-show-about')[0].classList.remove('is-show-about');
+                var arrayAboutTabs = Array.prototype.slice.call(aboutTabs);
+                var index = arrayAboutTabs.indexOf(this);
+                document.getElementsByClassName('about-page-content')[index].classList.add('is-show-about');
+            }
+        });
+    })();
+</script>
