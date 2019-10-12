@@ -2,7 +2,8 @@ class BookMarksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @book_marks = current_user.book_marks.page(params[:page]).per(15)
+    # includes
+    @book_marks = current_user.book_marks.page(params[:page]).per(15).includes(history: {user: {profile_image_attachment: :blob}} )
   end
 
   def create
