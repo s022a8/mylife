@@ -95,6 +95,11 @@
         width: 100%;
         height: 180px;
     }
+
+    /* devise-omniauth */
+    .omniauth-facebook-link {
+        font-size: 15px !important;
+    }
 }
 
 @media screen and (max-width:425px) and (min-width:376px) {
@@ -130,5 +135,14 @@
     .history-image {
         width: 100%;
         height: 180px;
+    }
+
+    /* devise-omniauth */
+    .omniauth-facebook-link {
+        font-size: 13px !important;
+    }
+    .omniauth-facebook-image {
+        width: 30px !important;
+        height: 30px !important;
     }
 }

@@ -228,4 +228,18 @@
     box-shadow: 1px 1px 3px rgba(20, 193, 206, 0.729);
 }
 
+/* devise-omniauth */
+.omniauth-facebook {
+    width: 70%;
+    margin: 40px auto;
+    padding: 10px 25px;
+    background-color: rgba(14, 87, 246, 0.861);
+    border-radius: 5px;
+}
+
+.omniauth-facebook-link {
+    font-size: 18px;
+    color: white;
+    vertical-align: middle;
+}
 
