@@ -3,7 +3,8 @@ class TalksController < ApplicationController
 
 
   def index
-    @rooms = current_user.rooms.page(params[:page]).per(10).includes(:entries) #includes
+     #includes
+    @rooms = current_user.rooms.page(params[:page]).per(10).includes(entries: {user: {profile_image_attachment: :blob}})
   end
 
 
