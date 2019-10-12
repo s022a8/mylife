@@ -44,7 +44,8 @@
         <div class="history-content history-content-A">
             <% if @user.histories.any? %>
                 <table class="user-history-table">
-                    <% @user.histories.order(:age).each do |history| %>
+                    <!-- includes -->
+                    <% @user.histories.order(:age).includes(:history_image_attachment).each do |history| %>
                         <tr class="user-history-row">
                             <td width="8%" class="history-index-td" id="booked_count_<%= history.id %>">
                                 <%= render 'book_marks/mark_count', history: history %>
