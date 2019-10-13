@@ -94,6 +94,11 @@
     .omniauth-facebook-image {
         display: none;
     }
+
+    /* about-page */
+    .about-tabs {
+        width: 100% !important;
+    }
 }
 
 
@@ -193,6 +198,29 @@
     .current-user-content {
         max-width: 200px !important;
     }
+
+
+    /* about-page */
+    .mylife-purpose {
+        padding: 40px !important;
+    }
+    .mylife-purpose-text {
+        font-size: 17px !important;
+        margin: 0;
+        display: inline-block;
+        -webkit-writing-mode: vertical-rl;
+        -ms-writing-mode: tb-rl;
+        writing-mode: vertical-rl;
+    }
+    .mylife-purpose-text:nth-child(3), .mylife-purpose-text:nth-child(4) {
+        height: 600px;
+    }
+    .mylife-how-container {
+    
+    }
+    .mylife-how-div {
+        margin-bottom: 50px;
+    }
 }
 
 
@@ -260,6 +288,21 @@
     }
     .talk-button {
         position: static !important;
+    }
+
+    /* about-page */
+    .introduction-row {
+        display: flex;
+        flex-direction:column;
+    }
+    .introduction-content {
+        // width: 100%;
+    }
+    .introduction-content1 {
+        order: 2;
+    }
+    .introduction-content2 {
+        order: 1;
     }
 }
 
