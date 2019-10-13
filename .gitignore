@@ -34,3 +34,7 @@
 #additional gitignore
 .DS_Store
 /vendor/bundle
+
+/.env
+/.env.development
+/.env.production
