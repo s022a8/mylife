@@ -91,6 +91,7 @@ gem 'gon'
 gem 'whenever', require: false
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "omniauth-rails_csrf_protection"
 gem 'dotenv-rails'
 
 
