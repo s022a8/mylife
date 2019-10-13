@@ -59,19 +59,34 @@ class User < ApplicationRecord
   ## omniauth認証
   # findメソッド
   def self.find_for_oauth(auth)
+    puts auth
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
     unless user
       user = User.create(
         uid: auth.uid,
         provider: auth.provider,
-        name: auth.info.name,
+        name: auth.info.name.slice(0, 15),
         email: auth.info.email,
         password: Devise.friendly_token[0, 20]
       )
     end
 
     user
+  end
+
+  # 先にFacebookでユーザ情報が登録されてしまった場合
+  def self.new_with_session(params, session)
+    if session["devise.facebook_data"]
+      super.tap do |user|
+        if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+          user.email = data["email"] if user.email.blank?
+          user.name = data["name"] if user.name.blank?
+        end
+      end
+    else 
+      super
+    end
   end
 
   # omniauth認証したユーザには更新時にパスワードが必要確認
