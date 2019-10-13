@@ -17,23 +17,33 @@
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"devise-edit-field" %>
           </div>
 
-          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <!--
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+          -->
+
+          <% if f.object.password_required? %>
+            <span class="notes">パスワードの変更を行わない場合は、空欄のままで大丈夫です！</span>
+
+            <div class="field devise-edit-field-div">
+              <%= f.label :password, class:"devise-edit-label" %>
+              <%= f.password_field :password, autocomplete: "new-password", 
+                            placeholder:"半角英数6文字以上", class:"devise-edit-field" %>
+            </div>
+
+            <div class="field devise-edit-field-div">
+              <%= f.label :password_confirmation, class:"devise-edit-label" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", 
+                                placeholder:"半角英数6文字以上", class:"devise-edit-field" %>
+            </div>
+          <% else %>
+            <div style="margin-top:30px; padding:12px; background-color: rgba(190, 187, 187, 0.2);">
+              <p>FaceBookで登録したユーザーはパスワードに関する変更は行えません。</p>
+              <p><small>また、退会を行った場合はこのサイト上からアカウントは正常に削除されますが</small></p>
+              <p><small>再度、FaceBookでログインを行うことで同一のアカウントが新規に作成されます。</small></p>
+            </div>
           <% end %>
-
-          <span class="notes">パスワードの変更を行わない場合は、空欄のままで大丈夫です！</span>
-
-          <div class="field devise-edit-field-div">
-            <%= f.label :password, class:"devise-edit-label" %>
-            <%= f.password_field :password, autocomplete: "new-password", 
-                          placeholder:"半角英数6文字以上", class:"devise-edit-field" %>
-          </div>
-
-          <div class="field devise-edit-field-div">
-            <%= f.label :password_confirmation, class:"devise-edit-label" %>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", 
-                              placeholder:"半角英数6文字以上", class:"devise-edit-field" %>
-          </div>
 
         </div>
 
@@ -52,13 +62,15 @@
       </div>
 
       <div class="row">
-          <div class="col-md-3 col-md-offset-3">
-          <div class="field current-password">
-            <%= f.label :current_password, '現在のパスワードを入力', class:"devise-label" %><br />
-            <%= f.password_field :current_password, autocomplete: "current-password", 
-                                              placeholder:"半角英数6文字以上" %>
-          </div>
-          </div>
+        <div class="col-md-3 col-md-offset-3">
+          <% if f.object.password_required? %>
+            <div class="field current-password">
+              <%= f.label :current_password, '現在のパスワードを入力', class:"devise-label" %><br />
+              <%= f.password_field :current_password, autocomplete: "current-password", 
+                                                placeholder:"半角英数6文字以上" %>
+            </div>
+          <% end %>
+        </div>
 
           <div class="col-md-3 actions devise-edit-button-field">
             <%= f.submit "更新", class:"devise-edit-button" %>
@@ -67,16 +79,13 @@
 
     <% end %>
 
-
-
-
-    <% if false %>
+    <!--
       <h3>Cancel my account</h3>
 
       <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
       <%= link_to "Back", :back %>
-    <% end %>
+    -->
   </div>
 
 

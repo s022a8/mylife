@@ -37,11 +37,11 @@
             <%= f.label :password, class:"devise-label" %>
           </div>
 
-          <% if false %>
+          <!-- 
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %>文字以上)</em>
             <% end %>
-          <% end %>
+          -->
 
           <div class="col-md-5 devise-field-container col-xs-8">
             <%= f.password_field :password, autocomplete: "new-password", 
@@ -69,7 +69,8 @@
     
     <% end %>
 
-    <%#= render "users/shared/links" %>
+    <!-- omniauth -->
+    <%= render "users/shared/links" %>
 
     <hr>
 

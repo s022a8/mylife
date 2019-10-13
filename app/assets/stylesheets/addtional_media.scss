@@ -53,15 +53,6 @@
         width: 100%;
         height: 150px;
     }
-
-
-    /* about-page */
-    .mylife-purpose-text {
-        font-size: 17px !important;
-    }
-    .mylife-how-container {
-        width: 100% !important;
-    }
 }
 
 @media screen and (max-width:768px) and (min-width:426px) {
@@ -105,15 +96,9 @@
         height: 180px;
     }
 
-    /* about-page */
-    .mylife-purpose-text {
-        font-size: 17px !important;
-    }
-    .mylife-how-container {
-        width: 100% !important;
-    }
-    .mylife-how-div {
-        margin-bottom: 50px;
+    /* devise-omniauth */
+    .omniauth-facebook-link {
+        font-size: 15px !important;
     }
 }
 
@@ -150,5 +135,14 @@
     .history-image {
         width: 100%;
         height: 180px;
+    }
+
+    /* devise-omniauth */
+    .omniauth-facebook-link {
+        font-size: 13px !important;
+    }
+    .omniatuh-facebook > img {
+        width: 30px !important;
+        height: 30px !important;
     }
 }
