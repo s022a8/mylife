@@ -1,5 +1,9 @@
 <div class="talk-show">
     <div class="room-name">
+        <h5>
+            <%= link_to 'トーク一覧へ', talks_path, class:"talk-back-text" %>
+        </h5>
+        <hr>
         <h3>
             <%= @entry0.name unless @entry0.name == current_user.name %>
             
@@ -7,42 +11,12 @@
         </h3>
     </div>
 
-    <div class="room-message-container" style="height: 580px; overflow:scroll">
-        <% if @messages.present? %>
-            <% @messages.each do |m| %>
-                <% if m.user == current_user %>
-                    <div class="user-message current-user-message row">
-                        <div class="current-user-content" 
-                            style="width:calc(<%= m.content.length %>*30px); float:right; text-align:center; max-width:500px; padding:5px 10px;">
-                            <%= m.content %>
-                        </div>
-                    </div>
-                <% else %>
-                    <div class="user-message talk-user-message row">
-                        <div class="col-md-2 col-xs-2" style="text-align:right;">
-                            <span class="talk-user-name"><%= m.user.name %></span></br>
-
-                            <% if m.user.profile_image.attached? %>
-                                <%= image_tag m.user.profile_image, size:'45x45', class:"talk-user-image" %>
-                            <% else %>
-                                <%= image_tag 'blank-profile-picture-973460_640.png', size:'45x45', class:"talk-user-image" %>
-                            <% end %>
-                        </div>
-                        <div class="col-md-10 col-xs-9 media-each-his-message" 
-                            style="padding:5px 10px; border: 1px solid rgba(138, 138, 138, 0.6); 
-                                border-radius: 20px; width:calc(<%= m.content.length %>*30px); max-width:500px;">
-                            <%= m.content %>
-                        </div>
-                    </div>
-                <% end %>
-            <% end %>
-        <% else %>
-            <h4>メッセージはまだありません</h4>
-        <% end %>
+    <div id="room_message_container" class="room-message-container" style="height: 580px; overflow:scroll">
+        <%= render 'room_message_container', messages: @messages %>
     </div>
 
     <div class="make-message">
-        <%= form_for(@message, url: talk_messages_path(@room.id)) do |f| %>
+        <%= form_for(@message, url: talk_messages_path(@room.id), remote: true) do |f| %>
             <%= f.text_area :content, placeholder: "140字以内で入力してください", cols:"80" %>
             <%= f.submit "送信", class:"talk-button" %>
         <% end %>
