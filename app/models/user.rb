@@ -89,8 +89,14 @@ class User < ApplicationRecord
     end
   end
 
-  # omniauth認証したユーザには更新時にパスワードが必要確認
+  # trueならパスワードに関するバリデーションを行う（override）
+  # 元々は新しいレコードであるか、passwordかpassword_confirmationの値がからでないならバリデーションを行う
   def password_required?
     provider.blank? && super
+  end
+
+  # SNS認証で登録したユーザーならfalseを返す
+  def omniauth_login_user?
+    provider.blank?
   end
 end
