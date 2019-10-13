@@ -1,0 +1,31 @@
+<% if messages.present? %>
+    <% messages.each do |m| %>
+        <% if m.user == current_user %>
+            <div class="user-message current-user-message row">
+                <div class="current-user-content" 
+                    style="width:calc(<%= m.content.length %>*30px); float:right; text-align:center; max-width:500px; padding:5px 10px;">
+                    <%= m.content %>
+                </div>
+            </div>
+        <% else %>
+            <div class="user-message talk-user-message row">
+                <div class="col-md-2 col-xs-2" style="text-align:right;">
+                    <span class="talk-user-name"><%= m.user.name %></span></br>
+
+                    <% if m.user.profile_image.attached? %>
+                        <%= image_tag m.user.profile_image, size:'45x45', class:"talk-user-image" %>
+                    <% else %>
+                        <%= image_tag 'blank-profile-picture-973460_640.png', size:'45x45', class:"talk-user-image" %>
+                    <% end %>
+                </div>
+                <div class="col-md-10 col-xs-9 media-each-his-message" 
+                    style="padding:5px 10px; border: 1px solid rgba(138, 138, 138, 0.6); 
+                        border-radius: 20px; width:calc(<%= m.content.length %>*30px); max-width:500px;">
+                    <%= m.content %>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+<% else %>
+    <h4>メッセージはまだありません</h4>
+<% end %>

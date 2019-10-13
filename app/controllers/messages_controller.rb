@@ -8,7 +8,12 @@ class MessagesController < ApplicationController
         if Entry.where(user_id: current_user.id, room_id: roomId).present?
             @message = current_user.messages.build(message_params.merge(room_id: roomId))
             if @message.save
-                redirect_to talk_path(roomId)
+                @messages = Room.find(roomId).messages
+                respond_to do |format|
+                    format.html { redirect_to talk_path(roomId) }
+                    format.js
+                end
+                # redirect_to talk_path(roomId)
             else
                 flash.now[:alert] = "メッセージが長すぎます。140文字以内にしてください。"
 
