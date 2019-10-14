@@ -3,8 +3,9 @@
     
     <div class="talking-users">
         <div class="container">
-            <% @rooms.each do |room| %>
-                <% room.entries.each do |entry| %>
+            <%# @rooms.each do |room| %>
+            <% @active_all_messages.each do |msg| %>
+                <% msg.room.entries.each do |entry| %>
                     <% unless entry.user.id == current_user.id %>
                         <div class="row talking-user">
                             <div class="col-md-1 col-md-offset-1">

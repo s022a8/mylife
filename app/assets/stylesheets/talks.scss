@@ -33,6 +33,18 @@
 
 .talk-user-message {
     padding: 8px 8px !important;
+    margin-bottom: 30px;
+}
+
+.message-date {
+    font-size: 7px;
+    margin-bottom: 15px;
+}
+
+.message-date-container::after {
+    content: "";
+    clear: both;
+    display: block;
 }
 
 .current-user-message {
@@ -44,6 +56,11 @@
     background-color: rgba(125, 209, 61, 0.576);
     border-radius: 20px;
 }
+
+// .current-user-message::after {
+//     content: "";
+//     clear: both;
+// }
 
 .talk-user-name {
     display: inline-block;

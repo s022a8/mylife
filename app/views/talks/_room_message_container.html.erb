@@ -7,10 +7,13 @@
                     <%= m.content %>
                 </div>
             </div>
+            <div class="message-date-container">
+                <span class="message-date" style="float:right;"><%= m.created_at.strftime('%m/%d %H:%M') %></span>
+            </div>
         <% else %>
             <div class="user-message talk-user-message row">
                 <div class="col-md-2 col-xs-2" style="text-align:right;">
-                    <span class="talk-user-name"><%= m.user.name %></span></br>
+                    <span class="talk-user-name"><%= m.user.name %></span><br>
 
                     <% if m.user.profile_image.attached? %>
                         <%= image_tag m.user.profile_image, size:'45x45', class:"talk-user-image" %>
@@ -20,8 +23,11 @@
                 </div>
                 <div class="col-md-10 col-xs-9 media-each-his-message" 
                     style="padding:5px 10px; border: 1px solid rgba(138, 138, 138, 0.6); 
-                        border-radius: 20px; width:calc(<%= m.content.length %>*30px); max-width:500px;">
+                        border-radius: 20px; width:calc(<%= m.content.length %>*30px); max-width:500px; position:relative;">
                     <%= m.content %>
+                    <!--<div class="message-date-container">-->
+                        <span class="message-date" style="width:100px; position:absolute; bottom:-35px; left:90%;"><%= m.created_at.strftime('%m/%d %H:%M') %></span>
+                    <!--</div>-->
                 </div>
             </div>
         <% end %>

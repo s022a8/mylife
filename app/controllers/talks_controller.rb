@@ -3,8 +3,38 @@ class TalksController < ApplicationController
 
 
   def index
-     #includes
-    @rooms = current_user.rooms.page(params[:page]).per(10).includes(entries: {user: {profile_image_attachment: :blob}})
+    # コメントの最新順に部屋を並べる
+    @rooms = current_user.rooms.page(params[:page]).per(8)
+    all_messages = []
+    all_room_id = []
+    @rooms.each do |room|
+      room_id = room.id
+      if room.messages.nil?
+        all_room_id << room_id
+      else
+        room.messages.each do |msg|
+          if !all_room_id.include?(room_id)
+            all_room_id << room_id
+            all_messages << msg
+          end
+            all_messages.each do |each_msg|
+              if each_msg.room.id == msg.room.id
+                if msg.created_at > each_msg.created_at
+                  all_messages.delete(each_msg)
+                  all_messages << msg
+                end
+              end
+            end
+        end
+      end
+    end
+    @active_all_messages = Message.where(id: all_messages.map{ |msg| msg.id })
+    @active_all_messages.order(:created_at)
+
+
+
+    # includes
+    # @rooms = current_user.rooms.page(params[:page]).per(10).includes(entries: {user: {profile_image_attachment: :blob}})
   end
 
 
