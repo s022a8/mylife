@@ -15,6 +15,7 @@
         <%= render 'room_message_container', messages: @messages %>
     </div>
 
+    <div id="ajax_result"></div>
     <div class="make-message">
         <%= form_for(@message, url: talk_messages_path(@room.id), remote: true) do |f| %>
             <%= f.text_area :content, placeholder: "140字以内で入力してください", cols:"80" %>

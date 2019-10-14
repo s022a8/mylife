@@ -34,6 +34,7 @@
 
             <hr>
 
+            <div id="ajax_result"></div>
             <div class="comment-form">
                 <%= form_for(@comment, url: history_comments_path(@history.id), remote: true) do |f| %>
                     <%= f.text_field :body, placeholder:"35文字以内で入力してください。", size:'70' %>
