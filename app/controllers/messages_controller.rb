@@ -15,18 +15,23 @@ class MessagesController < ApplicationController
                 end
                 # redirect_to talk_path(roomId)
             else
-                flash.now[:alert] = "メッセージが長すぎます。140文字以内にしてください。"
+                respond_to do |format|
+                    format.html { 
+                        flash.now[:alert] = "メッセージが長すぎます。140文字以内にしてください。"
 
-                @room = Room.find(roomId)
-                #ルーム内のユーザー取り出し
-                @room.entries.each_with_index do |entry, i|
-                    var = "@entry#{i}"
-                    value = "entry.user"
-                    eval("#{var} = #{value}")
+                        @room = Room.find(roomId)
+                        #ルーム内のユーザー取り出し
+                        @room.entries.each_with_index do |entry, i|
+                            var = "@entry#{i}"
+                            value = "entry.user"
+                            eval("#{var} = #{value}")
+                        end
+                        @messages = @room.messages
+
+                        render 'talks/show'
+                    }
+                    format.js { render 'error_message' }
                 end
-                @messages = @room.messages
-
-                render 'talks/show'
             end
         end
     end

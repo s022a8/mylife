@@ -1,1 +1,3 @@
 $('#comment_table').html("<%= escape_javascript(render('comments/comment_table', comments: @comments)) %>");
+$('#comment_body').val('');
+$('#ajax_result').remove();

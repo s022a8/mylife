@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       history: 歴史
+      message: メッセージ
+      comment: コメント
     attributes:
       history:
         age: 年齢
@@ -11,4 +13,8 @@ ja:
       sub_events:
         part: 「関連すること・もの」のタイトル
         detail: 「関連すること・もの」の内容
-        
+      comment:
+        body: コメント内容
+      message:
+        content: メッセージの内容
+      

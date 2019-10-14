@@ -3,8 +3,8 @@ class CommentsController < ApplicationController
 
     def create
         @history = History.find(params[:history_id])
-        comment = current_user.comments.build(comment_params.merge(history_id: @history.id))
-        if comment.save
+        @now_comment = current_user.comments.build(comment_params.merge(history_id: @history.id))
+        if @now_comment.save
             @comments = @history.comments
             respond_to do |format|
                 format.html { redirect_to user_history_path(@history.user.id, @history.id) }
@@ -12,11 +12,16 @@ class CommentsController < ApplicationController
             end
             #redirect_to user_history_path(@history.user.id, @history.id)
         else
-            @user = @history.user
-            @comment = Comment.new
-            @comments = @history.comments
-            flash.now[:alert] = "コメントできませんでした。文字がからであるか、文字数が多すぎます。"
-            render 'histories/show'
+            respond_to do |format|
+                format.html {
+                    @user = @history.user
+                    @comment = Comment.new
+                    @comments = @history.comments
+                    flash.now[:alert] = "コメントできませんでした。文字がからであるか、文字数が多すぎます。"
+                    render 'histories/show'
+                }
+                format.js { render 'error_message' }
+            end
         end
     end
 

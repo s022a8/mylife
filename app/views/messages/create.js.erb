@@ -1,2 +1,3 @@
 $('#room_message_container').html("<%= escape_javascript(render('talks/room_message_container', messages: @messages)) %>");
 $('#message_content').val('');
+$('#ajax_result').remove();
