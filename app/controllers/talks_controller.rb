@@ -4,7 +4,7 @@ class TalksController < ApplicationController
 
   def index
     # コメントの最新順に部屋を並べる
-    @rooms = current_user.rooms.page(params[:page]).per(8)
+    @rooms = current_user.rooms
     all_messages = []
     all_room_id = []
     @rooms.each do |room|
@@ -19,7 +19,7 @@ class TalksController < ApplicationController
           end
             all_messages.each do |each_msg|
               if each_msg.room.id == msg.room.id
-                if msg.created_at > each_msg.created_at
+                if msg.created_at.to_i > each_msg.created_at.to_i
                   all_messages.delete(each_msg)
                   all_messages << msg
                 end
@@ -28,10 +28,8 @@ class TalksController < ApplicationController
         end
       end
     end
-    @active_all_messages = Message.where(id: all_messages.map{ |msg| msg.id })
-    @active_all_messages.order(:created_at)
-
-
+    @active_all_messages = Message.where(id: all_messages.map{ |msg| msg.id }).order(created_at: :desc)
+    
 
     # includes
     # @rooms = current_user.rooms.page(params[:page]).per(10).includes(entries: {user: {profile_image_attachment: :blob}})
