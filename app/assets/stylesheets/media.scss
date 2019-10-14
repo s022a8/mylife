@@ -226,6 +226,10 @@
 
 /* 768px */
 @media screen and (max-width:768px) {
+    .root-users-container > div {
+        width: 100% !important;
+    }
+
     .radio-buttons-media {
         width: 80% !important;
     }
@@ -309,5 +313,19 @@
 
 /* 1024px */
 @media screen and (max-width:1024px) {
+    .animation-area {
+        display: none;
+    }
+    .animation-circles {
+        display: none;
+        position: static;
+    }
+    .animation-circles > li {
+        display: none;
+        position: static;
+    } 
+    .index-page {
+        position: static !important;
+    }
     
 }

@@ -77,9 +77,27 @@
     <div class="pagination-container">
         <%= paginate @users %>
     </div>
+
+    <!-- 背景アニメショーン -->
+    <div class="animation-area">
+        <ul class="animation-circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
 </div>
 
-<!-- js -->
+
+
+<!-- search_js -->
 <script type="text/javascript">
     (function() {
         $(function() {
@@ -96,6 +114,24 @@
                     return;
                 }
             });
+        });
+    })();
+</script>
+
+<!-- focus_js -->
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            var eachUser = document.getElementsByClassName('index-user');
+            for(var i=0, len=eachUser.length; i < len; i++) {
+                eachUser.item(i).addEventListener('mouseover', function() {
+                    this.classList.add('index-focus-user');
+                });
+
+                eachUser.item(i).addEventListener('mouseout', function() {
+                    this.classList.remove('index-focus-user');
+                });
+            }
         });
     })();
 </script>

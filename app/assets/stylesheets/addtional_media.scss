@@ -7,9 +7,9 @@
         margin: 0 0 30px;
         float: left;
     }
-    .index-media-user:nth-child(2n-1) {
-        margin: 0 15px 0 32px;
-    }
+    // .index-media-user:nth-child(2n-1) {
+    //     margin: 0 15px 0 32px;
+    // }
 
     .media-history-memory-link {
         width: 30% !important;
@@ -56,6 +56,16 @@
 }
 
 @media screen and (max-width:768px) and (min-width:426px) {
+    .index-media-user {
+        width: 45%;
+        float: left;
+    }
+
+    // .index-media-user:nth-child(2n-1) {
+    //         margin: 0 15px 0 32px;
+    // }
+
+
     .devise-edit-button-field {
         text-align: center;
     }
