@@ -4,7 +4,8 @@
     <div class="talking-users">
         <div class="container">
             <%# @rooms.each do |room| %>
-            <% @active_all_messages.each do |msg| %>
+            <!-- includes -->
+            <% @active_all_messages.includes(room: {entries: :user}).each do |msg| %>
                 <% msg.room.entries.each do |entry| %>
                     <% unless entry.user.id == current_user.id %>
                         <div class="row talking-user">
@@ -46,3 +47,22 @@
 <div class="back-container" style="margin-bottom:10px; padding-top:10px; border-top: 1px solid rgba(38, 138, 138, 0.5);">
     <%= link_to "プロフィールへ戻る", users_path, class:"back-text" %>
 </div>
+
+
+<!-- javascript -->
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            var talkUser = document.getElementsByClassName('talking-user');
+            for(var i=0, len=talkUser.length; i < len; i++) {
+                talkUser.item(i).addEventListener('mouseover', function() {
+                    this.classList.add('talking-slide');
+                });
+
+                talkUser.item(i).addEventListener('mouseout', function() {
+                    this.classList.remove('talking-slide');
+                });
+            }
+        });
+    })();
+</script>

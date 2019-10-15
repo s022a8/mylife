@@ -7,7 +7,7 @@ class TalksController < ApplicationController
     @rooms = current_user.rooms
     all_messages = []
     all_room_id = []
-    @rooms.each do |room|
+    @rooms.includes(:messages).each do |room| #includes
       room_id = room.id
       if room.messages.nil?
         all_room_id << room_id
@@ -40,7 +40,7 @@ class TalksController < ApplicationController
     @room = Room.find(params[:id])
 
     #ルーム内のユーザー取り出し
-    @room.entries.includes(user: {profile_image_attachment: :blob}).each_with_index do |entry, i| #includes
+    @room.entries.includes(:user).each_with_index do |entry, i| #includes
       var = "@entry#{i}"
       value = "entry.user"
       eval("#{var} = #{value}")
