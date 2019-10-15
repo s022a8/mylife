@@ -13,7 +13,7 @@
                 <!-- 検索フォーム（アカウント名） -->
                 <div id="names_search">
                     <%= form_tag(root_path, method: :get) do %>
-                        <%= text_field_tag :search_names, '', placeholder:"アカウント名で検索", class:"search-form-field" %>
+                        <%= text_field_tag :search_names, '', placeholder:"アカウント名で検索", autofocus: true, class:"search-form-field" %>
                         <%= submit_tag '検索', class:"search-btn" %>
                     <% end %>
                 </div>
@@ -21,7 +21,7 @@
                 <!-- 検索フォーム（タグ） -->
                 <div id="tags_search" class="display-none">
                     <%= form_tag(root_path, method: :get) do %>
-                        <%= text_field_tag :search_tags, '', placeholder:"タグで検索", class:"search-form-field" %>
+                        <%= text_field_tag :search_tags, '', placeholder:"タグで検索", autofocus: true, class:"search-form-field" %>
                         <%= submit_tag '検索', class:"search-btn" %>
                     <% end %>
                 </div>
