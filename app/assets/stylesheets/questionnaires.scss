@@ -17,8 +17,90 @@
 
 
 /* questionnaire-index */ 
+.new-questionnaire-div {
 
+}
+
+.questionnaire-index {
+
+}
+
+.questionnaire-index-container {
+
+}
+
+.each-question {
+
+}
 
 
 
 /* questionnaire-new */
+.questionnaire-header {
+    width: 42%;
+    margin: 0 auto 20px;
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 3px solid rgba(138, 138, 138, 0.2);
+}
+
+.questionnaire-new {
+    padding: 40px 0 20px;
+}
+
+.questionnaire-new-form {
+    padding: 10px 0 50px;
+    text-align: center;
+}
+
+.question-theme {
+    font-size: 23px;
+}
+
+#questionnaire_theme {
+    width: 90%;
+    padding: 8px 20px;
+}
+
+.questionnaire-field {
+    width: 70%;
+    margin: 0 auto !important;
+    padding: 15px 0 5px;
+    font-size: 18px;
+    // border-bottom: 1px solid rgba(138, 138, 138, 0.5);
+}
+
+.questionnaire-field-label {
+    text-align: left;
+}
+
+.questionnaire-field-value {
+
+}
+
+.questionnaire-item-form {
+    margin-top: 30px;
+}
+
+/* nest-form */
+.question-nested-fields {
+
+}
+
+.question-nest-field {
+    text-align: right;
+}
+
+.question-item-label {
+    margin-right: 20px;
+}
+
+.question-nest-field > input {
+    width: 80%;
+    padding: 5px 10px;
+}
+
+.remove-question-item {
+    text-align: left;
+    margin-top: 7px;
+}
