@@ -86,8 +86,15 @@
     border-bottom: 1px solid rgba(100, 198, 240, 0.3);
 }
 
+.main-header-style {
+    padding: 20px 20px 10px;
+    margin: 0;
+}
+
 .header-nav-div {
-    border-right: 1px solid rgba(114, 195, 206, 0.2);
+    font-size: 17px;
+    padding: 10px 20px;
+    // border-right: 1px solid rgba(114, 195, 206, 0.2);
 }
 
 .inline-li {
@@ -96,7 +103,7 @@
 }
 
 .header-nav-link {
-    font-size: 17px;
+    font-size: 18px;
 }
 
 
