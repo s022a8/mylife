@@ -3,8 +3,36 @@ class TalksController < ApplicationController
 
 
   def index
-     #includes
-    @rooms = current_user.rooms.page(params[:page]).per(10).includes(entries: {user: {profile_image_attachment: :blob}})
+    # コメントの最新順に部屋を並べる
+    @rooms = current_user.rooms
+    all_messages = []
+    all_room_id = []
+    @rooms.includes(:messages).each do |room| #includes
+      room_id = room.id
+      if room.messages.nil?
+        all_room_id << room_id
+      else
+        room.messages.each do |msg|
+          if !all_room_id.include?(room_id)
+            all_room_id << room_id
+            all_messages << msg
+          end
+            all_messages.each do |each_msg|
+              if each_msg.room.id == msg.room.id
+                if msg.created_at.to_i > each_msg.created_at.to_i
+                  all_messages.delete(each_msg)
+                  all_messages << msg
+                end
+              end
+            end
+        end
+      end
+    end
+    @active_all_messages = Message.where(id: all_messages.map{ |msg| msg.id }).order(created_at: :desc)
+    
+
+    # includes
+    # @rooms = current_user.rooms.page(params[:page]).per(10).includes(entries: {user: {profile_image_attachment: :blob}})
   end
 
 
@@ -12,7 +40,7 @@ class TalksController < ApplicationController
     @room = Room.find(params[:id])
 
     #ルーム内のユーザー取り出し
-    @room.entries.includes(user: {profile_image_attachment: :blob}).each_with_index do |entry, i| #includes
+    @room.entries.includes(:user).each_with_index do |entry, i| #includes
       var = "@entry#{i}"
       value = "entry.user"
       eval("#{var} = #{value}")
