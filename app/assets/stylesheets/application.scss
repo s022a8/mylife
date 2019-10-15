@@ -243,3 +243,16 @@
     vertical-align: middle;
 }
 
+
+/* font-family */ 
+.header-font {
+    font-family: "header-font";
+    font-weight: bold;
+    font-size: 40px;
+}
+
+@font-face {
+    font-family: "header-font";
+    src: font-url('garto16.ttf');
+}
+

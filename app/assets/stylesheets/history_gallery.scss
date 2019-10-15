@@ -30,6 +30,10 @@
     
 }
 
+.scaleup-history-image {
+    transform: scale(1.5, 1.5);
+}
+
 .history-image-title {
     display: inline-block;
     font-size: 17px;
@@ -38,4 +42,10 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     // margin-bottom: 5px;
+    font-family: "tree-font";
+}
+
+@font-face {
+    font-family: "tree-font";
+    src: font-url('sawarabi-gothic-medium.ttf');
 }

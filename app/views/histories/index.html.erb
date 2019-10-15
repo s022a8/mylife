@@ -47,12 +47,12 @@
                     <!-- includes -->
                     <% @user.histories.order(:age).includes(:history_image_attachment).each do |history| %>
                         <tr class="user-history-row">
-                            <td width="8%" class="history-index-td" id="booked_count_<%= history.id %>">
+                            <td width="4%" class="history-index-td" id="booked_count_<%= history.id %>" style="text-align:center; padding-left:7px;">
                                 <%= render 'book_marks/mark_count', history: history %>
                             </td>
 
                             <% if user_signed_in? %>
-                                <td width="6%" class="history-index-td" id="book_mark_icon_<%= history.id %>">
+                                <td width="5%" class="history-index-td" id="book_mark_icon_<%= history.id %>">
                                     <% if current_user.book_mark?(history) %>
                                         <%= render 'book_marks/not_mark', history: history %>
                                     <% else %>
@@ -61,7 +61,7 @@
                                 </td>
                             <% end %>
 
-                            <td width="8%" class="history-index-td" style="font-size: 17px;">
+                            <td width="7%" class="history-index-td" style="font-size: 15px;">
                                 <%= history.age %>歳
                             </td>
 
@@ -74,10 +74,12 @@
                                 <%= link_to 'もっとみる', user_history_path(@user.id, history.id), data: {"turbolinks": false} %>
                             </td>
 
-                            <td width="7%" class="history-index-td" style="text-align:right;">
+                            <td width="7%" class="history-index-td" style="text-align:right; padding-right:10px;">
                                 <% if user_signed_in? %>
                                     <% if current_user.id == @user.id %>
-                                        <%= link_to '訂正', edit_user_history_path(@user.id, history.id) %>
+                                        <%= link_to edit_user_history_path(@user.id, history.id) do %>
+                                            <%= image_tag 'icon_119330_256.png', size:'30x30', class:"edit-history-icon" %>
+                                        <% end %>
                                     <% end %>
                                 <% end %>
                             </td>
@@ -202,6 +204,25 @@
                     }
                 }
             })
+        });
+    })();
+</script>
+
+
+<!-- js_trans_icon -->
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            var editIcon = document.getElementsByClassName('edit-history-icon');
+            for(var i=0, len=editIcon.length; i < len; i++) {
+                editIcon.item(i).addEventListener('mouseover', function() {
+                    this.classList.add('trans-edit-history-icon');
+                });
+
+                editIcon.item(i).addEventListener('mouseout', function() {
+                    this.classList.remove('trans-edit-history-icon');
+                });
+            }
         });
     })();
 </script>

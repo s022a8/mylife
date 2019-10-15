@@ -27,7 +27,7 @@
     padding: 30px 50px;
     width: 80%;
     margin: 15px auto 40px;
-    // background-color: rgba(211, 205, 191, 0.181);
+    // background-color: rgba(141, 147, 138, 0.065);
     border: 1px solid rgba(138, 138, 138, 0.3);
     border-radius: 15px;
 }
@@ -41,6 +41,7 @@
     // border-collapse: separate;
     // padding: 15px 0 5px;
     border-bottom: 1px solid rgba(138, 138, 138, 0.2);
+    height: 60px;
 }
 
 .user-history {
@@ -49,6 +50,7 @@
 
 .history-index-td {
     padding: 15px 0 5px;
+    font-family: "tree-font";
 }
 
 .add-history-link {
@@ -71,9 +73,12 @@
 }
 
 .history-detail {
-    width: 65%;
+    width: 70%;
     margin: 30px auto 70px;
+    padding: 15px 20px 30px;
     text-align: center;
+    background-color: rgba(111, 117, 116, 0.099);
+    border-radius: 15px;
 }
 
 .history-detail-table {
@@ -81,7 +86,7 @@
 }
 
 .history-detail-tr {
-    
+    font-family: "tree-font";
 }
 
 .history-detail-th {
@@ -99,6 +104,7 @@
     text-align: left;
     padding: 10px 20px 5px;
     border-bottom: 1px dashed rgba(138, 138, 138, 0.2);
+    font-size: 16px;
 }
 
 .history-detail-td:last-child::before {
@@ -208,4 +214,30 @@
     padding: 10px;
     text-align: center;
     border-top: 3px solid rgba(138, 138, 138, 0.5);
+}
+
+
+/* history-improve */
+.user-history-row:nth-child(2n-1) {
+    background-color: rgba(255,255,255,1);
+}
+
+.user-history-row:nth-child(2n) {
+    background-color: rgba(162, 163, 166, 0.127);
+}
+
+.button-box-fix {
+    border: none;
+    background: none;
+}
+
+.trans-edit-history-icon {
+    transform: rotate(-30deg);
+}
+
+
+/* font-family */ 
+@font-face {
+    font-family: "tree-font";
+    src: font-url('sawarabi-gothic-medium.ttf');
 }
