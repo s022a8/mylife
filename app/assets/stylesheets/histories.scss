@@ -50,6 +50,7 @@
 
 .history-index-td {
     padding: 15px 0 5px;
+    font-family: "tree-font";
 }
 
 .add-history-link {
@@ -224,4 +225,11 @@
 
 .trans-edit-history-icon {
     transform: rotate(-30deg);
+}
+
+
+/* font-family */ 
+@font-face {
+    font-family: "tree-font";
+    src: font-url('sawarabi-gothic-medium.ttf');
 }
