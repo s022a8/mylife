@@ -73,9 +73,12 @@
 }
 
 .history-detail {
-    width: 65%;
+    width: 70%;
     margin: 30px auto 70px;
+    padding: 15px 20px 30px;
     text-align: center;
+    background-color: rgba(111, 117, 116, 0.099);
+    border-radius: 15px;
 }
 
 .history-detail-table {
@@ -83,7 +86,7 @@
 }
 
 .history-detail-tr {
-    
+    font-family: "tree-font";
 }
 
 .history-detail-th {
@@ -101,6 +104,7 @@
     text-align: left;
     padding: 10px 20px 5px;
     border-bottom: 1px dashed rgba(138, 138, 138, 0.2);
+    font-size: 16px;
 }
 
 .history-detail-td:last-child::before {
