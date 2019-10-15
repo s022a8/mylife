@@ -18,18 +18,55 @@
 
 /* questionnaire-index */ 
 .new-questionnaire-div {
+    width: 30%;
+    margin: 30px auto 60px;
+    padding: 10px 25px;
+    text-align: center;
+    border: 1px solid rgba(99, 103, 102, 0.106);
+    box-shadow: 1px 1px 3px rgba(114, 117, 127, 0.331);
+    border-radius: 10px;
+    cursor: pointer;
+}
 
+.new-questionnaire-div:hover {
+    background-color: rgba(197, 203, 206, 0.202);
+}
+
+.new-questionnaire-link {
+    font-size: 18px;
 }
 
 .questionnaire-index {
-
+    padding: 40px 0 20px;
 }
 
 .questionnaire-index-container {
-
+    width: 86%;
+    margin: 0 auto;
+    padding: 30px 15px 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(197, 203, 206, 0.412);
 }
 
 .each-question {
+
+}
+
+.questionnaire-theme-index {
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+.questionnaire-each-item-div {
+    display: none;
+}
+
+.questionnaire-each-item-div.watch-items {
+    display: block;
+}
+
+.questionnaire-each-item-content {
 
 }
 

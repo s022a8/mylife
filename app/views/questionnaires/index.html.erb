@@ -1,16 +1,67 @@
 <div class="questionnaire-index">
-    <div class="new-questionnaire-div">
-        <%= link_to 'アンケート作成', new_questionnaire_path %>
-    </div>
+    <h3 class="questionnaire-header" >アンケート一覧</h3>
 
     <div class="questionnaire-index-container">
-        <% @questionnaires.each do |question| %>
-            <div class="each-question">
-                <%= question.theme %>
-                <% question.questionnaire_items.each do |item| %>
-                    <%= item.content %>
-                <% end %>
-            </div>
-        <% end %>
+        <div class="container" style="widh:100%;">
+            <% @questionnaires.each do |question| %>
+                <div class="each-question col-md-6">
+                    <h5 class="questionnaire-theme-index">
+                        <%= question.theme %>
+                    </h5>
+
+                    <div class="questionnaire-each-item-div">
+                        <% question.questionnaire_items.each do |item| %>
+                            <!-- 現在のユーザのこの選択肢への投票数を導く -->
+                            <% if cuq = current_user.users_questionnaires.find_by(questionnaire_item_id: item.id) %>
+                                <% up = cuq.point %>
+                            <% else %>
+                                <% uq = 0 %>
+                            <% end %>
+
+                            <!-- アンケートの選択肢一覧 -->
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <%= select_tag('point', options_for_select(0..5, up)) %>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <!-- この選択肢の投票数 -->
+                                    <% all_point = 0 %>
+                                    <% item.users_questionnaires.each do |uqp| %>
+                                        <% all_point += uqp.point %>
+                                    <% end %>
+                                    <%= all_point %>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <p class="questionnaire-each-item-content"><%= item.content %></p>
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="new-questionnaire-div">
+        <%= link_to 'アンケート作成ページへ', new_questionnaire_path, class:"new-questionnaire-link" %>
     </div>
 </div>
+
+
+<!-- js -->
+<script type="text/javascript">
+    (function() {
+        $(function() {
+
+            var questionThemes = document.getElementsByClassName('questionnaire-theme-index');
+
+            for(var i=0, len=questionThemes.length; i < len; i++) {
+                questionThemes.item(i).addEventListener('click', function() {
+                    this.nextElementSibling.classList.toggle('watch-items');
+                });
+            }
+        });
+    })();
+</script>
