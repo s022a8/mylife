@@ -27,7 +27,7 @@
     padding: 30px 50px;
     width: 80%;
     margin: 15px auto 40px;
-    // background-color: rgba(211, 205, 191, 0.181);
+    // background-color: rgba(141, 147, 138, 0.065);
     border: 1px solid rgba(138, 138, 138, 0.3);
     border-radius: 15px;
 }
@@ -214,6 +214,10 @@
 
 
 /* history-improve */
+.user-history-row:nth-child(2n-1) {
+    background-color: rgba(255,255,255,1);
+}
+
 .user-history-row:nth-child(2n) {
     background-color: rgba(162, 163, 166, 0.127);
 }
