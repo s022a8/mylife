@@ -41,6 +41,7 @@
     // border-collapse: separate;
     // padding: 15px 0 5px;
     border-bottom: 1px solid rgba(138, 138, 138, 0.2);
+    height: 60px;
 }
 
 .user-history {
@@ -208,4 +209,19 @@
     padding: 10px;
     text-align: center;
     border-top: 3px solid rgba(138, 138, 138, 0.5);
+}
+
+
+/* history-improve */
+.user-history-row:nth-child(2n) {
+    background-color: rgba(162, 163, 166, 0.127);
+}
+
+.button-box-fix {
+    border: none;
+    background: none;
+}
+
+.trans-edit-history-icon {
+    transform: rotate(-30deg);
 }

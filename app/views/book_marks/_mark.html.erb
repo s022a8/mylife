@@ -1,6 +1,6 @@
 <%= form_for(current_user.book_marks.build, remote: true) do %>
     <div><%= hidden_field_tag :history_id, history.id %></div>
-    <%= button_tag type:'submit' do %>
-        <%= image_tag 'icon_132280_256.png', size:'15x20' %>
+    <%= button_tag type:'submit', class:"button-box-fix" do %>
+        <%= image_tag 'icon_106220_256.png', size:'15x20' %>
     <% end %>
 <% end %>
