@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :rooms, through: :entries
+  # addtional
+  has_many :questionnaires
+  has_many :users_questionnaires
 
   #activestorage
   has_one_attached :profile_image
