@@ -1,0 +1,2 @@
+class UsersQuestionnaire < ApplicationRecord
+end
