@@ -1,5 +1,5 @@
 class QuestionnairesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :myquestion]
 
   def index
     @questionnaires = Questionnaire.all.order(created_at: :desc)
@@ -23,10 +23,14 @@ class QuestionnairesController < ApplicationController
     @questionnaire = Questionnaire.find(params[:id])
     if @questionnaire.destroy
       flash[:notice] = "正常に削除されました。"
-      redirect_to questionnaires_path
+      redirect_to myquestion_path
     else
-      redirect_to questionnaires_path
+      redirect_to myquestion_path
     end
+  end
+
+  def myquestion
+    @my_questionnaire = current_user.questionnaires
   end
 
 

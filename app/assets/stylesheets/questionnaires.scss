@@ -148,3 +148,43 @@
     text-align: left;
     margin-top: 7px;
 }
+
+
+/* myquestion */ 
+.myquestion {
+    padding: 40px 0 20px;
+}
+
+.each-myquestion {
+    border: 1px solid rgba(82, 84, 85, 0.304);
+    border-radius: 5px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.each-myquestion:hover {
+    background-color: rgba(136, 236, 231, 0.113);
+}
+
+.myquestionnaire-each-item-div {
+    display: none;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background-color: rgba(254, 254, 254, 0.936);
+    border-radius: 5px;
+}
+
+.myquestionnaire-each-item-div.watch-items {
+    display: block;
+}
+
+.question-delete-div {
+    width: 50%;
+    margin: 30px auto 0;
+    text-align: center;
+    padding: 15px 30px;
+}
+
+.question-delete-link {
+    color: red;
+}

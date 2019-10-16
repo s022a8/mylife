@@ -51,6 +51,7 @@ Rails.application.routes.draw do
 
   #QuestionnairesController
   resources :questionnaires, only: [:index, :new, :create, :destroy]
+  get '/questionnaire/mine', to: 'questionnaires#myquestion', as: 'myquestion'
 
   #QuestionnaireItemsController
   patch '/questionnaire/item/update', to: 'questionnaire_items#update'
