@@ -4,13 +4,26 @@
     <div class="questionnaire-index-container">
         <div class="container" style="widh:100%;">
             <% @questionnaires.each do |question| %>
-                <div class="each-question col-md-6">
+                <div class="each-question col-md-10 col-md-offset-1">
                     <h5 class="questionnaire-theme-index">
                         <%= question.theme %>
                     </h5>
 
+                    <!-- 一番投票数のある選択肢を探す -->
+                    <% all_votes = {} %>
+                    <% question.questionnaire_items.each do |item| %>
+                        <!-- この選択肢の投票数 -->
+                        <% all_point = 0 %>
+                        <% item.users_questionnaires.each do |uqp| %>
+                            <% all_point += uqp.point %>
+                        <% end %>
+
+                        <% all_votes[item] = all_point %>
+                    <% end %>
+                    <% max_vote = all_votes.max{ |x, y| x[1] <=> y[1] } %>
+
                     <div class="questionnaire-each-item-div">
-                        <% question.questionnaire_items.each do |item| %>
+                        <% question.questionnaire_items.each.with_index(1) do |item, i| %>
                             <!-- 現在のユーザのこの選択肢への投票数を導く -->
                             <% if cuq = current_user.users_questionnaires.find_by(questionnaire_item_id: item.id) %>
                                 <% up = cuq.point %>
@@ -19,25 +32,47 @@
                             <% end %>
 
                             <!-- アンケートの選択肢一覧 -->
-                            <div class="row">
-                                <div class="col-md-2">
+                            <div class="row" style="margin-bottom:25px; border-bottom:1px dashed rgba(147, 157, 158, 0.3);">
+                                <div class="col-md-1">
+                                    <span >No.<%= i %></span>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <p class="questionnaire-each-item-content"><%= item.content %></p>
+                                </div>
+
+                                <div class="col-md-1">
                                     <%= select_tag('point', options_for_select(0..5, up)) %>
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <!-- この選択肢の投票数 -->
                                     <% all_point = 0 %>
                                     <% item.users_questionnaires.each do |uqp| %>
                                         <% all_point += uqp.point %>
                                     <% end %>
-                                    <%= all_point %>
-                                </div>
 
-                                <div class="col-md-7">
-                                    <p class="questionnaire-each-item-content"><%= item.content %></p>
+                                    <!-- 一番の選択肢は色変更 -->
+                                    <% if all_point == max_vote[1] %>
+                                        <% if all_point == 0 %>
+                                            <span>
+                                                <%= all_point %>
+                                            </span>
+                                        <% else %>
+                                            <span style="color:red; font-size:18px;">
+                                                <%= all_point %>
+                                            </span>
+                                        <% end %>
+                                    <% else %>
+                                        <span>
+                                            <%= all_point %>
+                                        </span>
+                                    <% end %>
                                 </div>
                             </div>
                         <% end %>
+
+                        <p><small>作成者：<%= question.user.name %></small></p>
                     </div>
                 </div>
             <% end %>

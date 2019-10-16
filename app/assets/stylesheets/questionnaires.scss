@@ -49,17 +49,24 @@
 }
 
 .each-question {
-
+    border: 1px solid rgba(85, 82, 82, 0.304);
+    border-radius: 30px;
+    margin-bottom: 8px;
 }
 
 .questionnaire-theme-index {
     font-size: 20px;
     text-align: center;
     padding: 10px 15px;
+    cursor: pointer;
 }
 
 .questionnaire-each-item-div {
     display: none;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background-color: rgba(147, 157, 158, 0.14);
+    border-radius: 5px;
 }
 
 .questionnaire-each-item-div.watch-items {
