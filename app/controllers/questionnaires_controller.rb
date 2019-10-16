@@ -12,7 +12,7 @@ class QuestionnairesController < ApplicationController
 
   def create
     @questionnaire = current_user.questionnaires.build(questionnaire_params)
-    if @questionnaire.save!
+    if @questionnaire.save
       redirect_to questionnaires_path
     else
       render 'new'

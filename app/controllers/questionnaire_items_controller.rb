@@ -2,7 +2,6 @@ class QuestionnaireItemsController < ApplicationController
     before_action :authenticate_user!
 
     def update
-        # puts 'hello'
         @questionnaire = {}
         @questionnaire_item = QuestionnaireItem.find(params[:question_item_id])
         @questionnaire.merge!("questionnaire_item" => @questionnaire_item)
