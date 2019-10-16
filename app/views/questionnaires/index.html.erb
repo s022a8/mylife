@@ -49,7 +49,7 @@
                                         {id:"item_points_#{item.id}", "data-question":"#{question.id}", "data-question-item":"#{item.id}"}) %>
                                 </div>
 
-                                <div class="col-md-2">
+                                <div class="col-md-2" id="all_point_div">
                                     <!-- この選択肢の投票数 -->
                                     <% all_point = 0 %>
                                     <% item.users_questionnaires.each do |uqp| %>
@@ -63,12 +63,14 @@
                                                 <%= all_point %>
                                             </span>
                                         <% else %>
-                                            <span id="all_point_<%= item.id %>" style="color:red; font-size:18px;">
+                                            <%= image_tag 'icon_153860_256.png', size:'20x20', class:"all-point-icon" %> 
+                                            <span id="all_point_<%= item.id %>" class="max-point-font all-point">
                                                 <%= all_point %>
                                             </span>
                                         <% end %>
                                     <% else %>
-                                        <span id="all_point_<%= item.id %>">
+                                        <%= image_tag 'icon_153860_256.png', size:'20x20', class:"all-point-icon" %> 
+                                        <span id="all_point_<%= item.id %>" class="all-point">
                                             <%= all_point %>
                                         </span>
                                     <% end %>
@@ -144,9 +146,22 @@
                         var allPointIdName = "all_point_%json".replace("%json", data.questionnaire_item.id);
                         var selectTag = document.getElementById(itemIdName);
                         var allPoint = document.getElementById(allPointIdName);
-
                         selectTag.value = data.user_questionnaire.point;
                         allPoint.textContent = data.all_point;
+                        // ペアレントノードの取得
+                        var eachItemRow = allPoint.parentNode.parentNode.parentNode.children;
+                        // ポイントが最大のものにクラスをつける
+                        var maxPoint = 0;
+                        var maxElement;
+                        for(var i=0, len=eachItemRow.length;  i<len-1; i++) {
+                            var eachPoint = eachItemRow[i].lastElementChild.lastElementChild.textContent;
+                            eachItemRow[i].lastElementChild.lastElementChild.classList.remove('max-point-font');
+                            if (eachPoint > maxPoint) {
+                                maxPoint = eachPoint;
+                                maxElement = eachItemRow[i].lastElementChild.lastElementChild;
+                            }
+                        }
+                        maxElement.classList.add('max-point-font');
                     }).fail(function(data) {
                         alert('更新に失敗しました。');
                     });

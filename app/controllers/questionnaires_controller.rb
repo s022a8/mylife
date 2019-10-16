@@ -2,7 +2,7 @@ class QuestionnairesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy]
 
   def index
-    @questionnaires = Questionnaire.all
+    @questionnaires = Questionnaire.all.order(created_at: :desc)
   end
 
   def new
