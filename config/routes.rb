@@ -50,9 +50,10 @@ Rails.application.routes.draw do
   resources :book_marks, only: [:index, :create, :destroy]
 
   #QuestionnairesController
-  resources :questionnaires, only: [:index, :new, :create, :destroy] do
-    resources :questionnaire_items, only: :update
-  end
+  resources :questionnaires, only: [:index, :new, :create, :destroy]
+
+  #QuestionnaireItemsController
+  patch '/questionnaire/item/update', to: 'questionnaire_items#update'
 
   #StaticPagesController
   get '/static_pages/about', to: 'static_pages#about'

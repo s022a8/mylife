@@ -42,7 +42,11 @@
                                 </div>
 
                                 <div class="col-md-1">
-                                    <%= select_tag('point', options_for_select(0..5, up)) %>
+                                    <!-- idを一意にするために各itemのIDを末尾に付与 -->
+                                    <!-- 親要素のquestionnaireのIDをdata属性として持つ -->
+                                    <!-- 自分自身のIDをdata属性として持つ -->
+                                    <%= select_tag('point', options_for_select(0..5, up), 
+                                        {id:"item_points_#{item.id}", "data-question":"#{question.id}", "data-question-item":"#{item.id}"}) %>
                                 </div>
 
                                 <div class="col-md-2">
@@ -55,16 +59,16 @@
                                     <!-- 一番の選択肢は色変更 -->
                                     <% if all_point == max_vote[1] %>
                                         <% if all_point == 0 %>
-                                            <span>
+                                            <span id="all_point_<%= item.id %>">
                                                 <%= all_point %>
                                             </span>
                                         <% else %>
-                                            <span style="color:red; font-size:18px;">
+                                            <span id="all_point_<%= item.id %>" style="color:red; font-size:18px;">
                                                 <%= all_point %>
                                             </span>
                                         <% end %>
                                     <% else %>
-                                        <span>
+                                        <span id="all_point_<%= item.id %>">
                                             <%= all_point %>
                                         </span>
                                     <% end %>
@@ -85,7 +89,7 @@
 </div>
 
 
-<!-- js -->
+<!-- js_click -->
 <script type="text/javascript">
     (function() {
         $(function() {
@@ -95,6 +99,57 @@
             for(var i=0, len=questionThemes.length; i < len; i++) {
                 questionThemes.item(i).addEventListener('click', function() {
                     this.nextElementSibling.classList.toggle('watch-items');
+                });
+            }
+        });
+    })();
+</script>
+
+
+<!-- js_start_ajax -->
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            var selectForms = document.getElementsByName('point');
+
+            for(var i=0, len=selectForms.length; i < len; i++) {
+                selectForms.item(i).addEventListener('change', function() {
+                    var selectVal = this.value;
+                    var questionId = this.getAttribute('data-question');
+                    var questionItemId = this.getAttribute('data-question-item');
+                    
+                    // csrf_tokenに関する記述
+                    $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+                        var token;
+                        if (!options.crossDomain) {
+                        token = $('meta[name="csrf-token"]').attr('content');
+                        if (token) {
+                            return jqXHR.setRequestHeader('X-CSRF-Token', token);
+                        }
+                        }
+                    });
+
+                    // 非同期処理
+                    $.ajax({
+                        type:'PATCH',
+                        url:"/questionnaire/item/update",
+                        data: {
+                            point: selectVal,
+                            question_id: questionId,
+                            question_item_id: questionItemId
+                        },
+                        dataType:'json'
+                    }).done(function(data) {
+                        var itemIdName = "item_points_%json".replace("%json", data.questionnaire_item.id);
+                        var allPointIdName = "all_point_%json".replace("%json", data.questionnaire_item.id);
+                        var selectTag = document.getElementById(itemIdName);
+                        var allPoint = document.getElementById(allPointIdName);
+
+                        selectTag.value = data.user_questionnaire.point;
+                        allPoint.textContent = data.all_point;
+                    }).fail(function(data) {
+                        alert('更新に失敗しました。');
+                    });
                 });
             }
         });
