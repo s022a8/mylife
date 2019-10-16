@@ -86,6 +86,10 @@
         </div>
     </div>
 
+    <div class="pagination-container">
+        <%= paginate @questionnaires %>
+    </div>
+
     <div class="new-questionnaire-div">
         <%= link_to 'アンケート作成ページへ', new_questionnaire_path, class:"new-questionnaire-link" %>
     </div>

@@ -22,8 +22,9 @@
     margin: 30px auto 60px;
     padding: 10px 25px;
     text-align: center;
-    border: 1px solid rgba(99, 103, 102, 0.106);
-    box-shadow: 1px 1px 3px rgba(114, 117, 127, 0.331);
+    background-color: rgba(248, 244, 20, 0.576);
+    border: 2px solid rgba(227, 230, 230, 0.406);
+    box-shadow: 1px 1px 3px rgba(90, 91, 95, 0.331);
     border-radius: 10px;
     cursor: pointer;
 }
@@ -34,6 +35,7 @@
 
 .new-questionnaire-link {
     font-size: 18px;
+    text-decoration: none;
 }
 
 .questionnaire-index {
@@ -45,13 +47,14 @@
     margin: 0 auto;
     padding: 30px 15px 20px;
     border-radius: 8px;
-    border: 1px solid rgba(197, 203, 206, 0.412);
+    // border: 3px solid rgba(197, 203, 206, 0.419);
 }
 
 .each-question {
     border: 1px solid rgba(85, 82, 82, 0.304);
     border-radius: 30px;
-    margin-bottom: 8px;
+    box-shadow: 0 3px 5px rgba(84, 95, 104, 0.514);
+    margin-bottom: 30px;
 }
 
 .questionnaire-theme-index {

@@ -2,7 +2,7 @@ class QuestionnairesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :myquestion]
 
   def index
-    @questionnaires = Questionnaire.all.order(created_at: :desc)
+    @questionnaires = Questionnaire.page(params[:page]).per(12).order(created_at: :desc)
   end
 
   def new
