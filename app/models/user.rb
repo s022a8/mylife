@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :rooms, through: :entries
+  # addtional
+  has_many :questionnaires
+  has_many :users_questionnaires
 
   #activestorage
   has_one_attached :profile_image
@@ -25,8 +28,7 @@ class User < ApplicationRecord
   validate :max_tag_size
 
 
-
-  ##タグの文字数、タグ自体の数のバリデーション
+  ## タグの文字数、タグ自体の数のバリデーション
   def max_tag_size
     errors[:part_list] << "登録数は3つまでです。" if self.part_list.count > 3
     self.part_list.each do |tag|

@@ -4,6 +4,7 @@ ja:
       history: 歴史
       message: メッセージ
       comment: コメント
+      questionnaire: アンケート
     attributes:
       history:
         age: 年齢
@@ -17,4 +18,10 @@ ja:
         body: コメント内容
       message:
         content: メッセージの内容
+      questionnaire:
+        theme: テーマ
+        category: カテゴリー
+        questionnaire_items: アンケート項目
+      questionnaire_items:
+        content: アンケート項目内容
       

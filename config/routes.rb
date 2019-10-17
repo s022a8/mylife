@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'questionnaires/index'
+  get 'questionnaires/new'
   ##Devise関連
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
@@ -46,6 +48,13 @@ Rails.application.routes.draw do
 
   #BookMarksController
   resources :book_marks, only: [:index, :create, :destroy]
+
+  #QuestionnairesController
+  resources :questionnaires, only: [:index, :new, :create, :destroy]
+  get '/questionnaire/mine', to: 'questionnaires#myquestion', as: 'myquestion'
+
+  #QuestionnaireItemsController
+  patch '/questionnaire/item/update', to: 'questionnaire_items#update'
 
   #StaticPagesController
   get '/static_pages/about', to: 'static_pages#about'

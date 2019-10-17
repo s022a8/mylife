@@ -26,6 +26,13 @@ set :environment, Rails.env.to_sym
 #実行logの出力先
 set :output, "#{Rails.root.to_s}/log/cron.log"
 
+
+# 違反コメントの削除（６時間おき）
 every 6.hours do
     rake "user_comment:delete"
+end
+
+# １ヶ月たったアンケートの削除（１日おき）
+every 24.hours do
+    rake "user_questionnaire:expire"
 end

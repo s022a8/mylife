@@ -110,6 +110,13 @@
     .omniauth-facebook-link {
         font-size: 15px !important;
     }
+
+
+    /* questionnaire */
+    .new-questionnaire-div {
+        width: 50% !important;
+    }
+
 }
 
 @media screen and (max-width:425px) and (min-width:376px) {
@@ -154,5 +161,18 @@
     .omniatuh-facebook > img {
         width: 30px !important;
         height: 30px !important;
+    }
+
+    /* ruestionnaire */
+    .questionnaire-theme-index {
+        font-size: 15px !important;
+    }
+
+    .questionnaire-header {
+        font-size: 17px !important;
+    }
+
+    .questionnaire-each-item-content {
+        font-size: 12px !important;
     }
 }

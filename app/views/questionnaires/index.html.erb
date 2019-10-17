@@ -1,0 +1,230 @@
+<!-- 検索フォーム -->
+<div class="question-search" style="width:100%;">
+    <div class="row">
+        <!-- アイコンをコメントアウト中
+            <div class="search-icon">
+                <%= image_tag 'icon_150050_256.png', size:'20x20' %>
+            </div>
+        -->
+
+        <div class="question-search-div" style="margin-top:8px;">
+            <!-- 検索フォーム（アカウント名） -->
+            <div id="names_search">
+                <%= form_tag(questionnaires_path, method: :get) do %>
+                    <%= text_field_tag :search_categories, '', placeholder:"カテゴリーで検索", autofocus: true, class:"search-form-field" %>
+                    <%= submit_tag '検索', class:"search-btn q-search-btn" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="questionnaire-index">
+    <h3 class="questionnaire-header" >アンケート一覧</h3>
+
+    <div class="questionnaire-index-container">
+        <div class="container" style="width:100%;">
+            <% @questionnaires.each do |question| %>
+                <div class="each-question col-md-10 col-md-offset-1">
+                    <h5 class="questionnaire-theme-index">
+                        <%= question.theme %>
+                    </h5>
+
+                    <!-- 一番投票数のある選択肢を探す -->
+                    <% all_votes = {} %>
+                    <% question.questionnaire_items.each do |item| %>
+                        <!-- この選択肢の投票数 -->
+                        <% all_point = 0 %>
+                        <% item.users_questionnaires.each do |uqp| %>
+                            <% all_point += uqp.point %>
+                        <% end %>
+
+                        <% all_votes[item] = all_point %>
+                    <% end %>
+                    <% max_vote = all_votes.max{ |x, y| x[1] <=> y[1] } %>
+
+                    <div class="questionnaire-each-item-div">
+                        <% question.questionnaire_items.each.with_index(1) do |item, i| %>
+                            <!-- 現在のユーザのこの選択肢への投票数を導く -->
+                            <% if cuq = current_user&.users_questionnaires&.find_by(questionnaire_item_id: item.id) %>
+                                <% up = cuq.point %>
+                            <% else %>
+                                <% uq = 0 %>
+                            <% end %>
+
+                            <!-- アンケートの選択肢一覧 -->
+                            <div class="row" style="margin-bottom:25px; border-bottom:1px dashed rgba(147, 157, 158, 0.3);">
+                                <div class="col-md-1">
+                                    <span >No.<%= i %></span>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <p class="questionnaire-each-item-content"><%= item.content %></p>
+                                </div>
+
+                                <% if user_signed_in? %>
+                                    <div class="col-md-1 col-xs-4">
+                                        <!-- idを一意にするために各itemのIDを末尾に付与 -->
+                                        <!-- 親要素のquestionnaireのIDをdata属性として持つ -->
+                                        <!-- 自分自身のIDをdata属性として持つ -->
+                                        <%= select_tag('point', options_for_select(0..5, up), 
+                                            {id:"item_points_#{item.id}", "data-question":"#{question.id}", "data-question-item":"#{item.id}"}) %>
+                                    </div>
+                                <% end %>
+
+                                <div class="col-md-2 col-xs-4" id="all_point_div">
+                                    <!-- この選択肢の投票数 -->
+                                    <% all_point = 0 %>
+                                    <% item.users_questionnaires.each do |uqp| %>
+                                        <% all_point += uqp.point %>
+                                    <% end %>
+
+                                    <!-- 一番の選択肢は色変更 -->
+                                    <% if all_point == max_vote[1] %>
+                                        <% if all_point == 0 %>
+                                            <%= image_tag 'icon_153860_256.png', size:'20x20', class:"all-point-icon" %> 
+                                            <span id="all_point_<%= item.id %>">
+                                                <%= all_point %>
+                                            </span>
+                                        <% else %>
+                                            <%= image_tag 'icon_153860_256.png', size:'20x20', class:"all-point-icon" %> 
+                                            <span id="all_point_<%= item.id %>" class="max-point-font all-point">
+                                                <%= all_point %>
+                                            </span>
+                                        <% end %>
+                                    <% else %>
+                                        <%= image_tag 'icon_153860_256.png', size:'20x20', class:"all-point-icon" %> 
+                                        <span id="all_point_<%= item.id %>" class="all-point">
+                                            <%= all_point %>
+                                        </span>
+                                    <% end %>
+                                </div>
+                            </div>
+                        <% end %>
+                        
+                        <div class="row">
+                            <div class="col-md-3">
+                                <small>作成者：<%= question.user.name %></small>
+                            </div>
+                            
+                            <div class="col-md-offset-1 col-md-3">
+                                <small>作成日：<%= question.created_at.strftime('%m/%d') %></small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- カテゴリー表示 -->
+                    <% unless question.category.nil? %>
+                        <div class="questionnaire-category">
+                            <p class="questionnaire-category-text"><%= question.category %></p>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="pagination-container">
+        <%= paginate @questionnaires %>
+    </div>
+
+    <% if user_signed_in? %>
+        <div class="new-questionnaire-div">
+            <%= link_to 'アンケート作成ページへ', new_questionnaire_path, class:"new-questionnaire-link" %>
+        </div>
+    <% end %>
+</div>
+
+
+<!-- js_click -->
+<script type="text/javascript">
+    (function() {
+        $(function() {
+
+            var questionThemes = document.getElementsByClassName('each-question');
+
+            for(var i=0, len=questionThemes.length; i < len; i++) {
+                questionThemes.item(i).addEventListener('click', function() {
+                    this.children[1].classList.toggle('watch-items');
+                });
+            }
+        });
+    })();
+</script>
+
+
+<!-- js_start_ajax -->
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            var selectForms = document.getElementsByName('point');
+
+            for(var i=0, len=selectForms.length; i < len; i++) {
+                selectForms.item(i).addEventListener('change', function() {
+                    var selectVal = this.value;
+                    var questionId = this.getAttribute('data-question');
+                    var questionItemId = this.getAttribute('data-question-item');
+                    
+                    // csrf_tokenに関する記述
+                    $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+                        var token;
+                        if (!options.crossDomain) {
+                        token = $('meta[name="csrf-token"]').attr('content');
+                        if (token) {
+                            return jqXHR.setRequestHeader('X-CSRF-Token', token);
+                        }
+                        }
+                    });
+
+                    // 非同期処理
+                    $.ajax({
+                        type:'PATCH',
+                        url:"/questionnaire/item/update",
+                        data: {
+                            point: selectVal,
+                            question_id: questionId,
+                            question_item_id: questionItemId
+                        },
+                        dataType:'json'
+                    }).done(function(data) {
+                        var itemIdName = "item_points_%json".replace("%json", data.questionnaire_item.id);
+                        var allPointIdName = "all_point_%json".replace("%json", data.questionnaire_item.id);
+                        var selectTag = document.getElementById(itemIdName);
+                        var allPoint = document.getElementById(allPointIdName);
+                        selectTag.value = data.user_questionnaire.point;
+                        allPoint.textContent = data.all_point;
+                        // ペアレントノードの取得
+                        var eachItemRow = allPoint.parentNode.parentNode.parentNode.children;
+                        // ポイントが最大のものにクラスをつける
+                        var maxPoint = 0;
+                        var maxElement;
+                        for(var i=0, len=eachItemRow.length;  i<len-1; i++) {
+                            var eachPoint = eachItemRow[i].lastElementChild.lastElementChild.textContent;
+                            eachItemRow[i].lastElementChild.lastElementChild.classList.remove('max-point-font');
+                            if (eachPoint > maxPoint) {
+                                maxPoint = eachPoint;
+                                maxElement = eachItemRow[i].lastElementChild.lastElementChild;
+                            }
+                        }
+                        maxElement.classList.add('max-point-font');
+                    }).fail(function(data) {
+                        alert('更新に失敗しました。');
+                    });
+                });
+            }
+        });
+    })();
+</script>
+
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            var questionItems = document.getElementsByClassName('questionnaire-each-item-div');
+            for(var i=0, len=questionItems.length; i < len; i++) {
+                questionItems[i].addEventListener('click', function(event) {
+                    event.stopPropagation();
+                });
+            }
+        });
+    })();
+</script>

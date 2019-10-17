@@ -1,6 +1,10 @@
 
 /* 320px */
 @media screen and (max-width:320px) {
+    .back-container {
+        width: 75% !important;
+    }
+
     .root-users-container {
         padding: 0 15px !important;
     }
@@ -12,6 +16,14 @@
 
     .message-date {
         left: 60% !important;
+    }
+
+    .questionnaires-link {
+        font-size: 12px !important;
+    }
+
+    .question-delete-link {
+        font-size: 11px !important;
     }
 }
 
@@ -102,6 +114,35 @@
     /* about-page */
     .about-tabs {
         width: 100% !important;
+    }
+
+    /* questionnaitre */
+    .questionnaire-header {
+        font-size: 16px !important;
+    }
+
+    .questionnaire-theme-index {
+        font-size: 14px !important;
+    }
+
+    .new-questionnaire-link {
+        font-size: 14px !important;
+    }
+
+
+    .questionnaire-each-item-content {
+        font-size: 11px !important;
+    }
+
+    .question-nest-field {
+        margin-top: 18px;
+    }
+
+    .questionnaire-item-form > span {
+        width: 93% !important;
+        text-align: center;
+        margin: 0 0 15px 20px;
+        font-size: 10px !important;
     }
 }
 
@@ -225,6 +266,73 @@
     .mylife-how-div {
         margin-bottom: 50px;
     }
+
+    /* questionnaire */
+    .questionnaire-new-form {
+        width: 96% !important;
+    }
+
+    .questionnaires-link {
+        width: 30% !important;
+        font-size: 15px;
+        padding: 8px 10px !important;
+    }
+
+    .question-search-div {
+        margin: 0 !important;
+        width: 100% !important;
+    }
+
+    #search_categories {
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+
+    .q-search-btn {
+        float: right;
+        margin-right: 30px;
+    }
+
+    .new-questionnaire-div {
+        width: 80% !important;
+    }
+
+    /* questionnaire */
+    .questionnaire-category-text {
+        font-size: 12px !important;
+    }
+
+    .question-delete-div {
+        width: 90% !important;
+    }
+
+    .questionnaire-note {
+        width: 90% !important;
+    }
+
+    .question-item-label {
+        width: 50%;
+        display: block;
+        margin-bottom: 3px;
+        text-align: center !important;
+    }
+
+    .note-question {
+        font-size: 10px !important;
+    }
+
+    .question-nested-fields {
+        width: 95% !important;
+        margin: 0 auto;
+    }
+
+    .question-nested-fields > .row {
+        margin: 0;
+    }
+
+    .remove-question-item {
+        text-align: center !important;
+    }
 }
 
 
@@ -311,6 +419,14 @@
     }
     .introduction-content2 {
         order: 1;
+    }
+
+
+    /* questionnaire */
+    .questionnaire-each-item-content {
+        padding: 5px 10px;
+        // border-top: 1px dashed rgba(119, 116, 116, 0.154);
+        border-bottom: 1px dashed rgba(119, 116, 116, 0.154);
     }
 }
 

@@ -6,24 +6,31 @@
         <div class="user-profile-links">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-md-offset-1">
+                    <div class="col-md-3">
                         <%= link_to talks_path, class:"user-profile-link" do %>
                             <%= image_tag 'icon_112180_256.png', size:'25x25' %>
-                            <span>トークルーム一覧へ</span>
+                            <span>トークルーム</span>
                         <% end %>
                     </div>
 
                     <div class="col-md-3">
                         <%= link_to book_marks_path, class:"user-profile-link" do %>
                             <%= image_tag 'icon_159440_256.png', size:'25x25' %>
-                            <span>ブックマーク一覧へ</span>
+                            <span>ブックマーク</span>
                         <% end %>
                     </div>
 
                     <div class="col-md-3">
                         <%= link_to user_histories_path(current_user.id), class:"user-profile-link" do %>
                             <%= image_tag 'icon_102260_256.png', size:'25x25' %>
-                            <span>自分の歴史を見る</span>
+                            <span>自分の歴史</span>
+                        <% end %>
+                    </div>
+
+                    <div class="col-md-3">
+                        <%= link_to myquestion_path, class:"user-profile-link" do %>
+                            <%= image_tag 'icon_113040_256.png', size:'25x25' %>
+                            <span>マイアンケート</span>
                         <% end %>
                     </div>
                 </div>
