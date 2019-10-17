@@ -116,8 +116,12 @@
 }
 
 .questionnaire-new-form {
-    padding: 10px 0 50px;
+    padding: 10px 20px 50px;
     text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    border: 2px solid rgba(92, 97, 105, 0.276);
+    background-color: rgba(235, 231, 231, 0.154);
 }
 
 .question-theme {
@@ -152,6 +156,7 @@
 
 .questionnaire-item-form {
     margin-top: 30px;
+    width: 100% !important;
 }
 
 /* nest-form */

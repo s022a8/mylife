@@ -19,7 +19,7 @@
     }
 
     .questionnaires-link {
-        font-size: 13px !important;
+        font-size: 12px !important;
     }
 
     .question-delete-link {
@@ -132,6 +132,17 @@
 
     .questionnaire-each-item-content {
         font-size: 11px !important;
+    }
+
+    .question-nest-field {
+        margin-top: 18px;
+    }
+
+    .questionnaire-item-form > span {
+        width: 93% !important;
+        text-align: center;
+        margin: 0 0 15px 20px;
+        font-size: 10px !important;
     }
 }
 
@@ -257,6 +268,10 @@
     }
 
     /* questionnaire */
+    .questionnaire-new-form {
+        width: 96% !important;
+    }
+
     .questionnaires-link {
         width: 30% !important;
         font-size: 15px;
@@ -295,8 +310,28 @@
         width: 90% !important;
     }
 
+    .question-item-label {
+        width: 50%;
+        display: block;
+        margin-bottom: 3px;
+        text-align: center !important;
+    }
+
     .note-question {
         font-size: 10px !important;
+    }
+
+    .question-nested-fields {
+        width: 95% !important;
+        margin: 0 auto;
+    }
+
+    .question-nested-fields > .row {
+        margin: 0;
+    }
+
+    .remove-question-item {
+        text-align: center !important;
     }
 }
 
