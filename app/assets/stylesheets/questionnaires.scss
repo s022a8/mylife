@@ -183,6 +183,23 @@
     padding: 40px 0 20px;
 }
 
+.questionnaire-note {
+    width: 50%;
+    margin: 50px auto 0;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: rgba(197, 202, 204, 0.467);
+    border-radius: 8px;
+}
+
+.note-question {
+    margin: 0;
+}
+
+.note-question:first-child {
+    margin-bottom: 10px;
+}
+
 .each-myquestion {
     border: 1px solid rgba(82, 84, 85, 0.304);
     border-radius: 5px;
