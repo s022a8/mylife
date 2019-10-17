@@ -1,7 +1,7 @@
 <div class="myquestion">
     <h3 class="questionnaire-header">マイアンケート</h3>
 
-    <% if @myquestion.nil? %>
+    <% if @my_questionnaire.nil? %>
         <h3 style="width:80%; margin: 60px auto 0; text-align:center;">アンケートは作成されていません。</h3>
     <% else %>
         <div class="questionnaire-index-container">
@@ -97,6 +97,19 @@
             for(var i=0, len=myQuestionContainer.length; i < len; i++) {
                 myQuestionContainer.item(i).addEventListener('click', function() {
                     this.children[1].classList.toggle('watch-items');
+                });
+            }
+        });
+    })();
+</script>
+
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            var myquestionItems = document.getElementsByClassName('myquestionnaire-each-item-div');
+            for(var i=0, len=myquestionItems.length; i < len; i++) {
+                myquestionItems[i].addEventListener('click', function(event) {
+                    event.stopPropagation();
                 });
             }
         });

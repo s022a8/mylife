@@ -46,7 +46,7 @@
                     <div class="questionnaire-each-item-div">
                         <% question.questionnaire_items.each.with_index(1) do |item, i| %>
                             <!-- 現在のユーザのこの選択肢への投票数を導く -->
-                            <% if cuq = current_user.users_questionnaires.find_by(questionnaire_item_id: item.id) %>
+                            <% if cuq = current_user&.users_questionnaires&.find_by(questionnaire_item_id: item.id) %>
                                 <% up = cuq.point %>
                             <% else %>
                                 <% uq = 0 %>
@@ -62,13 +62,15 @@
                                     <p class="questionnaire-each-item-content"><%= item.content %></p>
                                 </div>
 
-                                <div class="col-md-1">
-                                    <!-- idを一意にするために各itemのIDを末尾に付与 -->
-                                    <!-- 親要素のquestionnaireのIDをdata属性として持つ -->
-                                    <!-- 自分自身のIDをdata属性として持つ -->
-                                    <%= select_tag('point', options_for_select(0..5, up), 
-                                        {id:"item_points_#{item.id}", "data-question":"#{question.id}", "data-question-item":"#{item.id}"}) %>
-                                </div>
+                                <% if user_signed_in? %>
+                                    <div class="col-md-1">
+                                        <!-- idを一意にするために各itemのIDを末尾に付与 -->
+                                        <!-- 親要素のquestionnaireのIDをdata属性として持つ -->
+                                        <!-- 自分自身のIDをdata属性として持つ -->
+                                        <%= select_tag('point', options_for_select(0..5, up), 
+                                            {id:"item_points_#{item.id}", "data-question":"#{question.id}", "data-question-item":"#{item.id}"}) %>
+                                    </div>
+                                <% end %>
 
                                 <div class="col-md-2" id="all_point_div">
                                     <!-- この選択肢の投票数 -->

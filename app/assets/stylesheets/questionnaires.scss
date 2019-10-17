@@ -15,6 +15,10 @@
     cursor: pointer;
 }
 
+.questionnaires-link:hover {
+    box-shadow: 1px 1px 5px rgba(106, 107, 113, 0.446);
+}
+
 
 /* questionnaire-index */ 
 .new-questionnaire-div {
@@ -186,14 +190,14 @@
 }
 
 .each-myquestion:hover {
-    background-color: rgba(136, 236, 231, 0.113);
+    box-shadow: 1px 1px 5px rgba(106, 107, 113, 0.446);
 }
 
 .myquestionnaire-each-item-div {
     display: none;
     margin-bottom: 20px;
     padding: 15px 20px;
-    background-color: rgba(254, 254, 254, 0.936);
+    background-color: rgba(139, 136, 136, 0.188);
     border-radius: 5px;
 }
 
@@ -203,9 +207,10 @@
 
 .question-delete-div {
     width: 50%;
-    margin: 30px auto 0;
+    margin: 10px auto 0;
     text-align: center;
     padding: 15px 30px;
+    border-top: 1px solid rgba(83, 83, 83, 0.188);
 }
 
 .question-delete-link {
