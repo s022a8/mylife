@@ -1,5 +1,5 @@
 <!-- 検索フォーム -->
-<div class="question-search">
+<div class="question-search" style="width:100%;">
     <div class="row">
         <!-- アイコンをコメントアウト中
             <div class="search-icon">
@@ -12,7 +12,7 @@
             <div id="names_search">
                 <%= form_tag(questionnaires_path, method: :get) do %>
                     <%= text_field_tag :search_categories, '', placeholder:"カテゴリーで検索", autofocus: true, class:"search-form-field" %>
-                    <%= submit_tag '検索', class:"search-btn" %>
+                    <%= submit_tag '検索', class:"search-btn q-search-btn" %>
                 <% end %>
             </div>
         </div>
@@ -23,7 +23,7 @@
     <h3 class="questionnaire-header" >アンケート一覧</h3>
 
     <div class="questionnaire-index-container">
-        <div class="container" style="widh:100%;">
+        <div class="container" style="width:100%;">
             <% @questionnaires.each do |question| %>
                 <div class="each-question col-md-10 col-md-offset-1">
                     <h5 class="questionnaire-theme-index">
@@ -63,7 +63,7 @@
                                 </div>
 
                                 <% if user_signed_in? %>
-                                    <div class="col-md-1">
+                                    <div class="col-md-1 col-xs-4">
                                         <!-- idを一意にするために各itemのIDを末尾に付与 -->
                                         <!-- 親要素のquestionnaireのIDをdata属性として持つ -->
                                         <!-- 自分自身のIDをdata属性として持つ -->
@@ -72,7 +72,7 @@
                                     </div>
                                 <% end %>
 
-                                <div class="col-md-2" id="all_point_div">
+                                <div class="col-md-2 col-xs-4" id="all_point_div">
                                     <!-- この選択肢の投票数 -->
                                     <% all_point = 0 %>
                                     <% item.users_questionnaires.each do |uqp| %>
