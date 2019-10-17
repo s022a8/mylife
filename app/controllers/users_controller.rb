@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
     ## デフォルトの一覧ページを表示
     else
-      @users = User.order(Arel.sql("RANDOM()")).page(params[:page]).per(12).includes({profile_image_attachment: :blob}, :taggings) # includes
+      @users = User.order(created_at: :desc).page(params[:page]).per(12).includes({profile_image_attachment: :blob}, :taggings) # includes
     end
   end
 

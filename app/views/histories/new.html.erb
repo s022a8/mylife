@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="col-md-7 history-field-value">
-                        <%= s.text_field :event %>
+                        <%= s.text_area :event %>
                     </div>
                 </div>
 
@@ -73,6 +73,6 @@
     <hr>
 
     <div class="back-container" style="margin-bottom: 10px;">
-        <%= link_to "#{@user.name}の歴史へ戻る", user_histories_path(@user.id), class:"back-text" %>
+        <%= link_to "#{@user.name}の歴史へ", user_histories_path(@user.id), class:"back-text" %>
     </div>
 </div>

@@ -25,7 +25,17 @@
     .question-delete-link {
         font-size: 11px !important;
     }
+
+    .devise-button {
+        padding: 10px 15px !important;
+        font-size: 15px !important;
+    }
 }
+
+
+
+/*******************************************************************/
+
 
 
 /* 375px */
@@ -74,6 +84,11 @@
     /* talk-show */
     .room-name > h3 {
         font-size: 13px;
+    }
+
+    /* history */
+    #history_age, #history_barometer {
+        width: 40% !important;
     }
 
     /* user-gallery */
@@ -147,6 +162,11 @@
 }
 
 
+
+/*******************************************************************/
+
+
+
 /* 425px */
 @media screen and (max-width:425px) {
     /* history-index-contentA */ 
@@ -183,6 +203,24 @@
         width: 100%;
         font-size: 11px;
     }
+    
+    #history_event {
+        font-size: 12px !important;
+    }
+
+    .history-field-value > input {
+        font-size: 13px !important;
+        padding: 5px 8px;
+    }
+
+    .nest-field > input:nth-child(3) {
+        font-size: 12px !important;
+    }
+    
+    .nest-field > input:nth-child(7) {
+        font-size: 12px !important;
+    }
+
     /* hostory-show */
     .history-header {
         width: 82%;
@@ -333,7 +371,18 @@
     .remove-question-item {
         text-align: center !important;
     }
+
+    /* nest-field */
+    .links {
+        width: 30% !important;
+    }
 }
+
+
+
+/*******************************************************************/
+
+
 
 
 /* 768px */
@@ -431,8 +480,18 @@
 }
 
 
+
+/*******************************************************************/
+
+
+
+
 /* 1024px */
 @media screen and (max-width:1024px) {
+    .media-history-new {
+        width: 100% !important;
+    }
+
     .animation-area {
         display: none;
     }

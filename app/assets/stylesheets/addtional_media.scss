@@ -53,18 +53,25 @@
         width: 100%;
         height: 150px;
     }
+
+    /* history */
+    .histroy-field-label {
+        font-size: 16px !important;
+        width: 24% !important;
+    }
 }
+
+
+
+/*******************************************************************/
+
+
 
 @media screen and (max-width:768px) and (min-width:426px) {
     .index-media-user {
         width: 45%;
         float: left;
     }
-
-    // .index-media-user:nth-child(2n-1) {
-    //         margin: 0 15px 0 32px;
-    // }
-
 
     .devise-edit-button-field {
         text-align: center;
@@ -118,6 +125,10 @@
     }
 
 }
+
+
+/*******************************************************************/
+
 
 @media screen and (max-width:425px) and (min-width:376px) {
     /* user-edit */
