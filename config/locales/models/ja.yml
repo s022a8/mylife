@@ -20,6 +20,7 @@ ja:
         content: メッセージの内容
       questionnaire:
         theme: テーマ
+        category: カテゴリー
         questionnaire_items: アンケート項目
       questionnaire_items:
         content: アンケート項目内容

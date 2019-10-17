@@ -37,7 +37,7 @@ class QuestionnairesController < ApplicationController
   private
 
     def questionnaire_params
-      params.require(:questionnaire).permit(:theme, 
+      params.require(:questionnaire).permit(:theme, :category,
                 questionnaire_items_attributes: [:id, :_destroy, :content]
               )
     end

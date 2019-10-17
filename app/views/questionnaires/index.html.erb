@@ -81,6 +81,13 @@
 
                         <p><small>作成者：<%= question.user.name %></small></p>
                     </div>
+
+                    <!-- カテゴリー表示 -->
+                    <% unless question.category.nil? %>
+                        <div class="questionnaire-category">
+                            <p class="questionnaire-category-text"><%= question.category %></p>
+                        </div>
+                    <% end %>
                 </div>
             <% end %>
         </div>
@@ -101,11 +108,11 @@
     (function() {
         $(function() {
 
-            var questionThemes = document.getElementsByClassName('questionnaire-theme-index');
+            var questionThemes = document.getElementsByClassName('each-question');
 
             for(var i=0, len=questionThemes.length; i < len; i++) {
                 questionThemes.item(i).addEventListener('click', function() {
-                    this.nextElementSibling.classList.toggle('watch-items');
+                    this.children[1].classList.toggle('watch-items');
                 });
             }
         });

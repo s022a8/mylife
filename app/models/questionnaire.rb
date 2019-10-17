@@ -6,6 +6,7 @@ class Questionnaire < ApplicationRecord
                     reject_if: proc { |attributes| attributes['content'].blank? }, allow_destroy: true
 
     validates :theme, presence: true, length: { maximum: 132, minimum: 2 }
+    validates :category, length: { maximum: 38 }
     validate :max_questionnaire_size
     validate :questionnaire_item_size
 

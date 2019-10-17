@@ -80,6 +80,20 @@
 
 }
 
+.questionnaire-category {
+    width: 70%;
+    margin: 10px auto 10px;
+    text-align: center;
+    padding: 10px 25px;
+    background-color: rgba(163, 192, 192, 0.378);
+    border-radius: 20px;
+}
+
+.questionnaire-category-text {
+    font-size: 15px;
+    margin: 0;
+}
+
 
 
 /* questionnaire-new */
@@ -106,6 +120,11 @@
 
 #questionnaire_theme {
     width: 90%;
+    padding: 8px 20px;
+}
+
+#questionnaire_category {
+    width: 70%;
     padding: 8px 20px;
 }
 
