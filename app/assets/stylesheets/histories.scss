@@ -95,11 +95,6 @@
     font-size: 17px;
 }
 
-// .history-detail-th:last-child::before {
-//     content: " | ";
-//     color: rgba(138, 138, 138, 0.2);
-// }
-
 .history-detail-td {
     text-align: left;
     padding: 10px 20px 5px;
@@ -119,8 +114,12 @@
 }
 
 .history-new-form {
-    padding: 10px 0 50px;
+    padding: 25px 10px 50px;
     text-align: center;
+    width: 83%;
+    margin: 0 auto;
+    border: 2px solid rgba(92, 97, 105, 0.276);
+    background-color: rgba(235, 231, 231, 0.154);
 }
 
 .history-field {
