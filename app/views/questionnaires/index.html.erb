@@ -211,3 +211,16 @@
         });
     })();
 </script>
+
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            var questionItems = document.getElementsByClassName('questionnaire-each-item-div');
+            for(var i=0, len=questionItems.length; i < len; i++) {
+                questionItems[i].addEventListener('click', function(event) {
+                    event.stopPropagation();
+                });
+            }
+        });
+    })();
+</script>
