@@ -1,3 +1,24 @@
+<!-- 検索フォーム -->
+<div class="question-search">
+    <div class="row">
+        <!-- アイコンをコメントアウト中
+            <div class="search-icon">
+                <%= image_tag 'icon_150050_256.png', size:'20x20' %>
+            </div>
+        -->
+
+        <div class="question-search-div" style="margin-top:8px;">
+            <!-- 検索フォーム（アカウント名） -->
+            <div id="names_search">
+                <%= form_tag(questionnaires_path, method: :get) do %>
+                    <%= text_field_tag :search_categories, '', placeholder:"カテゴリーで検索", autofocus: true, class:"search-form-field" %>
+                    <%= submit_tag '検索', class:"search-btn" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="questionnaire-index">
     <h3 class="questionnaire-header" >アンケート一覧</h3>
 
@@ -78,8 +99,16 @@
                                 </div>
                             </div>
                         <% end %>
-
-                        <p><small>作成者：<%= question.user.name %></small></p>
+                        
+                        <div class="row">
+                            <div class="col-md-3">
+                                <small>作成者：<%= question.user.name %></small>
+                            </div>
+                            
+                            <div class="col-md-offset-1 col-md-3">
+                                <small>作成日：<%= question.created_at.strftime('%m/%d') %></small>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- カテゴリー表示 -->

@@ -2,7 +2,25 @@ class QuestionnairesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :myquestion]
 
   def index
-    @questionnaires = Questionnaire.page(params[:page]).per(12).order(created_at: :desc)
+    ## カテゴリー名による検索
+    if params[:search_categories]
+      split_keywords = params[:search_categories].split(/[[:blank:]]+/)
+      array_questions = []
+      split_keywords.each do |keyword|
+        next if keyword == ""
+        tagging_question = Questionnaire.where('category LIKE ?', "%#{keyword}%")
+        tagging_question.each do |question|
+          array_questions << question
+        end
+      end
+      array_questions.uniq!
+      #配列をActiveRecordに変換
+      questions = Questionnaire.where(id: array_questions.map{ |question| question.id })
+      @questionnaires = questions.page(params[:page]).per(12)
+    else
+      # デフォルトの挙動
+      @questionnaires = Questionnaire.page(params[:page]).per(12).order(created_at: :desc)
+    end
   end
 
   def new
