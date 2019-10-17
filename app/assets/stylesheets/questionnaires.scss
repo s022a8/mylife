@@ -26,7 +26,7 @@
     margin: 30px auto 60px;
     padding: 10px 25px;
     text-align: center;
-    background-color: rgba(248, 244, 20, 0.576);
+    background-color: rgba(249, 249, 246, 0.576);
     border: 2px solid rgba(227, 230, 230, 0.406);
     box-shadow: 1px 1px 3px rgba(90, 91, 95, 0.331);
     border-radius: 10px;
@@ -35,6 +35,7 @@
 
 .new-questionnaire-div:hover {
     background-color: rgba(197, 203, 206, 0.202);
+    box-shadow: 0 2px 5px rgba(86, 90, 92, 0.446);
 }
 
 .new-questionnaire-link {

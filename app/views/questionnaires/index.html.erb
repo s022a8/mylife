@@ -128,9 +128,11 @@
         <%= paginate @questionnaires %>
     </div>
 
-    <div class="new-questionnaire-div">
-        <%= link_to 'アンケート作成ページへ', new_questionnaire_path, class:"new-questionnaire-link" %>
-    </div>
+    <% if user_signed_in? %>
+        <div class="new-questionnaire-div">
+            <%= link_to 'アンケート作成ページへ', new_questionnaire_path, class:"new-questionnaire-link" %>
+        </div>
+    <% end %>
 </div>
 
 
