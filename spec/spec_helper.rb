@@ -15,6 +15,8 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'capybara/rspec'
 
+Capybara.default_max_wait_time = 5
+
 RSpec.configure do |config|
   # SystemSpecを実行するドライバの設定
   config.before(:each, type: :system) do

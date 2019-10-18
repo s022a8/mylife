@@ -38,7 +38,7 @@
             <div class="comment-form">
                 <%= form_for(@comment, url: history_comments_path(@history.id), remote: true) do |f| %>
                     <%= f.text_field :body, placeholder:"35文字以内で入力してください。", size:'70' %>
-                    <%= f.submit '投稿', class:"comment-form-btn" %>
+                    <%= f.submit '投稿', class:"comment-form-btn", id:"comment_btn" %>
                 <% end %>
             </div>
         </div>
