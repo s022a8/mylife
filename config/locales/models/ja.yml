@@ -22,6 +22,7 @@ ja:
         theme: テーマ
         category: カテゴリー
         questionnaire_items: アンケート項目
+        questionnaires: アンケート
       questionnaire_items:
         content: アンケート項目内容
       
