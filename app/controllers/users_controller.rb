@@ -36,6 +36,7 @@ class UsersController < ApplicationController
 
     ## デフォルトの一覧ページを表示
     else
+      # 最新の歴史を投稿している順に並べる
       tmp_users = User.all  
       all_histories = []
       all_users = []

@@ -147,35 +147,47 @@
 
 /* history-index-talk-button */
 .talk-room-button-container {
-    width: 14%;
+    width: 30%;
     margin: 0 auto 40px;
     text-align: center;
     padding: 5px 10px 10px;
     // background-color: rgba(104, 186, 230, 0.542);
     border-radius: 3px;
-    // box-shadow: 1px 1px 1px rgba(85, 170, 212, 0.48);
+    box-shadow: 1px 3px 5px rgba(56, 159, 211, 0.48);
+}
+
+.talk-room-button-container:hover {
+    transform: translateY(8px);
+    box-shadow: 1px 1px 2px rgba(56, 159, 211, 0.48);
 }
 
 .talk-link {
-    color: white;
+    // color: white;
     font-size: 18px;
     line-height: 35px;
+    border: none;
 }
 
 .talk-link-div {
-    background-color: rgba(104, 186, 230, 0.542);
-    box-shadow: 1px 1px 1px rgba(85, 170, 212, 0.48);
+    // background-color: rgba(104, 186, 230, 0.542);
+    // box-shadow: 1px 1px 1px rgba(85, 170, 212, 0.48);
 }
 
 .talk-begin-div {
-
+    width: 100%;
 }
 
 .talk-begin-button {
+    width: 100%;
     padding: 10px 20px;
     border-radius: 3px;
     font-size: 18px;
-    box-shadow: 1px 1px 1px rgba(85, 170, 212, 0.48);
+    // box-shadow: 1px 1px 1px rgba(85, 170, 212, 0.48);
+    border: none;
+}
+
+.talk-begin-button:hover {
+    background-color: rgba(185, 222, 241, 0.542);
 }
 
 .talk-back-text {
