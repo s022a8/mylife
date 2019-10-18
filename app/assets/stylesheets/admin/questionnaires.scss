@@ -1,0 +1,22 @@
+// Place all the styles related to the Admin::Questionnaires controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.admin-questionnaire-index {
+    width: 85%;
+    margin: 30px auto 60px;
+    padding: 30px;
+    background-color: rgba(229, 228, 226, 0.793);
+    font-size: 12px;
+}
+
+.admin-questionnaire-container {
+    
+}
+
+.admin-each-question {
+    margin: 20px 0 0;
+    padding: 8px 15px;
+    border: 1px solid rgba(196, 199, 198, 0.619);
+    border-radius: 10px;
+    background-color: rgba(253, 253, 253, 0.868);
+}

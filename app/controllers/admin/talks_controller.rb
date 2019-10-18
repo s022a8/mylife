@@ -7,6 +7,7 @@ class Admin::TalksController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:user_id])
     @room = Room.find(params[:id])
 
     #ルーム内のユーザー取り出し

@@ -15,9 +15,14 @@
             <tr>
                 <td width="5%"><%= sub.id %></td>
                 <td width="30%"><%= sub.part %></td>
-                <td width="55%"><%= sub.detail %></td>
-                <td width="10%"><%= link_to '歴史一覧へ', admin_user_histories_path(sub.history.user.id) %></td>
+                <td width="65%"><%= sub.detail %></td>
             </tr>
         <% end %>
     </table>
+</div>
+
+<div class="admin-back-container">
+    <h3>
+        <%= link_to '歴史一覧に戻る', admin_user_histories_path(@history.user.id) %>
+    </h3>
 </div>
