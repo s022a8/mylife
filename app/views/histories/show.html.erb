@@ -3,25 +3,31 @@
         <span style="font-weight:bold"><%= @history.event %></span> の詳細
     </h3>
 
-    <div class="history-detail">
-        <table class="history-detail-table">
-            <thead>
-                <tr class="history-detail-tr">
-                    <th width="25%" class="history-detail-th">タイトル</th>
-                    <th width="75%" class="history-detail-th">内容</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <% @history.sub_events.each do |sub_event| %>
+    <% if !@history.sub_events.empty? %>
+        <div class="history-detail">
+            <table class="history-detail-table">
+                <thead>
                     <tr class="history-detail-tr">
-                        <td width="25%" class="history-detail-td"><%= sub_event.part %></td>
-                        <td width="75%" class="history-detail-td"><%= sub_event.detail %></td>
+                        <th width="25%" class="history-detail-th">タイトル</th>
+                        <th width="75%" class="history-detail-th">内容</th>
                     </tr>
-                <% end %>
-            </tbody>
-        </table>
-    </div>
+                </thead>
+
+                <tbody>
+                    <% @history.sub_events.each do |sub_event| %>
+                        <tr class="history-detail-tr">
+                            <td width="25%" class="history-detail-td"><%= sub_event.part %></td>
+                            <td width="75%" class="history-detail-td"><%= sub_event.detail %></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    <% else %>
+        <div class="history-show-notes">
+            <h4>この歴史に関連すること・ものは登録されていません。</h4>
+        </div>
+    <% end %>
 
     <!-- コメント機能 -->
     <div class="comment-container">
