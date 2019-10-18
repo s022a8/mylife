@@ -36,7 +36,29 @@ class UsersController < ApplicationController
 
     ## デフォルトの一覧ページを表示
     else
-      @users = User.order(created_at: :desc).page(params[:page]).per(12).includes({profile_image_attachment: :blob}, :taggings) # includes
+      tmp_users = User.all  
+      all_histories = []
+      all_users = []
+      none_history_users = []
+      tmp_users.includes(:histories, {profile_image_attachment: :blob}, :taggings).each do |user| #includes
+        if user.histories.empty?
+          none_history_users << user
+        else
+          # 各ユーザーの最新のhistoryを取り出す
+          all_histories << user.histories.order(created_at: :desc).first
+        end
+      end
+      # 全ユーザーのhistoryを最新順に並べる
+      latest_histories = all_histories.sort { |a, b| (-1) * (a.created_at.to_i <=> b.created_at.to_i) }
+      latest_histories.each do |l_history|
+        all_users << l_history.user
+      end
+
+      # 配列をページネーションに対応させる
+      @users = Kaminari.paginate_array(all_users.concat(none_history_users)).page(params[:page]).per(12)
+
+
+      # @users = User.order(created_at: :desc).page(params[:page]).per(12).includes({profile_image_attachment: :blob}, :taggings) # includes
     end
   end
 
