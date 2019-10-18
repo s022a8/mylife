@@ -114,7 +114,7 @@
                     </div>
 
                     <!-- カテゴリー表示 -->
-                    <% unless question.category.nil? %>
+                    <% unless question.category.blank? %>
                         <div class="questionnaire-category">
                             <p class="questionnaire-category-text"><%= question.category %></p>
                         </div>

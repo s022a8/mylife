@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'questionnaires/index'
+  end
   get 'questionnaires/index'
   get 'questionnaires/new'
   ##Devise関連
@@ -68,7 +71,7 @@ Rails.application.routes.draw do
   #Admin::UsersController
   namespace :admin do
     get '', to: 'users#index'
-    get 'users/:id', to: 'users#show'
+    get 'users/:id', to: 'users#show', as: 'each_user'
     get 'users/:id/warning', to: 'users#warning'
     delete 'users/:id/remove', to: 'users#remove'
   end
@@ -84,6 +87,13 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [] do
       resources :comments, only: [:index, :destroy]
+    end
+  end
+
+  #Admin::QuestionnairesController
+  namespace :admin do
+    resources :users, only: [] do
+      resources :questionnaires, only: [:index, :destroy]
     end
   end
 
