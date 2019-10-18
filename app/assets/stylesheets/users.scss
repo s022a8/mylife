@@ -19,7 +19,13 @@
     margin-bottom: 30px;
     // border: 1px solid rgba(0,0,0,0.5);
     border-radius: 15px;
-    box-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+    box-shadow: 2px 3px 5px rgba(139, 178, 207, 0.338);
+}
+
+.index-user:hover {
+    box-shadow: 3px 5px 8px rgba(51, 137, 202, 0.338);
+    transform: translateY(-15px);
+    background-color: rgba(143, 243, 233, 0.079);
 }
 
 .index-user-name {
