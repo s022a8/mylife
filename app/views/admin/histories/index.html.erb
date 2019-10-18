@@ -16,8 +16,15 @@
                 <td><%= history.id %></td>
                 <td width="75%"><%= history.event %></td>
                 <td><%= link_to '詳細', admin_user_history_path(history.user.id, history.id) %></td>
-                <td><%= link_to '削除', admin_user_history_path(history.user.id, history.id), method: :delete %></td>
+                <td><%= link_to '削除', admin_user_history_path(history.user.id, history.id), 
+                    method: :delete, data: { confirm: "この歴史を削除しますか？" } %></td>
             </tr>
         <% end %>
     </table>
+</div>
+
+<div class="admin-back-container">
+    <h3>
+        <%= link_to 'ユーザー詳細に戻る', admin_each_user_path(@user) %>
+    </h3>
 </div>

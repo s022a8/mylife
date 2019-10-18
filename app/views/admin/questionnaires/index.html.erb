@@ -1,0 +1,37 @@
+<div class="admin-questionnaire-index">
+    <h3 style="font-weight:bold;"><%= @user.name %>のアンケート一覧</h3>
+
+    <div class="admin-questionnaire-container">
+        <% @questionnaires.each do |question| %>
+            <div class="admin-each-question">
+                <h5>テーマ　「　<%= question.theme %>　」</h5>
+                <% unless question.category.nil? %>
+                    <h6>カテゴリー　「　<%= question.category %>　」</h6>
+                <% end %>
+
+                <table class="table">
+                    <% question.questionnaire_items.each do |item| %>
+                        <tr>
+                            <td><%= item.content %></td>
+
+                            <% all_point = 0 %>
+                            <% item.users_questionnaires.each do |iuq| %>
+                                <% all_point += iuq.point %>
+                            <% end %>
+                            <td>得票数　<%= all_point %></td>
+                        </tr>
+                    <% end %>
+                </table>
+
+                <p><%= link_to '削除', admin_user_questionnaire_path(question.user.id, question.id), 
+                    method: :delete, data: { confirm: "このアンケートを削除しますか？" } %></p>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<div class="admin-back-container">
+    <h3>
+        <%= link_to 'ユーザー詳細に戻る', admin_each_user_path(@user) %>
+    </h3>
+</div>

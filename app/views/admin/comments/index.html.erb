@@ -19,9 +19,16 @@
                     <%= link_to '出来事をみる', admin_user_history_path(comment.user.id, comment.history.id) %>
                 </td>
                 <td>
-                    <%= link_to '削除', admin_user_comment_path(comment.user.id, comment.id), method: :delete %>
+                    <%= link_to '削除', admin_user_comment_path(comment.user.id, comment.id), 
+                        method: :delete, data: { confirm: "このコメントを削除しますか？" } %>
                 </td>
             </tr>
         <% end %>
     </table>
+</div>
+
+<div class="admin-back-container">
+    <h3>
+        <%= link_to 'ユーザー詳細に戻る', admin_each_user_path(@user) %>
+    </h3>
 </div>

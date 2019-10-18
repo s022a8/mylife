@@ -19,9 +19,19 @@
                         <span class="profile-user-tag"><%= tag %></span>
                     <% end %>
                 </p>
-                <p style="border-bottom:1px solid rgba(138, 138, 138, 0.2);"><%= link_to '歴史一覧', admin_user_histories_path(@user) %></p>
-                <p style="border-bottom:1px solid rgba(138, 138, 138, 0.2);"><%= link_to 'コメント一覧', admin_user_comments_path(@user) %></p>
-                <p style="border-bottom:1px solid rgba(138, 138, 138, 0.2);"><%= link_to 'トーク一覧', admin_user_talks_path(@user) %></p>
+
+                <p style="border-bottom:1px solid rgba(138, 138, 138, 0.2);">
+                    <%= link_to '歴史一覧', admin_user_histories_path(@user) %>
+                </p>
+                <p style="border-bottom:1px solid rgba(138, 138, 138, 0.2);">
+                    <%= link_to 'コメント一覧', admin_user_comments_path(@user) %>
+                </p>
+                <p style="border-bottom:1px solid rgba(138, 138, 138, 0.2);">
+                    <%= link_to 'トーク一覧', admin_user_talks_path(@user) %>
+                </p>
+                <p style="border-bottom:1px solid rgba(138, 138, 138, 0.2);">
+                    <%= link_to 'アンケート覧', admin_user_questionnaires_path(@user) %>
+                </p>
             </div>
         </div>
     </div>
