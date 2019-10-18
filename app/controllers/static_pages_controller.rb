@@ -4,4 +4,7 @@ class StaticPagesController < ApplicationController
 
   def tos
   end
+
+  def qa
+  end
 end

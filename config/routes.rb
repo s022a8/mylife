@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   #StaticPagesController
   get '/static_pages/about', to: 'static_pages#about'
   get '/static_pages/tos', to: 'static_pages#tos'
+  get '/static_pages/qa', to: 'static_pages#qa'
   
 
 
