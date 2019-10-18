@@ -119,6 +119,12 @@
     position: relative;
 }
 
+.talking-user:hover {
+    transform: translateX(-50px);
+    box-shadow: 3px 3px 1px rgba(52, 147, 207, 0.446);
+    background-color: rgba(184, 214, 231, 0.195);
+}
+
 .talking-user-name {
     font-size: 18px;
     margin-top: 20px;
@@ -192,11 +198,4 @@
 
 .talk-back-text {
     font-size: 18px;
-}
-
-/* js */
-.talking-slide {
-    transform: translateX(-50px);
-    box-shadow: 3px 3px 1px rgba(52, 147, 207, 0.446);
-    background-color: rgba(184, 214, 231, 0.195);
 }
