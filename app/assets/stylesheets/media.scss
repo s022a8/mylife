@@ -159,6 +159,14 @@
         margin: 0 0 15px 20px;
         font-size: 10px !important;
     }
+
+    .talk-link {
+        font-size: 15px !important;
+    }
+
+    .talk-begin-button {
+        font-size: 15px !important;
+    }
 }
 
 
@@ -375,6 +383,11 @@
     /* nest-field */
     .links {
         width: 30% !important;
+    }
+
+    /* history */
+    .talk-room-button-container {
+        width: 50% !important;
     }
 }
 
