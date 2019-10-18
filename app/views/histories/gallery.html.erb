@@ -25,22 +25,3 @@
         <%= link_to "#{@user.name}の歴史へ戻る", user_histories_path(@user.id), class:"back-text" %>
     </div>
 </div>
-
-
-<!-- scaleup_js -->
-<script type="text/javascript">
-    (function() {
-        $(function() {
-            var eachHistoryImage = document.getElementsByClassName('history-image');
-            for(var i=0, len=eachHistoryImage.length; i < len; i++) {
-                eachHistoryImage.item(i).addEventListener('mouseover', function() {
-                    this.classList.add('scaleup-history-image');
-                });
-
-                eachHistoryImage.item(i).addEventListener('mouseout', function() {
-                    this.classList.remove('scaleup-history-image');
-                });
-            }
-        });
-    })();
-</script>
