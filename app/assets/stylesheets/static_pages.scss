@@ -4,7 +4,7 @@
 
 /* about-page */
 .about-page {
-
+    animation: back-image 5s backwards infinite linear;
 }
 
 .about-tab-group {
@@ -24,6 +24,8 @@
     display: inline-block;
     padding: 10px 20px;
     border: 1px solid rgba(0, 0, 0, 0.072);
+    box-shadow: 0 5px 10px rgba(144, 183, 210, 0.773);
+    margin-bottom: 5px;
 }
 
 #mylife_introduction {
@@ -35,7 +37,9 @@
 }
 
 .about-tab.is-active-about {
-    background-color: rgba(114, 195, 206, 0.2);
+    background-color: rgba(20, 200, 224, 0.099);
+    transform: translateX(-15px);
+    transform: scale(1.1, 1.1);
 }
 
 .about-page-content-group {
@@ -148,7 +152,7 @@
 
 
 /***************************************************************************/ 
-/* animation */ 
+/* how-to-animation */ 
 @keyframes fade-in-main-container {
     0% {
         opacity: 0;
@@ -254,5 +258,70 @@
         transform: translateY(0);
         opacity: 1.0;
         border-radius: 0%;
+    }
+}
+
+
+@keyframes back-image {
+    0% {
+        background-color: rgba(154, 216, 230, 0.011);
+    }
+
+    25% {
+        background-color: rgba(119, 222, 229, 0.02);
+    }
+
+    50% {
+        background-color: rgba(85, 148, 216, 0.05);
+    }
+
+    75% {
+        background-color: rgba(119, 222, 229, 0.02);
+    }
+
+    100% {
+        background-color: rgba(154, 216, 230, 0.011);
+    }
+}
+
+
+/***************************************************************************/ 
+/* introduction-animation */ 
+.introduction-row:nth-child(1) {
+    animation: right-in 1s both linear;
+    
+}
+
+.introduction-row:nth-child(2) {
+    animation: left-in 1s both linear;
+    animation-delay: 1.5s;
+}
+
+.introduction-row:nth-child(3) {
+    animation: right-in 1s both linear;
+    animation-delay: 3.0s;
+}
+
+@keyframes right-in {
+    0% {
+        opacity: 0;
+        transform: rotateY(-200deg);
+    }
+
+    100% {
+        opacity: 1.0;
+        transform: rotateY(0);
+    }
+}
+
+@keyframes left-in {
+    0% {
+        opacity: 0;
+        transform: rotateY(200deg);
+    }
+
+    100% {
+        opacity: 1.0;
+        transform: rotateY(0);
     }
 }
