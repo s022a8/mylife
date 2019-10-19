@@ -5,8 +5,8 @@ class HistoriesController < ApplicationController
     @user = User.find(params[:user_id])
     
     ## DM機能に関して
-    @current_user_entry = current_user&.entries.includes(:room) #includes
-    @other_user_entry = @user&.entries.includes(:room) #includes
+    @current_user_entry = current_user&.entries&.includes(:room) #includes
+    @other_user_entry = @user&.entries&.includes(:room) #includes
     # 現在のユーザと対象ユーザの
     # 同じRoomと紐付いているEntryがあるか調べる。
     @current_user_entry&.each do |cue|

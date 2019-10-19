@@ -151,13 +151,15 @@
     background-color: rgba(221, 47, 47, 0.821);
     border-radius: 10px;
     color: white;
-    margin-left: 80px;
+    // margin-left: 80px;
+    display: inline-block;
 }
 
 .return-button {
     padding: 15px 30px;
     border-radius: 10px;
     border: 1px solid rgba(138, 138, 138, 0.5);
+    display: inline-block;
 }
 
 /* プロフィールのリンク（ブックマーク、トーク一覧） */
