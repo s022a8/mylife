@@ -59,9 +59,7 @@
     text-align: center;
     background-image: url(women-3118387_1280.jpg);
     background-position: bottom left;
-    // background-size: cover;
-    // border-radius: 20px;
-    // opacity: 0.5;
+    animation: fade-in-main-container 3s linear;
 }
 .mylife-purpose {
     padding: 30px 50px;
@@ -78,10 +76,20 @@
 .mylife-purpose-text:last-child {
     margin: 0;
 }
+.mylife-purpose-text:hover {
+    animation: hover-main-text 2s ease;
+}
+
+.mylife-how-container {
+    width: 100% !important;
+    animation: popup-howto 2s both ease-out;
+    animation-delay: 1.5s;
+}
 
 .mylife-how-row {
     padding: 20px;
-    background-color: rgba(170, 223, 230, 0.358);
+    background-color: rgba(185, 199, 201, 0.181);
+    box-shadow: 0 3px 5px rgba(84, 77, 77, 0.773);
 }
 .mylife-how-h {
     width: 80%;
@@ -139,5 +147,112 @@
 
 
 
+/***************************************************************************/ 
+/* animation */ 
+@keyframes fade-in-main-container {
+    0% {
+        opacity: 0;
+    }
 
-/* qa */ 
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes hover-main-text {
+    0% {
+
+    }
+
+    10% {
+        transform: skewX(1deg);
+        color: rgba(241, 123, 184, 0.48);
+    }
+
+    20% {
+        transform: skewX(3deg);
+        color: rgba(227, 85, 235, 0.48);
+    }
+
+    30% {
+        transform: skewX(5deg);
+        color: rgba(155, 82, 229, 0.48);
+    }   
+
+    40% {
+        transform: skewX(6deg);
+        color: rgba(71, 63, 229, 0.48);
+    }
+
+    50% {
+        transform: skewX(7deg);
+        color: rgba(76, 179, 211, 0.501);
+    }
+
+    60% {
+        transform: skewX(6deg);
+        color: rgba(63, 224, 216, 0.48);
+    }
+
+    70% {
+        transform: skewX(5deg);
+        color: rgba(36, 219, 103, 0.48);
+    }
+
+    80% {
+        transform: skewX(3deg);
+        color: rgba(161, 211, 55, 0.48);
+    }
+
+    90% {
+        transform: skewX(1deg);
+        color: rgba(219, 118, 36, 0.48);
+    }
+
+    100% {
+        transform: skewX(0deg);
+        color: black;
+    }
+}
+
+@keyframes popup-howto {
+    0% {
+        transform: translateY(1000px);
+        opacity: 0;
+        border-radius: 100%;
+    }
+
+    25% {
+        transform: translateY(800px);
+        opacity: 0.1;
+        border-radius: 75%;
+    }
+
+    50% {
+        transform: translateY(500px);
+        opacity: 0.05;
+        border-radius: 50%;
+    }
+
+    75% {
+        transform: translateY(250px);
+        opacity: 0.1;
+        border-radius: 25%;
+    }
+
+    90% {
+        transform: translateY(0);
+        opacity: 0.15;
+        border-radius: 10%;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1.0;
+        border-radius: 0%;
+    }
+}
