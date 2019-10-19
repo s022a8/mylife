@@ -61,7 +61,7 @@ class User < ApplicationRecord
   ## omniauth認証
   # findメソッド
   def self.find_for_oauth(auth)
-    puts auth
+    # puts auth
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
     unless user
