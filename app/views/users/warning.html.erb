@@ -4,14 +4,14 @@
         <h4 style="margin-top:15px;">退会してしまってもよろしいですか？</h4>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-md-offset-3">
+    <div class="container" style="width:100%;">
+        <div class="row" style="text-align:center;">
+            <div class="user-leave-container" style="width:40%; display:inline-block; text-align:center;">
                 <%= link_to '退会する', leave_users_path, method: :delete, 
                         data: { confirm:"本当に退会しますか？" }, class:"leave-button" %>
             </div>
 
-            <div class="col-md-3">
+            <div class="user-return-container" style="width:40%; display:inline-block; text-align:center;">
                 <%= link_to 'やっぱりやめる', users_path, class:"return-button" %>
             </div>
         </div>

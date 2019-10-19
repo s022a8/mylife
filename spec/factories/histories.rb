@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :history do
-    user_id { 1 }
-    age { 1 }
-    event { "MyString" }
-    barometer { 1 }
+    age { Faker::Number.between(from: 1, to: 100) }
+    event { Faker::Lorem.sentence }
+    barometer { Faker::Number.between(from: 1, to: 100) }
+    user
   end
 end

@@ -26,11 +26,11 @@
 
     <div class="history-tab-group">
         <ul class="row history-tab-row">
-            <li class="col-md-2  col-md-offset-2 history-tab">できごと</li>
+            <li class="col-md-2  col-md-offset-2 history-tab" id="a_content_tab">できごと</li>
             <!-- 不具合がおきるためコメントアウト
                 <li class="col-md-2 history-tab">イメージ</li>
             -->
-            <li class="col-md-2 history-tab  is-active">人生マップ</li>
+            <li class="col-md-2 history-tab  is-active" id="b_content_tab">人生マップ</li>
 
             <li class="col-md-2 media-history-memory-link" style="list-style:none; margin:10px 0 0 30px;">
                 <%= link_to 'メモリーズをみる', gallery_user_histories_path(@user.id), class:"history-gallery-link" %>

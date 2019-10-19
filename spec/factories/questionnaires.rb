@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :questionnaire do
-    theme { "MyString" }
-    user_id { 1 }
+    theme { Faker::Lorem.sentence }
+    category { Faker::Lorem.paragraph }
+    user
   end
 end

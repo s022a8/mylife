@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :sub_event do
-    history_id { 1 }
-    part { "MyString" }
+    part { Faker::Lorem.paragraph.slice(0, 15) }
+    detail { Faker::Lorem.sentence }
+    history
   end
 end
