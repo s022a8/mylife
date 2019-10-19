@@ -199,3 +199,17 @@
 .talk-back-text {
     font-size: 18px;
 }
+
+.talk-back-content {
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 1px 3px 5px rgba(56, 159, 211, 0.48);
+}
+
+.talk-back-content:hover {
+    transform: translateY(8px);
+    box-shadow: 1px 1px 2px rgba(56, 159, 211, 0.48);
+}

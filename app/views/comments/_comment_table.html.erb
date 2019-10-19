@@ -12,7 +12,7 @@
             <%= comment.body %>
         </td>
 
-        <% if current_user.id == comment.user.id %>
+        <% if current_user&.id == comment.user.id %>
             <td width="8%" class="comment-td">
                 <%= form_for(comment, url: history_comment_path(comment.history.id, comment.id), 
                                 html: {method: :delete}, remote: true) do |f| %>
