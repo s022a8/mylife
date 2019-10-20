@@ -2,7 +2,7 @@
     <h3 class="history-gallery-header" style="width:80%;"><%= @user.name %>さんのメモリー</h3>
 
     <div class="history-image-container">
-        <div class="container">
+        <div class="container" style="width:100%;">
             <!-- includes -->
             <% @histories.order(:age).includes({history_image_attachment: :blob}).each do |history| %>
                 <% if history.history_image.attached? %>
@@ -16,6 +16,10 @@
                             <%= image_tag history.history_image, size:'200x200', class:"history-image" %>
                         <% end %>
                     </div>
+                <% else %>
+                    <h4 style="margin:50px auto 0 !important; width:60%;">
+                        <%= @user.name %>さんの歴史に結びつく画像は投稿されていません。
+                    </h4>
                 <% end %>
             <% end %>
         </div>
