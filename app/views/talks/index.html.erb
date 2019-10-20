@@ -25,18 +25,19 @@
                                 <% end %>
                             </div>
 
-                            <div class="col-md-3 col-md-offset-1 talking-user-name">
+                            <div class="col-md-3 talking-user-name">
                                 <%= link_to entry.user.name, user_histories_path(entry.user) %>
                             </div>
 
-                            <div class="col-md-3">
-                                <% entry.user.part_list.each do |part| %>
-                                    <span class="talking-user-tag"><%= part %></span>
-                                <% end %>
+                            <div class="col-md-4">
+                                <div class="room-message-last-div">
+                                    <span class="room-message-last-content"><%= entry.room.messages.last.content %></span>
+                                </div>
                             </div>
 
+                            
                             <div class="col-md-2 talking-button-area">
-                                <%= link_to 'トークする', talk_path(entry.room.id), class:"talking-button" %>
+                                <%= link_to 'トーク', talk_path(entry.room.id), class:"talking-button" %>
                             </div>
                         </div>
                     <% end %>
@@ -45,11 +46,6 @@
         </div>
     </div>
 
-    <!--
-        <div class="pagination-container">
-            <%#= paginate @rooms %>
-        </div>
-    -->
 </div>
 
 <div class="back-container" style="margin-bottom:10px; padding-top:10px; border-top: 1px solid rgba(38, 138, 138, 0.5);">
