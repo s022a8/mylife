@@ -2,34 +2,40 @@
     <h3 class="history-header" style="margin-top: 35px;">ブックマーク一覧</h3>
 
     <div class="booked-container">
-        <div class="container">
-            <div class="row">
-                <% @book_marks.each do |book_mark| %>
-                    <% unless current_user.id == book_mark.history.user.id %> 
-                        <div class="col-md-4 each-bookmark">
-                            <%= link_to user_history_path(book_mark.history.user.id, book_mark.history.id) do %>
-                                <div class="row each-bookmark-row">
-                                    <div class="col-md-2">
-                                        <% if book_mark.history.user.profile_image.attached? %>
-                                            <%= image_tag book_mark.history.user.profile_image, size:'50x50', class:"booked-image" %>
-                                        <% else %>
-                                            <%= image_tag 'blank-profile-picture-973460_640.png', size:'50x50', class:"booked-image" %>
-                                        <% end %>
-                                    </div>
+        <% if @book_marks.blank? %>
+            <h3 style="width:90%; margin:75px auto 0; text-align:center;">
+                いいと思った歴史をブックマークしてみよう！
+            </h3>
+        <% else %>
+            <div class="container">
+                <div class="row">
+                    <% @book_marks.each do |book_mark| %>
+                        <% unless current_user.id == book_mark.history.user.id %> 
+                            <div class="col-md-4 each-bookmark">
+                                <%= link_to user_history_path(book_mark.history.user.id, book_mark.history.id) do %>
+                                    <div class="row each-bookmark-row">
+                                        <div class="col-md-2">
+                                            <% if book_mark.history.user.profile_image.attached? %>
+                                                <%= image_tag book_mark.history.user.profile_image, size:'50x50', class:"booked-image" %>
+                                            <% else %>
+                                                <%= image_tag 'blank-profile-picture-973460_640.png', size:'50x50', class:"booked-image" %>
+                                            <% end %>
+                                        </div>
 
-                                    <div class="col-md-9 col-md-offset-1">
-                                        <p class="booked-text"><%= book_mark.history.user.name %></p>
-                                        <p class="booked-text">
-                                            <%= book_mark.history.event %>
-                                        </p>
+                                        <div class="col-md-9 col-md-offset-1">
+                                            <p class="booked-text"><%= book_mark.history.user.name %></p>
+                                            <p class="booked-text">
+                                                <%= book_mark.history.event %>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            <% end %>
-                        </div>
+                                <% end %>
+                            </div>
+                        <% end %>
                     <% end %>
-                <% end %>
+                </div>
             </div>
-        </div>
+        <% end %>
     </div>
 
     <div class="pagination-container">
