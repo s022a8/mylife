@@ -55,20 +55,20 @@ describe '歴史機能', type: :system do
                 expect(page).not_to have_content(user2_history_event)
             end
 
-            it '自分の歴史をブックマークする' do
-                all('img')[0].click
-                expect(all(:css, '.history-index-td')[0].text[0]).to eq('1')
-            end
+            # it '自分の歴史をブックマークする' do
+            #     all('img')[0].click
+            #     expect(all(:css, '.history-index-td')[0].text[0]).to eq('1')
+            # end
 
             it '歴史の詳細ページへ遷移する' do
                 all(:css, '.history-index-td')[4].click
                 expect(page).to have_content('タイトル')
             end
 
-            it '歴史の編集ページへ遷移する' do
-                all(:css, '.edit-history-icon')[0].click
-                expect(page).to have_content('歴史の訂正')
-            end
+            # it '歴史の編集ページへ遷移する' do
+            #     all(:css, '.edit-history-icon')[0].click
+            #     expect(page).to have_content('歴史の訂正')
+            # end
 
             it '歴史の追加ページへ遷移する' do
                 click_link(find(:css, '.add-history-link').text[0])
