@@ -21,7 +21,7 @@ ja:
       questionnaire:
         theme: テーマ
         category: カテゴリー
-        questionnaire_items: アンケート項目
+        questionnaire_items: アンケート
         questionnaires: アンケート
       questionnaire_items:
         content: アンケート項目内容
