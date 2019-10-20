@@ -9,7 +9,15 @@
                 <% msg.room.entries.each do |entry| %>
                     <% unless entry.user.id == current_user.id %>
                         <div class="row talking-user">
-                            <div class="col-md-1 col-md-offset-1">
+                            <div class="col-md-1">
+                                <div class="not-read-msg-div">
+                                    <!-- 相手の送信した未読メッセージの計算 -->
+                                    <% not_read_msgs = entry.room.messages.where(user_id: entry.user.id).where(is_read: false) %>
+                                    <span class="not-read-msg-count"><%= not_read_msgs.count %></span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-1">
                                 <% if entry.user.profile_image.attached? %>
                                     <%= image_tag entry.user.profile_image, size:'80x80', class:"talk-user-image" %>
                                 <% else %>

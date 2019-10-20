@@ -46,13 +46,25 @@ class TalksController < ApplicationController
       eval("#{var} = #{value}")
     end
 
-    #message関連
+    # message関連
     if Entry.where(user_id: current_user.id, room_id: @room.id).present?
       @messages = @room.messages.includes(:user)
       @message = Message.new
     else
       redirect_back(fallback_location: root_path)
     end
+
+    # 既読の判定
+    if @entry0 == current_user
+      read_user  = @entry0
+      msg_user = @entry1
+    elsif @entry1 == current_user
+      read_user = @entry1
+      msg_user = @entry0
+    end
+
+    @messages.where(is_read: false).where(user_id: msg_user.id).update_all(is_read: true)
+
   end
 
 

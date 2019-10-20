@@ -213,3 +213,20 @@
     transform: translateY(8px);
     box-shadow: 1px 1px 2px rgba(56, 159, 211, 0.48);
 }
+
+/* not-read */ 
+.not-read-msg-div {
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    // background-color: rgba(0, 255, 251, 0.474);
+    box-shadow: 0 3px 5px rgba(26, 93, 156, 0.372);
+}
+
+.not-read-msg-count {
+    font-size: 14px;
+    line-height: 30px;
+    color: rgba(29, 61, 243, 0.657);
+    text-shadow: 0 2px 2px rgba(3, 44, 83, 0.657);
+}
