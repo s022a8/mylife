@@ -7,37 +7,49 @@
                 <%= render 'shared/error_messages', object: s.object %>
 
                 <div class="row history-field">
-                    <div class="col-md-2 col-md-offset-2 histroy-field-label">
+                    <div class="col-md-2 col-md-offset-1 histroy-field-label">
                         <span>年齢</span>
                     </div>
 
-                    <div class="col-md-5 history-field-value">
+                    <div class="col-md-4 history-field-value">
                         <%= s.number_field :age %>
+                    </div>
+
+                    <div class="col-md-5">
+                        <span style="display:inline-block; font-size:12px; font-weight:100; color:rgba(63, 64, 64, 0.725); margin-bottom:10px;">
+                            年齢は、1~124の範囲内で入力してください。
+                        </span>
                     </div>
                 </div>
 
                 <div class="row history-field">
-                    <div class="col-md-2 col-md-offset-2 histroy-field-label">
+                    <div class="col-md-2 col-md-offset-1 histroy-field-label">
                         <span>主な出来事</span>
                     </div>
 
                     <div class="col-md-7 history-field-value">
-                        <%= s.text_area :event %>
+                        <%= s.text_area :event, placeholder:"50文字以内で入力してください。" %>
                     </div>
                 </div>
 
                 <div class="row history-field">
-                    <div class="col-md-2 col-md-offset-2 histroy-field-label">
+                    <div class="col-md-2 col-md-offset-1 histroy-field-label">
                         <span>バロメータ</span>
                     </div>
 
-                    <div class="col-md-5 history-field-value">
+                    <div class="col-md-4 history-field-value">
                         <%= s.number_field :barometer %>
+                    </div>
+
+                    <div class="col-md-5">
+                        <span style="display:inline-block; font-size:12px; font-weight:100; color:rgba(63, 64, 64, 0.725); margin-bottom:10px;">
+                            バロメータは、1~100の範囲内で入力してください。
+                        </span>
                     </div>
                 </div>
 
                 <div class="row history-field">
-                    <div class="col-md-2 col-md-offset-2 histroy-field-label">
+                    <div class="col-md-2 col-md-offset-1 histroy-field-label">
                         <span>メモリー</span>
                     </div>
 
@@ -51,6 +63,9 @@
                     <h4 style="margin-bottom: 20px;">関連すること・もの</h4>
                     <span style="display:inline-block; font-size:12px; font-weight:100; color:rgba(63, 64, 64, 0.725); margin-bottom:10px;">
                         追加ボタンを押すことで、関連すること・ものを複数入力できます。
+                    </span>
+                    <span style="display:inline-block; font-size:12px; font-weight:100; color:rgba(63, 64, 64, 0.725); margin-bottom:10px;">
+                        また、タイトルが未入力の項目は無視されてしまいます。
                     </span>
 
                     <%= s.fields_for :sub_events do |sub| %>

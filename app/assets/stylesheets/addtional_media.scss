@@ -7,9 +7,6 @@
         margin: 0 0 30px;
         float: left;
     }
-    // .index-media-user:nth-child(2n-1) {
-    //     margin: 0 15px 0 32px;
-    // }
 
     .media-history-memory-link {
         width: 30% !important;
@@ -24,6 +21,15 @@
     }
     .devise-fields > .field > div:nth-child(2) {
         width: 70%;
+    }
+
+    /* user-profile */ 
+    .profile-label {
+        font-size: 12px !important;
+    }
+
+    .media-profile-image {
+        margin: 0 !important;
     }
 
     /* talk-index */
@@ -75,6 +81,20 @@
 
     .devise-edit-button-field {
         text-align: center;
+    }
+
+    /* user-profile */
+    .profile-link-col {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .media-profile-image {
+        margin-top:30px !important;
+    }
+
+    .profile-edit-container {
+        width: 70% !important;
     }
 
     /* talk-show */
@@ -131,6 +151,25 @@
 
 
 @media screen and (max-width:425px) and (min-width:376px) {
+    /* user-profile */
+    .profile-label {
+        font-size: 13px !important;
+        
+    }
+
+    .profile-link-col {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .media-profile-image {
+        margin-top:30px !important;
+    }
+
+    .profile-edit-container {
+        width: 70% !important;
+    }
+
     /* user-edit */
     .devise-edit-form {
         padding: 20px 15px !important;
@@ -210,5 +249,15 @@
 
     .talk-link {
         font-size: 16px !important;
+    }
+}
+
+
+/*******************************************************************/
+
+
+@media screen and (max-width:375px) and (min-width:321px) {
+    .devise-edit-label {
+        font-size: 12px;
     }
 }

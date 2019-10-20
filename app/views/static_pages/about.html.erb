@@ -1,4 +1,4 @@
-<div class="about-page">
+<div class="about-page" id="about_page">
     <div class="about-tab-group">
         <ul class="about-tabs">
             <li class="about-tab is-active-about" >サイトの使い方</li>
@@ -81,13 +81,12 @@
 
                 <div class="row introduction-row">
                     <div class="col-md-6 introduction-content">
-                        <h4 class="introduction-header">特徴</h4>
-                        <p>自分に対する自信はある。。</p>
-                        <p>何かは成し遂げたい！！</p>
-                        <hr>
-                        <p>海外サッカー好き</p>
-                        <p>洋画、洋ドラ好き</p>
-                        <p>週２〜４くらいのランニング</p>
+                        <h4 class="introduction-header">趣味</h4>
+                        <p>海外サッカー</p>
+                        <p>映画</p>
+                        <p>海外ドラマ</p>
+                        <p>ランニング</p>
+                        <p>プログラミング？（笑）</p>
                     </div>
 
                     <div class="col-md-6 introduction-content">
@@ -120,3 +119,28 @@
         });
     })();
 </script>
+
+<!-- background-click 
+<script type="text/javascript">
+    (function() {
+        $(function() {
+            var back = document.getElementById('about_page');
+            back.addEventListener('click', function(e) {
+                var ox = e.offsetX;
+                var oy = e.offsetY;
+                var click_box = document.createElement('div');
+                // click_box.style.cssText = "width:1px; height:1px; background-color:blue; position:absolute;";
+                click_box.style.top = '%a%px'.replace("%a%", oy);
+                click_box.style.left = '%a%px'.replace("%a%", ox);
+                click_box.style.height = "10px";
+                click_box.style.width = "10px";
+                click_box.style.borderRadius = "20px";
+                click_box.style.backgroundColor = "rgba(248, 221, 232, 0.5)";
+                click_box.style.position = "absolute";
+                click_box.style.transform = "translateX(165px)";
+                this.appendChild(click_box);
+            });
+        });
+    })();
+</script>
+-->

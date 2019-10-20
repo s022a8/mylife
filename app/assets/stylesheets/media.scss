@@ -30,6 +30,10 @@
         padding: 10px 15px !important;
         font-size: 15px !important;
     }
+
+    .devise-edit-label {
+        font-size: 10px !important;
+    }
 }
 
 
@@ -56,6 +60,11 @@
     .profile-label {
         font-size: 11px !important;
     }
+
+    .media-profile-image {
+        margin-top: 30px !important;
+    }
+
     /* user-edit */
     .devise-edit-form {
         padding: 20px 10px !important;
@@ -64,7 +73,6 @@
         font-size: 12px !important;
     }
     .devise-edit-label {
-        font-size: 12px;
         font-weight: bold !important;
     }
     .devise-edit-field {
@@ -197,6 +205,18 @@
 
 /* 425px */
 @media screen and (max-width:425px) {
+    /* user-profile */ 
+    .user-profile {
+        width: 95% !important;
+    }
+
+    .profile-label {
+        display: block !important;
+        width: 100% !important;
+        margin-bottom: 5px;
+    }
+
+
     /* history-index-contentA */ 
     .user-history-row > td:nth-child(1) {
         font-size: 7px !important;

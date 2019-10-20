@@ -119,15 +119,16 @@
     position: relative;
 }
 
-.talking-user:hover {
-    transform: translateX(-50px);
-    box-shadow: 3px 3px 1px rgba(52, 147, 207, 0.446);
-    background-color: rgba(184, 214, 231, 0.195);
-}
+// .talking-user:hover {
+//     transform: translateX(-50px);
+//     box-shadow: 3px 3px 1px rgba(52, 147, 207, 0.446);
+//     background-color: rgba(184, 214, 231, 0.195);
+// }
 
 .talking-user-name {
     font-size: 18px;
-    margin-top: 20px;
+    margin-top: 35px;
+    margin-left: 20px;
     padding-bottom: 3px;
     border-bottom: 1px solid rgba(138, 138, 138, 0.3);
 }
@@ -142,13 +143,23 @@
 }
 
 .talking-button-area {
-    margin: 30px 0 0 15px;
+    // margin: 30px 0 0 15px;
+    padding: 15px 20px;
+    // border: 1px solid rgba(38, 138, 138, 0.3);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 15px;
+    margin-left: 18px;
+    box-shadow: 0 3px 3px rgba(8, 19, 58, 0.235);
+}
+.talking-button-area:hover {
+    transform: translateY(5px);
+    box-shadow: 0 1px 0 rgba(8, 19, 58, 0.235);
+    background-color: rgba(81, 182, 236, 0.46);
 }
 
 .talking-button {
-    padding: 15px 20px;
-    border: 1px solid rgba(38, 138, 138, 0.3);
-    border-radius: 10px;
+    font-weight: bold;
 }
 
 /* history-index-talk-button */
@@ -212,4 +223,39 @@
 .talk-back-content:hover {
     transform: translateY(8px);
     box-shadow: 1px 1px 2px rgba(56, 159, 211, 0.48);
+}
+
+/* not-read */ 
+.not-read-msg-div {
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    // background-color: rgba(0, 255, 251, 0.474);
+    box-shadow: 0 3px 5px rgba(26, 93, 156, 0.372);
+}
+
+.not-read-msg-count {
+    font-size: 14px;
+    line-height: 30px;
+    color: rgba(29, 61, 243, 0.657);
+    text-shadow: 0 2px 2px rgba(3, 44, 83, 0.657);
+}
+
+/* last-message */ 
+.room-message-last-div {
+    padding: 10px 15px;
+    box-shadow: 0 1px 3px rgba(10, 61, 229, 0.235);
+    margin-top: 15px;
+    border-radius: 10px;
+}
+
+.room-message-last-content {
+    width: 90%;
+    height: 25px;
+    line-height: 30px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }

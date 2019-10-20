@@ -2,46 +2,56 @@
     <h3 class="history-header" style="margin-top: 35px;">トークルーム一覧</h3>
     
     <div class="talking-users">
-        <div class="container">
-            <%# @rooms.each do |room| %>
-            <!-- includes -->
-            <% @active_all_messages.includes(room: {entries: :user}).each do |msg| %>
-                <% msg.room.entries.each do |entry| %>
-                    <% unless entry.user.id == current_user.id %>
-                        <div class="row talking-user">
-                            <div class="col-md-1 col-md-offset-1">
-                                <% if entry.user.profile_image.attached? %>
-                                    <%= image_tag entry.user.profile_image, size:'80x80', class:"talk-user-image" %>
-                                <% else %>
-                                    <%= image_tag 'blank-profile-picture-973460_640.png', size:'80x80', class:"talk-user-image" %>
-                                <% end %>
-                            </div>
+        <% if @active_all_messages.blank? %>
+            <h3 style="width:90%; margin:75px auto 0; text-align:center;">
+                気になる人がいたら歴史一覧ページからトークを始めてみよう！
+            </h3>
+        <% else %>
+            <div class="container">
+                <%# @rooms.each do |room| %>
+                <!-- includes -->
+                <% @active_all_messages.includes(room: {entries: :user}).each do |msg| %>
+                    <% msg.room.entries.each do |entry| %>
+                        <% unless entry.user.id == current_user.id %>
+                            <div class="row talking-user">
+                                <div class="col-md-1">
+                                    <div class="not-read-msg-div">
+                                        <!-- 相手の送信した未読メッセージの計算 -->
+                                        <% not_read_msgs = entry.room.messages.where(user_id: entry.user.id).where(is_read: false) %>
+                                        <span class="not-read-msg-count"><%= not_read_msgs.count %></span>
+                                    </div>
+                                </div>
 
-                            <div class="col-md-3 col-md-offset-1 talking-user-name">
-                                <%= link_to entry.user.name, user_histories_path(entry.user) %>
-                            </div>
+                                <div class="col-md-1">
+                                    <% if entry.user.profile_image.attached? %>
+                                        <%= image_tag entry.user.profile_image, size:'80x80', class:"talk-user-image" %>
+                                    <% else %>
+                                        <%= image_tag 'blank-profile-picture-973460_640.png', size:'80x80', class:"talk-user-image" %>
+                                    <% end %>
+                                </div>
 
-                            <div class="col-md-3">
-                                <% entry.user.part_list.each do |part| %>
-                                    <span class="talking-user-tag"><%= part %></span>
-                                <% end %>
-                            </div>
+                                <div class="col-md-3 talking-user-name">
+                                    <%= link_to entry.user.name, user_histories_path(entry.user) %>
+                                </div>
 
-                            <div class="col-md-2 talking-button-area">
-                                <%= link_to 'トークする', talk_path(entry.room.id), class:"talking-button" %>
+                                <div class="col-md-4">
+                                    <div class="room-message-last-div">
+                                        <span class="room-message-last-content"><%= entry.room.messages.last.content %></span>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="col-md-2 talking-button-area">
+                                    <%= link_to 'トーク', talk_path(entry.room.id), class:"talking-button" %>
+                                </div>
                             </div>
-                        </div>
+                        <% end %>
                     <% end %>
                 <% end %>
-            <% end %>
-        </div>
+            </div>
+        <% end %>
     </div>
 
-    <!--
-        <div class="pagination-container">
-            <%#= paginate @rooms %>
-        </div>
-    -->
 </div>
 
 <div class="back-container" style="margin-bottom:10px; padding-top:10px; border-top: 1px solid rgba(38, 138, 138, 0.5);">
