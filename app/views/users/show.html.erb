@@ -1,33 +1,33 @@
 <div style="margin: 50px 0 250px">
     <div style="margin-bottom: 150px">
-        <h3 class="text-center" style="margin-bottom: 20px;">プロフィール</h3>
+        <!--<h3 class="text-center" style="margin-bottom: 20px;">プロフィール</h3>-->
 
         <!-- リンク -->
         <div class="user-profile-links">
-            <div class="container">
+            <div class="container" style="width:100%;">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3 profile-link-col">
                         <%= link_to talks_path, class:"user-profile-link" do %>
                             <%= image_tag 'icon_112180_256.png', size:'25x25' %>
                             <span>トークルーム</span>
                         <% end %>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 profile-link-col">
                         <%= link_to book_marks_path, class:"user-profile-link" do %>
                             <%= image_tag 'icon_159440_256.png', size:'25x25' %>
                             <span>ブックマーク</span>
                         <% end %>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 profile-link-col">
                         <%= link_to user_histories_path(current_user.id), class:"user-profile-link" do %>
                             <%= image_tag 'icon_102260_256.png', size:'25x25' %>
                             <span>自分の歴史</span>
                         <% end %>
                     </div>
 
-                    <div class="col-md-3">
+                    <div class="col-md-3 profile-link-col">
                         <%= link_to myquestion_path, class:"user-profile-link" do %>
                             <%= image_tag 'icon_113040_256.png', size:'25x25' %>
                             <span>マイアンケート</span>
@@ -39,9 +39,9 @@
 
         <!-- プロフィール -->
         <div>
-            <div class="container user-profile">
+            <div class="container user-profile" style="width:65%;">
                 <div class="row">
-                    <div class="col-md-offset-1 col-md-5">
+                    <div class="col-md-offset-1 col-md-6">
                         <div class="profile-text">
                             <span class="profile-label">アカウント名</span>
                             <span class="profile-value"><%= @user.name %></span>

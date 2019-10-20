@@ -69,8 +69,10 @@
 /* users-show */
 .user-profile {
     padding: 40px 5px 40px;
-    border: 1px solid rgba(0,0,0,0.5);
+    // border: 1px solid rgba(0,0,0,0.5);
     border-radius: 3px;
+    box-shadow: 0 3px 3px rgba(75, 76, 83, 0.555);
+    // width: 65% !important;
 }
 
 .profile-text {
@@ -83,6 +85,7 @@
     display: inline-block;
     width: 30%;
     font-size: 16px;
+    font-weight: bold;
 }
 
 .profile-value {
@@ -113,7 +116,7 @@
 
 .profile-edit-container {
     width: 30%;
-    margin: 90px auto 0;
+    margin: 50px auto 0;
     text-align: center;
     border-bottom: 1px solid rgba(138, 138, 138, 0.5);
     padding-bottom: 6px;
@@ -168,9 +171,24 @@
 /* プロフィールのリンク（ブックマーク、トーク一覧） */
 .user-profile-links {
     padding: 30px 0 15px;
-    
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .user-profile-link {
     font-size: 17px;
+}
+
+.profile-link-col {
+    padding: 8px 13px !important;
+    box-shadow: 0 4px 1px rgba(138, 138, 138, 0.5);
+}
+.profile-link-col:hover {
+    transform: translateY(5px);
+    box-shadow: 0 1px 1px rgba(138, 138, 138, 0.5);
+}
+
+.media-profile-image {
+    margin: 0 auto;
 }
