@@ -96,6 +96,12 @@
     padding: 10px 20px;
     // border-right: 1px solid rgba(114, 195, 206, 0.2);
 }
+.header-nav-div:hover {
+    border: rgba(67, 169, 216, 0.603);
+    border-radius: 5px;
+    box-shadow: 0 3px 5px rgba(103, 157, 207, 0.467);
+    transform: translateY(5px);
+}
 
 .inline-li {
     display: inline-block;
@@ -256,6 +262,12 @@
     font-family: "header-font";
     font-weight: bold;
     font-size: 40px;
+    text-decoration: none;
+    display: inline-block;
+}
+.header-font:hover {
+    text-decoration: none;
+    transform: scale(1.1, 1.1);
 }
 
 @font-face {
