@@ -94,4 +94,7 @@ gem 'omniauth-facebook'
 gem "omniauth-rails_csrf_protection"
 gem 'dotenv-rails'
 
+# activerecord
+gem 'aws-sdk-s3', require: false
+
 
