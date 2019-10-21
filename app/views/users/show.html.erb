@@ -8,28 +8,28 @@
                 <div class="row">
                     <div class="col-md-3 profile-link-col">
                         <%= link_to talks_path, class:"user-profile-link" do %>
-                            <%= image_tag 'icon_112180_256.png', size:'25x25' %>
+                            <%= image_tag '/images/icon_112180_256.png', size:'25x25' %>
                             <span>トークルーム</span>
                         <% end %>
                     </div>
 
                     <div class="col-md-3 profile-link-col">
                         <%= link_to book_marks_path, class:"user-profile-link" do %>
-                            <%= image_tag 'icon_159440_256.png', size:'25x25' %>
+                            <%= image_tag '/images/icon_159440_256.png', size:'25x25' %>
                             <span>ブックマーク</span>
                         <% end %>
                     </div>
 
                     <div class="col-md-3 profile-link-col">
                         <%= link_to user_histories_path(current_user.id), class:"user-profile-link" do %>
-                            <%= image_tag 'icon_102260_256.png', size:'25x25' %>
+                            <%= image_tag '/images/icon_102260_256.png', size:'25x25' %>
                             <span>自分の歴史</span>
                         <% end %>
                     </div>
 
                     <div class="col-md-3 profile-link-col">
                         <%= link_to myquestion_path, class:"user-profile-link" do %>
-                            <%= image_tag 'icon_113040_256.png', size:'25x25' %>
+                            <%= image_tag '/images/icon_113040_256.png', size:'25x25' %>
                             <span>マイアンケート</span>
                         <% end %>
                     </div>
@@ -67,7 +67,7 @@
                         <% if @user.profile_image.attached? %>
                             <%= image_tag @user.profile_image, size:'200x200', class:"profile-image" %>
                         <% else %>
-                            <%= image_tag 'blank-profile-picture-973460_640.png', size:'200x200', class:"profile-image" %>
+                            <%= image_tag '/images/blank-profile-picture-973460_640.png', size:'200x200', class:"profile-image" %>
                         <% end %>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
 
     <div class="warning-container">
         <p>
-            <%= image_tag 'icon_149640_256.png', size:'25x25', style:"margin-right:10px;" %>
+            <%= image_tag '/images/icon_149640_256.png', size:'25x25', style:"margin-right:10px;" %>
             <%= link_to '会員をやめる', warning_users_path, class:"warning-text" %>
         </p>
     </div>

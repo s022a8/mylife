@@ -78,7 +78,7 @@
                                 <% if user_signed_in? %>
                                     <% if current_user.id == @user.id %>
                                         <%= link_to edit_user_history_path(@user.id, history.id) do %>
-                                            <%= image_tag 'icon_119330_256.png', size:'30x30', class:"edit-history-icon" %>
+                                            <%= image_tag '/images/icon_119330_256.png', size:'30x30', class:"edit-history-icon" %>
                                         <% end %>
                                     <% end %>
                                 <% end %>

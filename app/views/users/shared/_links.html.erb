@@ -26,7 +26,7 @@
       <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %> 
     -->
     <div class="omniauth-facebook">
-      <%= image_tag 'f_logo_RGB-Blue_58.png', size:'40x40', style:"margin-right:20px;", class:"omniauth-facebook-image" %>
+      <%= image_tag '/images/f_logo_RGB-Blue_58.png', size:'40x40', style:"margin-right:20px;", class:"omniauth-facebook-image" %>
 
       <!-- 脆弱性があるため、Gemを追加後下記の記述に修正（POSTアクションに変更）
         <%= link_to "Facebookでログイン/登録", omniauth_authorize_path(resource_name, provider), class:"omniauth-facebook-link" %> 

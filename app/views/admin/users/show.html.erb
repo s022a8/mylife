@@ -9,7 +9,7 @@
                 <% if @user.profile_image.attached? %>
                     <%= image_tag @user.profile_image, size:'110x110', class:"profile-image" %>
                 <% else %>
-                    <%= image_tag 'blank-profile-picture-973460_640.png', size:'110x110', class:"profile-image" %>
+                    <%= image_tag '/images/blank-profile-picture-973460_640.png', size:'110x110', class:"profile-image" %>
                 <% end %>
             </div>
 
