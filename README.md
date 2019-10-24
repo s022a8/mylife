@@ -25,20 +25,20 @@
 
 ## アプリケーション内で使用した技術
 - インフラ
- - AWS
+  - AWS
 - データベース
- - MySQL
+  - MySQL
 - サーバー
- - Apache + Passenger
+  - Apache + Passenger
 - テスト
- - rspecのモデルテスト
- - rspecのシステムテスト（headlesschromeで実行）
+  - rspecのモデルテスト
+  - rspecのシステムテスト（headlesschromeで実行）
 - その他
- - gem:wheneverによるバッチ処理の実装
- - gem:bulletによる一部ページのSQLの効率化
- - gem:dotenv-railsによる環境変数管理
- - rbenvによるRubyのバージョン管理
- - CSSアニメーション
- - 自分のパソコン内でローカル開発するための環境構築
+  - gem:wheneverによるバッチ処理の実装
+  - gem:bulletによる一部ページのSQLの効率化
+  - gem:dotenv-railsによる環境変数管理
+  - rbenvによるRubyのバージョン管理
+  - CSSアニメーション
+  - 自分のパソコン内でローカル開発するための環境構築
  
  
