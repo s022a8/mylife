@@ -49,4 +49,6 @@
  ## セキュリティアラートへの対応
 1. gem 'omniauth'  ->  gem 'omniauth-rails_csrf_protection'の導入＋HTTPメソッドをPOSTにすることで対応済み  
 [参考ページ](https://github.com/omniauth/omniauth/wiki/Resolving-CVE-2015-9284)
-2. gem 'loofah'  ->  `bundle update --conservative loofah`で対応済み（本番環境）
+2. gem 'loofah'  ->  `bundle update --conservative loofah`で本番環境で対応。
+2. gem 'puma'  ->  `bundle update --conservative puma`で本番環境で対応。
+
